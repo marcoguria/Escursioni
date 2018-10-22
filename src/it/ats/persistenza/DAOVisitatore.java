@@ -3,6 +3,9 @@ package it.ats.persistenza;
 import java.util.Date;
 import java.util.List;
 
+import it.ats.modello.Escursione;
+import it.ats.modello.Visitatore;
+
 public interface DAOVisitatore {
 	
 		List<Visitatore> findAll() throws DAOException;
