@@ -1,4 +1,4 @@
-package it.ats.modello.persistenza;
+package it.ats.persistenza;
 
 
 import java.sql.Connection;

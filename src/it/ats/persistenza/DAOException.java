@@ -1,4 +1,4 @@
-package it.ats.modello.persistenza;
+package it.ats.persistenza;
 
 public class DAOException extends Exception{
 	private static final long serialVersionUID = 6700212922466694442L;
