@@ -12,14 +12,8 @@ public abstract class UtenteRegistrato extends Visitatore {
 	private Date data;
 	private int flagRuolo;
 
-	public UtenteRegistrato(String nome, String cognome, String codf, String email, Date data, int flagRuolo) {
+	public UtenteRegistrato() {
 
-		this.nome = nome;
-		this.cognome = cognome;
-		this.codf = codf;
-		this.email = email;
-		this.data = data;
-		this.flagRuolo = flagRuolo;
 	}
 
 	public int getID() {
