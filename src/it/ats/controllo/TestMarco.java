@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import it.ats.modello.persistenza.DAOException;
-import it.ats.modello.persistenza.DataSource;
+import it.ats.persistenza.DAOException;
+import it.ats.persistenza.DataSource;
 
 public class TestMarco {
 
