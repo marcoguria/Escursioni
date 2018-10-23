@@ -1,5 +1,6 @@
 package it.ats.persistenza;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -7,16 +8,19 @@ import it.ats.modello.Escursione;
 import it.ats.modello.Visitatore;
 
 public interface DAOVisitatore {
+
+	public Collection<Escursione> findAll() throws DAOException;
+
+	public Collection<Escursione> cercaEscursioneByTipo(String tipo) throws DAOException;
+
+	public Collection<Escursione> cercaEscursioneByData(Date data) throws DAOException;
+
+	public Collection<Escursione> cercaEscursioneByLuogo(String luogo) throws DAOException;
+
+	public Collection<Escursione> cercaEscursioneByDurata(int durata) throws DAOException;
+
+	public Collection<Escursione> cercaEscursioneByDifficolta(int difficolta) throws DAOException;
+
 	
-		List<Visitatore> findAll() throws DAOException;
-		Visitatore findById(Long id)throws DAOException;
-		void deleteById(Long id) throws DAOException;
-		void update(Visitatore visitatore) throws DAOException;
-		void save(Visitatore visitatore) throws DAOException;
-		
-		public List<Escursione> cercaEscursioneByTipo(String tipo) throws DAOException;
-		public List<Escursione> cercaEscursioneByData(Date data) throws DAOException;
-		public List<Escursione> cercaEscursioneByLuogo(String luogo) throws DAOException;
-		public List<Escursione> cercaEscursioneByDurata(int durata) throws DAOException;
-		public List<Escursione> cercaEscursioneByDifficolta(int difficolta) throws DAOException;
+
 }

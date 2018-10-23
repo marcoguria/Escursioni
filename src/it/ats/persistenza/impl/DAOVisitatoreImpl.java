@@ -1,5 +1,6 @@
 package it.ats.persistenza.impl;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -8,66 +9,49 @@ import it.ats.modello.Visitatore;
 import it.ats.persistenza.DAOException;
 import it.ats.persistenza.DAOVisitatore;
 
-public class DAOVisitatoreImpl implements DAOVisitatore{
+public class DAOVisitatoreImpl implements DAOVisitatore {
 
 	@Override
-	public List<Visitatore> findAll() throws DAOException {
+	public Collection<Escursione> findAll() throws DAOException {
+		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
+		Collection<Escursione> escursioni = daoEscursioneImpl.findAll();
+		return escursioni;
+	}
+
+	@Override
+	public Collection<Escursione> cercaEscursioneByTipo(String tipo) throws DAOException {
+		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
+		Collection<Escursione> escursioni = daoEscursioneImpl.findByTipo(tipo);
+		return escursioni;
+	}
+
+	@Override
+	public Collection<Escursione> cercaEscursioneByData(Date data) throws DAOException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Visitatore findById(Long id) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<Escursione> cercaEscursioneByLuogo(String luogo) throws DAOException {
+		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
+		Collection<Escursione> escursioni = daoEscursioneImpl.findByLuogo(luogo);				
+		return escursioni;
 	}
 
 	@Override
-	public void deleteById(Long id) throws DAOException {
-		// TODO Auto-generated method stub
-		
+	public Collection<Escursione> cercaEscursioneByDurata(int durata) throws DAOException {
+		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
+		Collection<Escursione> escursioni = daoEscursioneImpl.findByDurata(durata);				
+		return escursioni;
 	}
 
 	@Override
-	public void update(Visitatore visitatore) throws DAOException {
-		// TODO Auto-generated method stub
-		
+	public Collection<Escursione> cercaEscursioneByDifficolta(int difficolta) throws DAOException {
+		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
+		Collection<Escursione> escursioni = daoEscursioneImpl.findByDifficolta(difficolta);				
+		return escursioni;
 	}
 
-	@Override
-	public void save(Visitatore visitatore) throws DAOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<Escursione> cercaEscursioneByTipo(String tipo) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Escursione> cercaEscursioneByData(Date data) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Escursione> cercaEscursioneByLuogo(String luogo) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Escursione> cercaEscursioneByDurata(int durata) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Escursione> cercaEscursioneByDifficolta(int difficolta) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

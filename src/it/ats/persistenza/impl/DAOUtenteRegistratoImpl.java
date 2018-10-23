@@ -12,7 +12,7 @@ import it.ats.persistenza.DataSource;
 public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 
 	@Override
-	public boolean login(String username, String password) throws DAOException {
+	public boolean verificaAccount(String username, String password) throws DAOException {
 
 		String sql = "SELECT ID_UTENTE FROM ACCOUNT WHERE USERNAME= ? AND PASSWORD = ?";
 		Connection connection = null;
@@ -42,9 +42,6 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 
 	}
 
-	@Override
-	public void logout() throws DAOException {
-
-	}
+	
 
 }

@@ -16,12 +16,11 @@ public class DAOPrenotazioneImpl implements DAOPrenotazione {
 	public void addPrenotazione(Prenotazione prenotazione) throws DAOException {
 		String sql = "insert into PRENOTAZIONE values(SEQ_PRENOTAZIONE.NEXTVAL,?,?,?)";
 		System.out.println(sql);
-		
-		System.out.println(sql);
+
 		DataSource instance = DataSource.getInstance();
 		Connection connection = null;
 		PreparedStatement prepareStatement = null;
-		
+
 		try {
 			connection = instance.getConnection();
 			prepareStatement = connection.prepareStatement(sql);
@@ -39,9 +38,7 @@ public class DAOPrenotazioneImpl implements DAOPrenotazione {
 			instance.close(connection);
 
 		}
-		
-		
-		
+
 	}
 
 }
