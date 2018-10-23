@@ -76,4 +76,31 @@ public class DAOAmministratoreImpl implements DAOAmministratore {
 
 		}
 
+	@Override
+	public void eliminaUtente(UtenteRegistrato utente) throws DAOException {
+
+		String sql = "delete from UTENTE where id= ?";
+
+		System.out.println(sql);
+		DataSource instance = DataSource.getInstance();
+		Connection connection = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			connection = instance.getConnection();
+			prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setLong(1, utente.getID());
+			prepareStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException(e.getMessage());
+		} finally {
+			instance.close(prepareStatement);
+			instance.close(connection);
+
+		}
+
+	
+	}
+
 }
