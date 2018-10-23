@@ -144,7 +144,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			throw new DAOException();
+			throw new DAOException(e.getMessage());
 		} finally {
 			DataSource.getInstance().close(resultSet);
 			DataSource.getInstance().close(statement);
@@ -167,7 +167,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			throw new DAOException();
+			throw new DAOException(e.getMessage());
 		} finally {
 			DataSource.getInstance().close(statement);
 			DataSource.getInstance().close(connection);
@@ -190,7 +190,16 @@ public class DAOEscursioneImpl implements DAOEscursione {
 			resultSet = statement.executeQuery();
 
 			if (resultSet.next()) {
-				escursione.setId(resultSet.getLong(1));
+				escursione.setId(resultSet.getLong("ID"));
+				escursione.setLuogo(resultSet.getString("LUOGO"));
+				escursione.setTipo(resultSet.getString("TIPO"));
+				escursione.setData(resultSet.getDate("DATA_ESCURSIONE"));
+				escursione.setDurata(resultSet.getDouble("DURATA"));
+				escursione.setDifficolta(resultSet.getString("DIFFICOLTA"));
+				escursione.setPrezzo(resultSet.getDouble("PREZZO"));
+				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
+				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
+				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
 
 			}
 
@@ -198,7 +207,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			throw new DAOException();
+			throw new DAOException(e.getMessage());
 		} finally {
 			DataSource.getInstance().close(resultSet);
 			DataSource.getInstance().close(statement);
@@ -217,10 +226,11 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 		try {
 			connection = DataSource.getInstance().getConnection();
-			statement = connection.prepareStatement("SELECT * FROM ESCURSIONE WHERE LUOGO = ?");
+			statement = connection.prepareStatement("SELECT * FROM ESCURSIONE WHERE LUOGO=? ");
 			statement.setString(1, luogo);
 			resultSet = statement.executeQuery();
 
+			
 			while (resultSet.next()) {
 				Escursione escursione = new Escursione();
 
@@ -253,6 +263,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 	@Override
 	public Collection<Escursione> findByTipo(String tipo) throws DAOException {
+
 		Collection<Escursione> escursioni = new ArrayList<Escursione>();
 
 		Connection connection = null;
@@ -284,7 +295,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			throw new DAOException();
+			throw new DAOException(e.getMessage());
 		} finally {
 			DataSource.getInstance().close(resultSet);
 			DataSource.getInstance().close(statement);
