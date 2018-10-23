@@ -15,6 +15,6 @@ public interface DAOEscursione {
 	public Collection<Escursione> findByLuogo(String luogo) throws DAOException;
 	public Collection<Escursione> findByTipo(String tipo) throws DAOException;
 	public Collection<Escursione> findByData(Date data) throws DAOException;
-	public void deleteById(Long id)throws DAOException; 
+	public void deleteById(Long id) throws DAOException; 
 
 }

@@ -1,6 +1,9 @@
 package it.ats.controllo;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 
 import it.ats.modello.Escursione;
 import it.ats.persistenza.DAOException;
@@ -10,8 +13,27 @@ public class TestFrancesco {
 
 	public static void main(String[] args) {
 
-		//addEscursione();
-		updateEscursione();
+		// addEscursione();
+		// updateEscursione();
+		findByTipo();
+
+	}
+
+	private static void findByTipo() {
+		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
+
+		try {
+			Collection<Escursione> escursioni = daoEscursioneImpl.findByTipo("MARE");
+			Iterator<Escursione> iterator = escursioni.iterator();
+			
+			while(iterator.hasNext()) {
+				System.out.println();
+				
+			}
+			
+		} catch (DAOException e) {
+			System.out.println(e.getMessage());
+		}
 
 	}
 
@@ -27,7 +49,7 @@ public class TestFrancesco {
 		escursione.setPrezzo(15);
 		escursione.setGuida("DIEGO");
 		escursione.setMaxPartecipanti(20);
-		
+
 		try {
 			daoEscursioneImpl.updateEscursione(escursione);
 		} catch (DAOException e) {
@@ -46,7 +68,7 @@ public class TestFrancesco {
 		escursione.setPrezzo(15);
 		escursione.setGuida("DIEGO");
 		escursione.setMaxPartecipanti(15);
-		
+
 		try {
 			daoEscursioneImpl.addEscursione(escursione);
 		} catch (DAOException e) {

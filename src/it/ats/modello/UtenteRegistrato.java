@@ -63,11 +63,11 @@ public abstract class UtenteRegistrato extends Visitatore {
 		this.email = email;
 	}
 
-	public Date getData() {
+	public Date getDataNascita() {
 		return data_nascita;
 	}
 
-	public void setData(Date data) {
+	public void setDataNascita(Date data) {
 		this.data_nascita = data;
 	}
 
