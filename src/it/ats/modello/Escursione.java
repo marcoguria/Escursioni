@@ -11,6 +11,10 @@ public class Escursione {
 	private int durata;
 	private String difficolta;
 	private double prezzo;
+	private String guida;
+	private int maxPartecipanti;
+	private int numPrenotati;
+	
 	public Long getId() {
 		return id;
 	}
@@ -53,6 +57,24 @@ public class Escursione {
 	public void setPrezzo(double prezzo) {
 		this.prezzo = prezzo;
 	}
+	public String getGuida() {
+		return guida;
+	}
+	public void setGuida(String guida) {
+		this.guida = guida;
+	}
+	public int getMaxPartecipanti() {
+		return maxPartecipanti;
+	}
+	public void setMaxPartecipanti(int maxPartecipanti) {
+		this.maxPartecipanti = maxPartecipanti;
+	}
+	public int getNumPrenotati() {
+		return numPrenotati;
+	}
+	public void setNumPrenotati(int numPrenotati) {
+		this.numPrenotati = numPrenotati;
+	}
 	@Override
 	public String toString() {
 		
@@ -60,6 +82,7 @@ public class Escursione {
 		return  stampa +"Escursione id=" + id + ":\nluogo=" + luogo + "\ntipo=" + tipo + "\ndata=" + data + "\ndurata=" + durata
 				+ "\ndifficolta=" + difficolta + "\nprezzo=" + prezzo;
 	}
+	
 	
 	
 
