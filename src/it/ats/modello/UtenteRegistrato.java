@@ -4,25 +4,32 @@ import java.util.Date;
 
 public abstract class UtenteRegistrato extends Visitatore {
 
-	private int ID;
+	private Long ID;
 	private String nome;
 	private String cognome;
 	private String codf;
 	private String email;
-	private Date data;
-	private int flagRuolo;
+	private Date data_nascita;
+	private int flag_ruolo;
+	
+
+	public Long getID() {
+		return ID;
+	}
+
+
+
+	public void setID(Long iD) {
+		ID = iD;
+	}
+
+
 
 	public UtenteRegistrato() {
 
 	}
 
-	public int getID() {
-		return ID;
-	}
-
-	public void setID(int iD) {
-		ID = iD;
-	}
+	
 
 	public String getNome() {
 		return nome;
@@ -57,25 +64,25 @@ public abstract class UtenteRegistrato extends Visitatore {
 	}
 
 	public Date getData() {
-		return data;
+		return data_nascita;
 	}
 
 	public void setData(Date data) {
-		this.data = data;
+		this.data_nascita = data;
 	}
 
 	public int getFlagRuolo() {
-		return flagRuolo;
+		return flag_ruolo;
 	}
 
 	public void setFlagRuolo(int flagRuolo) {
-		this.flagRuolo = flagRuolo;
+		this.flag_ruolo = flagRuolo;
 	}
 
 	@Override
 	public String toString() {
 		return "UtenteRegistrato [ID=" + ID + ", nome=" + nome + ", cognome=" + cognome + ", codf=" + codf + ", email="
-				+ email + ", data=" + data + ", flagRuolo=" + flagRuolo + "]";
+				+ email + ", data=" + data_nascita + ", flagRuolo=" + flag_ruolo + "]";
 	}
 
 	@Override
@@ -99,17 +106,17 @@ public abstract class UtenteRegistrato extends Visitatore {
 				return false;
 		} else if (!cognome.equals(other.cognome))
 			return false;
-		if (data == null) {
-			if (other.data != null)
+		if (data_nascita == null) {
+			if (other.data_nascita != null)
 				return false;
-		} else if (!data.equals(other.data))
+		} else if (!data_nascita.equals(other.data_nascita))
 			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (flagRuolo != other.flagRuolo)
+		if (flag_ruolo != other.flag_ruolo)
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
