@@ -7,7 +7,7 @@ public interface DAOAmministratore {
 	public void aggiungiEscursione(Escursione escursione) throws DAOException;
 	public void modificaEscursione(Escursione escursione) throws DAOException;
 	public void eliminaEscursione(Escursione escursione) throws DAOException;
-	public void visualizzaPrenotazioni(Escursione escursione) throws DAOException;
 	
-
+	
+	
 }

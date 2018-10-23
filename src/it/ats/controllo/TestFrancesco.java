@@ -10,8 +10,29 @@ public class TestFrancesco {
 
 	public static void main(String[] args) {
 
-		addEscursione();
+		//addEscursione();
+		updateEscursione();
 
+	}
+
+	private static void updateEscursione() {
+		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
+		Escursione escursione = new Escursione();
+		escursione.setId(41L);
+		escursione.setLuogo("SUPREMONTE");
+		escursione.setTipo("MONTAGNA");
+		escursione.setData(new Date(2018, 1, 5));
+		escursione.setDurata(1);
+		escursione.setDifficolta("ALTA");
+		escursione.setPrezzo(15);
+		escursione.setGuida("DIEGO");
+		escursione.setMaxPartecipanti(20);
+		
+		try {
+			daoEscursioneImpl.updateEscursione(escursione);
+		} catch (DAOException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	private static void addEscursione() {
