@@ -13,7 +13,7 @@ public class Escursione {
 	private double prezzo;
 	private String guida;
 	private int maxPartecipanti;
-	private int numPrenotati;
+	private int numPrenotati=0;
 	
 	public Long getId() {
 		return id;
