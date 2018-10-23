@@ -49,16 +49,8 @@ public class DAOEscursioneImpl implements DAOEscursione {
 	@Override
 	public void updateEscursione(Escursione escursione) throws DAOException {
 
-		String sql = "update escursioni set luogo=?,"
-				+ "tipo=?,"
-				+ "data_escursione=?,"
-				+ "durata=?,"
-				+ "difficolta=?,"
-				+ "prezzo=?,"
-				+ "guida_escursione=?,"
-				+ "max_partecipanti=?,"
-				+ "num_prenotati=?"
-				+ "where id=?";
+		String sql = "update escursioni set luogo=?," + "tipo=?," + "data_escursione=?," + "durata=?," + "difficolta=?,"
+				+ "prezzo=?," + "guida_escursione=?," + "max_partecipanti=?," + "num_prenotati=?" + "where id=?";
 
 		System.out.println(sql);
 		DataSource instance = DataSource.getInstance();
@@ -79,6 +71,31 @@ public class DAOEscursioneImpl implements DAOEscursione {
 			prepareStatement.setInt(9, escursione.getNumPrenotati());
 			prepareStatement.setLong(10, escursione.getId());
 
+			prepareStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException(e.getMessage());
+		} finally {
+			instance.close(prepareStatement);
+			instance.close(connection);
+
+		}
+
+	}
+
+	@Override
+	public void deleteEscursione(Escursione escursione) throws DAOException {
+		String sql = "delete from ESCURSIONI where id= ?";
+
+		System.out.println(sql);
+		DataSource instance = DataSource.getInstance();
+		Connection connection = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			connection = instance.getConnection();
+			prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setLong(1, escursione.getId());
 			prepareStatement.executeUpdate();
 
 		} catch (SQLException e) {
