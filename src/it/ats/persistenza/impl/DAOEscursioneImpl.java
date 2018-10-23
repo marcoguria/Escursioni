@@ -17,7 +17,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 	@Override
 	public void addEscursione(Escursione escursione) throws DAOException {
-		String sql = "insert into ESCURSIONI values(SEQ_ESCURSIONI.NEXTVAL,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into ESCURSIONE values(SEQ_ESCURSIONE.NEXTVAL,?,?,?,?,?,?,?,?,?)";
 
 		System.out.println(sql);
 		DataSource instance = DataSource.getInstance();
@@ -52,7 +52,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 	@Override
 	public void updateEscursione(Escursione escursione) throws DAOException {
 
-		String sql = "update escursioni set luogo=?," + "tipo=?," + "data_escursione=?," + "durata=?," + "difficolta=?,"
+		String sql = "update ESCURSIONE set luogo=?," + "tipo=?," + "data_escursione=?," + "durata=?," + "difficolta=?,"
 				+ "prezzo=?," + "guida_escursione=?," + "max_partecipanti=?," + "num_prenotati=?" + "where id=?";
 
 		System.out.println(sql);
@@ -89,7 +89,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 	@Override
 	public void deleteEscursione(Escursione escursione) throws DAOException {
-		String sql = "delete from ESCURSIONI where id= ?";
+		String sql = "delete from ESCURSIONE where id= ?";
 
 		System.out.println(sql);
 		DataSource instance = DataSource.getInstance();
@@ -122,7 +122,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 		try {
 			connection = DataSource.getInstance().getConnection();
-			statement = connection.prepareStatement("SELECT * FROM ESCURSIONI");
+			statement = connection.prepareStatement("SELECT * FROM ESCURSIONE");
 			resultSet = statement.executeQuery();
 
 			while (resultSet.next()) {
@@ -162,7 +162,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 		try {
 			connection = DataSource.getInstance().getConnection();
-			statement = connection.prepareStatement("DELETE FROM ESCURSIONI WHERE ID = ?");
+			statement = connection.prepareStatement("DELETE FROM ESCURSIONE WHERE ID = ?");
 			statement.setLong(1, id);
 			statement.executeUpdate();
 		} catch (SQLException e) {
@@ -185,7 +185,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 		try {
 			connection = DataSource.getInstance().getConnection();
-			statement = connection.prepareStatement("SELECT * FROM ESCURSIONI WHERE ID = ?");
+			statement = connection.prepareStatement("SELECT * FROM ESCURSIONE WHERE ID = ?");
 			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
 
@@ -217,7 +217,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 		try {
 			connection = DataSource.getInstance().getConnection();
-			statement = connection.prepareStatement("SELECT * FROM ESCURSIONI WHERE LUOGO = ?");
+			statement = connection.prepareStatement("SELECT * FROM ESCURSIONE WHERE LUOGO = ?");
 			statement.setString(1, luogo);
 			resultSet = statement.executeQuery();
 
@@ -261,7 +261,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 		try {
 			connection = DataSource.getInstance().getConnection();
-			statement = connection.prepareStatement("SELECT * FROM ESCURSIONI WHERE TIPO = ?");
+			statement = connection.prepareStatement("SELECT * FROM ESCURSIONE WHERE TIPO = ?");
 			statement.setString(1, tipo);
 			resultSet = statement.executeQuery();
 
@@ -305,7 +305,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 		try {
 			connection = DataSource.getInstance().getConnection();
-			statement = connection.prepareStatement("SELECT * FROM ESCURSIONI WHERE DATA_ESCURSIONE = ?");
+			statement = connection.prepareStatement("SELECT * FROM ESCURSIONE WHERE DATA_ESCURSIONE = ?");
 			Date sqlDate = new Date(data.getTime());
 			statement.setDate(1, sqlDate);
 			resultSet = statement.executeQuery();

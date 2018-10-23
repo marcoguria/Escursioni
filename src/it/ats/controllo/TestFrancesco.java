@@ -14,7 +14,7 @@ public class TestFrancesco {
 	public static void main(String[] args) {
 
 		// addEscursione();
-		// updateEscursione();
+		updateEscursione();
 		findByTipo();
 
 	}
@@ -41,7 +41,7 @@ public class TestFrancesco {
 		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
 		Escursione escursione = new Escursione();
 		escursione.setId(41L);
-		escursione.setLuogo("SUPREMONTE");
+		escursione.setLuogo("SUPRAMONTE");
 		escursione.setTipo("MONTAGNA");
 		escursione.setData(new Date(2018, 1, 5));
 		escursione.setDurata(1);
