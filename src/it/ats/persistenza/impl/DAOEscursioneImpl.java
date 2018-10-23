@@ -3,7 +3,10 @@ package it.ats.persistenza.impl;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import it.ats.modello.Escursione;
 import it.ats.persistenza.DAOEscursione;
@@ -27,7 +30,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 			prepareStatement.setString(2, escursione.getTipo());
 			Date sqlDate = new Date(escursione.getData().getTime());
 			prepareStatement.setDate(3, sqlDate);
-			prepareStatement.setInt(4, escursione.getDurata());
+			prepareStatement.setDouble(4, escursione.getDurata());
 			prepareStatement.setString(5, escursione.getDifficolta());
 			prepareStatement.setDouble(6, escursione.getPrezzo());
 			prepareStatement.setString(7, escursione.getGuida());
@@ -63,7 +66,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 			prepareStatement.setString(2, escursione.getTipo());
 			Date sqlDate = new Date(escursione.getData().getTime());
 			prepareStatement.setDate(3, sqlDate);
-			prepareStatement.setInt(4, escursione.getDurata());
+			prepareStatement.setDouble(4, escursione.getDurata());
 			prepareStatement.setString(5, escursione.getDifficolta());
 			prepareStatement.setDouble(6, escursione.getPrezzo());
 			prepareStatement.setString(7, escursione.getGuida());
@@ -106,6 +109,234 @@ public class DAOEscursioneImpl implements DAOEscursione {
 			instance.close(connection);
 
 		}
+
+	}
+
+	@Override
+	public Collection<Escursione> findAll() throws DAOException {
+		Collection<Escursione> escursioni = new ArrayList<Escursione>();
+
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = DataSource.getInstance().getConnection();
+			statement = connection.prepareStatement("SELECT * FROM ESCURSIONI");
+			resultSet = statement.executeQuery();
+
+			while (resultSet.next()) {
+				Escursione escursione = new Escursione();
+
+				escursione.setId(resultSet.getLong("ID"));
+				escursione.setLuogo(resultSet.getString("LUOGO"));
+				escursione.setTipo(resultSet.getString("TIPO"));
+				escursione.setData(resultSet.getDate("DATA_ESCURSIONE"));
+				escursione.setDurata(resultSet.getDouble("DURATA"));
+				escursione.setDifficolta(resultSet.getString("DIFFICOLTA"));
+				escursione.setPrezzo(resultSet.getDouble("PREZZO"));
+				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
+				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
+				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
+				escursioni.add(escursione);
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException();
+		} finally {
+			DataSource.getInstance().close(resultSet);
+			DataSource.getInstance().close(statement);
+			DataSource.getInstance().close(connection);
+		}
+
+		return escursioni;
+
+	}
+
+	@Override
+	public void deleteById(Long id) throws DAOException {
+		Connection connection = null;
+		PreparedStatement statement = null;
+
+		try {
+			connection = DataSource.getInstance().getConnection();
+			statement = connection.prepareStatement("DELETE FROM ESCURSIONI WHERE ID = ?");
+			statement.setLong(1, id);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException();
+		} finally {
+			DataSource.getInstance().close(statement);
+			DataSource.getInstance().close(connection);
+		}
+
+	}
+
+	@Override
+	public Escursione findById(Long id) throws DAOException {
+		Escursione escursione = new Escursione();
+
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = DataSource.getInstance().getConnection();
+			statement = connection.prepareStatement("SELECT * FROM ESCURSIONI WHERE ID = ?");
+			statement.setLong(1, id);
+			resultSet = statement.executeQuery();
+
+			if (resultSet.next()) {
+				escursione.setId(resultSet.getLong(1));
+
+			}
+
+			return escursione;
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException();
+		} finally {
+			DataSource.getInstance().close(resultSet);
+			DataSource.getInstance().close(statement);
+			DataSource.getInstance().close(connection);
+		}
+
+	}
+
+	@Override
+	public Collection<Escursione> findByLuogo(String luogo) throws DAOException {
+		Collection<Escursione> escursioni = new ArrayList<Escursione>();
+
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = DataSource.getInstance().getConnection();
+			statement = connection.prepareStatement("SELECT * FROM ESCURSIONI WHERE LUOGO = ?");
+			statement.setString(1, luogo);
+			resultSet = statement.executeQuery();
+
+			while (resultSet.next()) {
+				Escursione escursione = new Escursione();
+
+				escursione.setId(resultSet.getLong("ID"));
+				escursione.setLuogo(resultSet.getString("LUOGO"));
+				escursione.setTipo(resultSet.getString("TIPO"));
+				escursione.setData(resultSet.getDate("DATA_ESCURSIONE"));
+				escursione.setDurata(resultSet.getDouble("DURATA"));
+				escursione.setDifficolta(resultSet.getString("DIFFICOLTA"));
+				escursione.setPrezzo(resultSet.getDouble("PREZZO"));
+				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
+				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
+				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
+				escursioni.add(escursione);
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException();
+		} finally {
+			DataSource.getInstance().close(resultSet);
+			DataSource.getInstance().close(statement);
+			DataSource.getInstance().close(connection);
+		}
+
+		return escursioni;
+
+	}
+
+	@Override
+	public Collection<Escursione> findByTipo(String tipo) throws DAOException {
+		Collection<Escursione> escursioni = new ArrayList<Escursione>();
+
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = DataSource.getInstance().getConnection();
+			statement = connection.prepareStatement("SELECT * FROM ESCURSIONI WHERE TIPO = ?");
+			statement.setString(1, tipo);
+			resultSet = statement.executeQuery();
+
+			while (resultSet.next()) {
+				Escursione escursione = new Escursione();
+
+				escursione.setId(resultSet.getLong("ID"));
+				escursione.setLuogo(resultSet.getString("LUOGO"));
+				escursione.setTipo(resultSet.getString("TIPO"));
+				escursione.setData(resultSet.getDate("DATA_ESCURSIONE"));
+				escursione.setDurata(resultSet.getDouble("DURATA"));
+				escursione.setDifficolta(resultSet.getString("DIFFICOLTA"));
+				escursione.setPrezzo(resultSet.getDouble("PREZZO"));
+				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
+				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
+				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
+				escursioni.add(escursione);
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException();
+		} finally {
+			DataSource.getInstance().close(resultSet);
+			DataSource.getInstance().close(statement);
+			DataSource.getInstance().close(connection);
+		}
+
+		return escursioni;
+
+	}
+
+	@Override
+	public Collection<Escursione> findByData(java.util.Date data) throws DAOException {
+		Collection<Escursione> escursioni = new ArrayList<Escursione>();
+
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = DataSource.getInstance().getConnection();
+			statement = connection.prepareStatement("SELECT * FROM ESCURSIONI WHERE DATA_ESCURSIONE = ?");
+			Date sqlDate = new Date(data.getTime());
+			statement.setDate(1, sqlDate);
+			resultSet = statement.executeQuery();
+
+			while (resultSet.next()) {
+				Escursione escursione = new Escursione();
+
+				escursione.setId(resultSet.getLong("ID"));
+				escursione.setLuogo(resultSet.getString("LUOGO"));
+				escursione.setTipo(resultSet.getString("TIPO"));
+				escursione.setData(resultSet.getDate("DATA_ESCURSIONE"));
+				escursione.setDurata(resultSet.getDouble("DURATA"));
+				escursione.setDifficolta(resultSet.getString("DIFFICOLTA"));
+				escursione.setPrezzo(resultSet.getDouble("PREZZO"));
+				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
+				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
+				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
+				escursioni.add(escursione);
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException();
+		} finally {
+			DataSource.getInstance().close(resultSet);
+			DataSource.getInstance().close(statement);
+			DataSource.getInstance().close(connection);
+		}
+
+		return escursioni;
 
 	}
 

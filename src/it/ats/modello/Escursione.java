@@ -8,7 +8,7 @@ public class Escursione {
 	private String luogo;
 	private String tipo;
 	private Date data;
-	private int durata;
+	private double durata;
 	private String difficolta;
 	private double prezzo;
 	private String guida;
@@ -39,10 +39,11 @@ public class Escursione {
 	public void setData(Date data) {
 		this.data = data;
 	}
-	public int getDurata() {
+
+	public double getDurata() {
 		return durata;
 	}
-	public void setDurata(int durata) {
+	public void setDurata(double durata) {
 		this.durata = durata;
 	}
 	public String getDifficolta() {
