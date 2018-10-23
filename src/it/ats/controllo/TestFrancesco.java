@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.Scanner;
 
 import it.ats.modello.Escursione;
+import it.ats.modello.Prenotazione;
 import it.ats.persistenza.DAOException;
+import it.ats.persistenza.DAOPrenotazione;
 import it.ats.persistenza.impl.DAOEscursioneImpl;
+import it.ats.persistenza.impl.DAOPrenotazioneImpl;
 
 public class TestFrancesco {
 
@@ -15,15 +19,32 @@ public class TestFrancesco {
 
 		// addEscursione();//CORRETTO
 		// updateEscursione();//CORRETTO
-		 System.out.println("sto ESEGUENDO LA BY tipo\n\n\n\n");
-		 findByTipo(); //TODO DA CORREGGERE
-		// findByID();//CORRETTA
-		 System.out.println("sto ESEGUENDO LA BY LUOGO\n\n\n\n");
-		 findByLuogo();
-		//deleteEscursione();// CORRETTO
-		 System.out.println("sto ESEGUENDO LA BYALL tipo\n\n\n\n");
-		findAll();
+//		System.out.println("sto ESEGUENDO LA BY tipo\n\n\n\n");
+//		findByTipo(); // TODO DA CORREGGERE
+//		// findByID();//CORRETTA
+//		System.out.println("sto ESEGUENDO LA BY LUOGO\n\n\n\n");
+//		findByLuogo();
+//		// deleteEscursione();// CORRETTO
+//		System.out.println("sto ESEGUENDO LA BYALL tipo\n\n\n\n");
+//		findAll();
 
+		//addPrenotazione();
+
+	}
+
+	private static void addPrenotazione() {
+		DAOPrenotazioneImpl daoPrenotazione = new DAOPrenotazioneImpl();
+
+		Prenotazione prenotazione = new Prenotazione();
+		prenotazione.setDataPrenotazione(new Date(2019,5, 8));
+		prenotazione.setId_escursione(26L);
+		prenotazione.setId_utente(2L);
+		try {
+			daoPrenotazione.addPrenotazione(prenotazione);
+		} catch (DAOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private static void findAll() {
