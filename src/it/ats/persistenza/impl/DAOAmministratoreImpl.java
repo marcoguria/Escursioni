@@ -25,14 +25,16 @@ public class DAOAmministratoreImpl implements DAOAmministratore {
 
 	@Override
 	public void modificaEscursione(Escursione escursione) throws DAOException {
-		// TODO Auto-generated method stub
+		DAOEscursioneImpl daoEscursioneImpl= new DAOEscursioneImpl();
+		daoEscursioneImpl.updateEscursione(escursione);
 
 	}
 
 	@Override
 	public void eliminaEscursione(Escursione escursione) throws DAOException {
-		// TODO Auto-generated method stub
-
+		DAOEscursioneImpl daoEscursioneImpl= new DAOEscursioneImpl();
+		daoEscursioneImpl.deleteEscursione(escursione);
+		
 	}
 
 	@Override

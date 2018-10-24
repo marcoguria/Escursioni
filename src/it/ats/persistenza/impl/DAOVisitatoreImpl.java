@@ -27,8 +27,9 @@ public class DAOVisitatoreImpl implements DAOVisitatore {
 
 	@Override
 	public Collection<Escursione> cercaEscursioneByData(Date data) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
+		Collection<Escursione> escursioni = daoEscursioneImpl.findByData(data);
+		return escursioni;
 	}
 
 	@Override

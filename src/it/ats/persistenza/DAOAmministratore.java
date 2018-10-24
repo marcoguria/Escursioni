@@ -6,11 +6,7 @@ import it.ats.modello.Escursione;
 import it.ats.modello.UtenteRegistrato;
 
 public interface DAOAmministratore {
-	/**
-	 * 
-	 * @param escursione
-	 * @throws DAOException
-	 */
+	
 	public void aggiungiEscursione(Escursione escursione) throws DAOException;
 	public void modificaEscursione(Escursione escursione) throws DAOException;
 	public void eliminaEscursione(Escursione escursione) throws DAOException;
