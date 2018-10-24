@@ -14,7 +14,7 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 	@Override
 	public boolean verificaAccount(String username, String password) throws DAOException {
 
-		String sql = "SELECT ID_UTENTE FROM ACCOUNT WHERE USERNAME= ? AND PASSWORD = ?";
+		String sql = "SELECT ID_UTENTE FROM UTENTE WHERE USERNAME= ? AND PASSWORD = ?";
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
