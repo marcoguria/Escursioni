@@ -9,30 +9,38 @@ import it.ats.modello.Prenotazione;
 import it.ats.persistenza.DAOCliente;
 import it.ats.persistenza.DAOException;
 
-public class DAOClienteImpl implements DAOCliente{
+public class DAOClienteImpl implements DAOCliente {
 
 	@Override
 	public void prenotaEscursione(Escursione escursione, Cliente cliente) throws DAOException {
-		// TODO Auto-generated method stub
-		
+
+		DAOPrenotazioneImpl daoPrenotazioneImpl = new DAOPrenotazioneImpl();
+		Prenotazione prenotazione = new Prenotazione();
+		prenotazione.setId_escursione(escursione.getId());
+		prenotazione.setId_utente(cliente.getID());
+		daoPrenotazioneImpl.addPrenotazione(prenotazione);
+
 	}
 
 	@Override
 	public void aggiungiCarta(CartaPagamento carta) throws DAOException {
-		// TODO Auto-generated method stub
+		DAOCartaPagamentoImpl cartaPagamentoImpl = new DAOCartaPagamentoImpl();
+		cartaPagamentoImpl.aggiungiCartaPagamento(carta);
 		
+
 	}
 
 	@Override
 	public Collection<Prenotazione> visualizzaMiePrenotazioni(Long id_utente) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		DAOPrenotazioneImpl daoPrenotazioneImpl = new DAOPrenotazioneImpl();
+		return daoPrenotazioneImpl.findPrenotazioneByIdUtente(id_utente);
 	}
 
 	@Override
-	public void eliminaCartaPagamento(Long id_utente) throws DAOException {
-		// TODO Auto-generated method stub
-		
+	public void eliminaCartaPagamento(CartaPagamento carta) throws DAOException {
+		DAOCartaPagamentoImpl cartaPagamentoImpl = new DAOCartaPagamentoImpl();
+		cartaPagamentoImpl.eliminaCartaPagamento(carta);
+
 	}
 
 }

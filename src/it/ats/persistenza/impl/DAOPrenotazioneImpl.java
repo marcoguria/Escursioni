@@ -59,7 +59,7 @@ public class DAOPrenotazioneImpl implements DAOPrenotazione {
 			statement.setLong(1, id_utente);
 			resultSet = statement.executeQuery();
 
-			while(resultSet.next()) {
+			while (resultSet.next()) {
 				Prenotazione prenotazione = new Prenotazione();
 				prenotazione.setId(resultSet.getLong("ID"));
 				prenotazione.setId_escursione(resultSet.getLong("ID_ESCURSIONE"));
@@ -67,7 +67,6 @@ public class DAOPrenotazioneImpl implements DAOPrenotazione {
 				prenotazione.setDataPrenotazione(resultSet.getDate("DATA_PRENOTAZIONE"));
 				prenotazioni.add(prenotazione);
 			}
-		
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

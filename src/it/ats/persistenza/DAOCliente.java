@@ -12,6 +12,6 @@ public interface DAOCliente {
 	public void prenotaEscursione(Escursione escursione, Cliente cliente)throws DAOException ;
 	public void aggiungiCarta(CartaPagamento carta) throws DAOException;
 	public Collection<Prenotazione> visualizzaMiePrenotazioni(Long id_utente) throws DAOException;
-	public void eliminaCartaPagamento(Long id_utente) throws DAOException;
+	public void eliminaCartaPagamento(CartaPagamento carta) throws DAOException;
 
 }
