@@ -11,6 +11,6 @@ public interface DAOGuest {
 	 * @param password: la password nuova 
 	 * @throws DAOException
 	 */
-	public void registrazione (UtenteRegistrato utente, String username, String password) throws DAOException;
+	public void registrazione (UtenteRegistrato utente) throws DAOException;
 		
 }

@@ -12,45 +12,38 @@ import it.ats.persistenza.DataSource;
 public class DAOGuestImpl implements DAOGuest {
 
 	@Override
-	public void registrazione(UtenteRegistrato utente, String username, String password) throws DAOException {
-		
-		String sql = "insert into utente values(?,?,?,?,?,?,?)";
-		String sql1="insert into acconut (?,?,?)";
-		DataSource instance = DataSource.getInstance();
-		
-		Connection connection = instance.getConnection();
-		PreparedStatement prepareStatement = null;
-		PreparedStatement prepareStatement1 = null;
-		
-		try {
-			prepareStatement=connection.prepareStatement(sql);			
-			prepareStatement.setLong(1, utente.getID());
-			prepareStatement.setString(2, utente.getNome());
-			prepareStatement.setString(3, utente.getCognome());
-			prepareStatement.setString(4, utente.getCodf());
-			prepareStatement.setString(5, utente.getEmail());
-			Date sqlDate = new Date(utente.getDataNascita().getTime());		
-			prepareStatement.setDate(6, sqlDate);
-			prepareStatement.setInt(7, utente.getFlagRuolo());
-			prepareStatement.executeUpdate(sql);
-			
-			prepareStatement1 = connection.prepareStatement(sql1);
-			
-			prepareStatement1.setLong(1, utente.getID());
-			prepareStatement1.setString(2, username);
-			prepareStatement1.setString(3, password);
-			prepareStatement.executeUpdate(sql1);
+	public void registrazione(UtenteRegistrato utente) throws DAOException {
 
-		} catch (SQLException e ) {
+		String sql = "insert into UTENTE values(SEQ_UTENTE.NEXTVAL,?,?,?,?,?,?,?,?)";
+
+		System.out.println(sql);
+		DataSource instance = DataSource.getInstance();
+		Connection connection = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			connection = instance.getConnection();
+			prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setString(1, utente.getNome());
+			prepareStatement.setString(2, utente.getCognome());			
+			prepareStatement.setString(3, utente.getCodf());
+			prepareStatement.setString(4, utente.getEmail());
+			Date sqlDate = new Date(utente.getDataNascita().getTime());
+			prepareStatement.setDate(5, sqlDate);
+			prepareStatement.setInt(6, utente.getFlagRuolo());			
+			prepareStatement.setString(7, utente.getUsername());
+			prepareStatement.setString(8, utente.getPassword());
+			prepareStatement.executeUpdate();		
+			
+
+		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			throw new DAOException(e.getMessage());
 		} finally {
-			
+			instance.close(prepareStatement);
+			instance.close(connection);
+
 		}
-		
-		
-		
+
 	}
 
-	
 }
