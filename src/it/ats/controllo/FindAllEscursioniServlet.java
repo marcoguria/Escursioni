@@ -18,14 +18,14 @@ import it.ats.persistenza.impl.DAOEscursioneImpl;
 /**
  * Servlet implementation class FindAllEscursioni
  */
-@WebServlet("/FindAllEscursioni")
-public class FindAllEscursioni extends HttpServlet {
+@WebServlet("/FindAllEscursioniServlet")
+public class FindAllEscursioniServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public FindAllEscursioni() {
+    public FindAllEscursioniServlet() {
         super();
     }
 
