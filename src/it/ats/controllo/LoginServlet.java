@@ -48,6 +48,11 @@ public class LoginServlet extends HttpServlet {
 		try {
 
 			utenteRegistrato = daoUtenteRegistrato.verificaAccount(username, password);
+			System.out.println("\n\n\n\n");
+			System.out.println(utenteRegistrato.getUsername());
+			System.out.println(utenteRegistrato.getPassword());
+			
+			
 		} catch (DAOException e) {
 
 			System.out.println(e.getMessage());
@@ -59,11 +64,12 @@ public class LoginServlet extends HttpServlet {
 		else {
 			request.getSession().setAttribute("id", utenteRegistrato.getID());
 			request.getSession().setAttribute("ruolo", utenteRegistrato.getFlag_ruolo());
+			RequestDispatcher rd = request.getRequestDispatcher("profilo.jsp");
+			rd.forward(request, response);
 					
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("profilo.jsp");
-		rd.forward(request, response);
+		
 
 	}
 

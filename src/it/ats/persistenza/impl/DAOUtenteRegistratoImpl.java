@@ -17,7 +17,7 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 	@Override
 	public UtenteRegistrato verificaAccount(String username, String password) throws DAOException {
 
-		String sql = "SELECT * FROM UTENTE WHERE USERNAME= ? AND PASSWORD = ?";
+		String sql = "SELECT * FROM UTENTE WHERE USERNAME= ? AND PASS = ?";
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -33,11 +33,17 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 			resultSet = preparedStatement.executeQuery();
 
 			if (resultSet.next()) { // 1=Cliente
-				Integer flag_ruolo = resultSet.getInt("FLAG_RUOLO");
-				if (flag_ruolo == 1)
+				int flag_ruolo = resultSet.getInt("FLAG_RUOLO");
+				
+				System.out.println("\n\n\n\n");
+				System.out.println(flag_ruolo);
+				
+
+				if (flag_ruolo == 1) {
 					utenteRegistrato = new Cliente();
-				else if (flag_ruolo == 0)
+				} else if (flag_ruolo == 0) {
 					utenteRegistrato = new Amministratore();
+				}
 
 				utenteRegistrato.setID(resultSet.getLong("ID"));
 				utenteRegistrato.setNome(resultSet.getString("NOME"));
@@ -47,7 +53,7 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 				utenteRegistrato.setData_nascita(resultSet.getDate("DATA_NASCITA"));
 				utenteRegistrato.setFlag_ruolo(resultSet.getInt("FLAG_RUOLO"));
 				utenteRegistrato.setUsername(resultSet.getString("USERNAME"));
-				utenteRegistrato.setPassword(resultSet.getString("PASSWORD"));
+				utenteRegistrato.setPassword(resultSet.getString("PASS"));
 
 			}
 
@@ -59,9 +65,9 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 			DataSource.getInstance().close(resultSet);
 			DataSource.getInstance().close(preparedStatement);
 			DataSource.getInstance().close(connection);
-			
-			
-		} 
+
+		}
+		
 		return utenteRegistrato;
 
 	}

@@ -1,17 +1,18 @@
 package it.ats.controllo;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.Scanner;
 
+import it.ats.modello.Cliente;
 import it.ats.modello.Escursione;
 import it.ats.modello.Prenotazione;
+import it.ats.modello.UtenteRegistrato;
 import it.ats.persistenza.DAOException;
-import it.ats.persistenza.DAOPrenotazione;
+import it.ats.persistenza.DAOUtenteRegistrato;
 import it.ats.persistenza.impl.DAOEscursioneImpl;
 import it.ats.persistenza.impl.DAOPrenotazioneImpl;
+import it.ats.persistenza.impl.DAOUtenteRegistratoImpl;
 
 public class TestFrancesco {
 
@@ -29,9 +30,24 @@ public class TestFrancesco {
 //		findAll();
 
 		//addPrenotazione();
+		verificaAccount();
 		
 		
 
+	}
+
+	private static void verificaAccount() {
+		UtenteRegistrato utenteRegistrato= null;
+		DAOUtenteRegistrato daoUtenteRegistrato = new DAOUtenteRegistratoImpl();
+		
+		try {
+			utenteRegistrato = daoUtenteRegistrato.verificaAccount("admin", "admin");
+			System.out.println(utenteRegistrato);
+		} catch (DAOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	private static void addPrenotazione() {
