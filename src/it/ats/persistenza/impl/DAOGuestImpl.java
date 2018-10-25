@@ -27,9 +27,9 @@ public class DAOGuestImpl implements DAOGuest {
 			prepareStatement.setString(2, utente.getCognome());			
 			prepareStatement.setString(3, utente.getCodf());
 			prepareStatement.setString(4, utente.getEmail());
-			Date sqlDate = new Date(utente.getDataNascita().getTime());
+			Date sqlDate = new Date(utente.getData_nascita().getTime());
 			prepareStatement.setDate(5, sqlDate);
-			prepareStatement.setInt(6, utente.getFlagRuolo());			
+			prepareStatement.setInt(6, utente.getFlag_ruolo());			
 			prepareStatement.setString(7, utente.getUsername());
 			prepareStatement.setString(8, utente.getPassword());
 			prepareStatement.executeUpdate();		

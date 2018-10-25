@@ -1,10 +1,10 @@
 package it.ats.persistenza;
 
-
+import it.ats.modello.UtenteRegistrato;
 
 public interface DAOUtenteRegistrato {
 	
-	public boolean verificaAccount(String username, String password) throws DAOException;
+	public UtenteRegistrato verificaAccount(String username, String password) throws DAOException;
 
 
 }

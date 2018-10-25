@@ -47,14 +47,14 @@ public class LoginServlet extends HttpServlet {
 		
 		DAOUtenteRegistratoImpl daoUtenteRegistratoImpl = new DAOUtenteRegistratoImpl();
 		
-		DAOUtenteRegistratoImpl daoUtenteRegistratoImpl= null;	
+		//DAOUtenteRegistratoImpl daoUtenteRegistratoImpl= null;	
  
-		daoUtenteRegistratoImpl = daoUtenteRegistratoImpl.verificaAccount(username, password);
+		//daoUtenteRegistratoImpl = daoUtenteRegistratoImpl.verificaAccount(username, password);
 			
 	
 		
 		
-		request.setAttribute("escursioni", escursioni);
+		//request.setAttribute("escursioni", escursioni);
 		RequestDispatcher rd = request.getRequestDispatcher("escursioni.jsp");
 		rd.forward(request, response);
 		

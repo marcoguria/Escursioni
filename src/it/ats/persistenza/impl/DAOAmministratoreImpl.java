@@ -59,8 +59,8 @@ public class DAOAmministratoreImpl implements DAOAmministratore {
 				utenteRegistrato.setCognome(resultSet.getString("COGNOME"));
 				utenteRegistrato.setCodf(resultSet.getString("CODF"));
 				utenteRegistrato.setEmail(resultSet.getString("EMAIL"));
-				utenteRegistrato.setDataNascita(resultSet.getDate("DATA_NASCITA"));
-				utenteRegistrato.setFlagRuolo(resultSet.getInt("FLAG_RUOLO"));
+				utenteRegistrato.setData_nascita(resultSet.getDate("DATA_NASCITA"));
+				utenteRegistrato.setFlag_ruolo(resultSet.getInt("FLAG_RUOLO"));
 				utenti.add(utenteRegistrato);
 
 			}

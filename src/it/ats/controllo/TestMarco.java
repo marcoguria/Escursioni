@@ -36,10 +36,10 @@ public class TestMarco {
 		UtenteRegistrato cliente = new Cliente();
 		cliente.setNome("GIGI");
 		cliente.setCognome("SANNA");
-		cliente.setDataNascita(new Date(1974, 5, 15));
+		cliente.setData_nascita(new Date(1974, 5, 15));
 		cliente.setCodf("GIGSNN98");
 		cliente.setEmail("GIGI899@GMAIL.IT");
-		cliente.setFlagRuolo(1);
+		cliente.setFlag_ruolo(1);
 		cliente.setUsername("GIG78");
 		cliente.setPassword("POMATA4");
 

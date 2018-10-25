@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import it.ats.modello.Amministratore;
+import it.ats.modello.Cliente;
 import it.ats.modello.UtenteRegistrato;
 import it.ats.persistenza.DAOException;
 import it.ats.persistenza.DAOUtenteRegistrato;
@@ -19,6 +21,7 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
+		UtenteRegistrato utenteRegistrato = null;
 
 		DataSource instance = DataSource.getInstance();
 		try {
@@ -28,28 +31,38 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 			preparedStatement.setString(2, password);
 
 			resultSet = preparedStatement.executeQuery();
-			
-			UtenteRegistrato utenteRegistrato = null; 
-			
-			if(utenteRegistrato.getFlag_ruolo()==1)              //1=Cliente
-				
-				
-			
-			while (resultSet.next()) {
-			
-			
-				
-				
-				
+
+			if (resultSet.next()) { // 1=Cliente
+				Integer flag_ruolo = resultSet.getInt("FLAG_RUOLO");
+				if (flag_ruolo == 1)
+					utenteRegistrato = new Cliente();
+				else if (flag_ruolo == 0)
+					utenteRegistrato = new Amministratore();
+
 				utenteRegistrato.setID(resultSet.getLong("ID"));
-				
-			}		
+				utenteRegistrato.setNome(resultSet.getString("NOME"));
+				utenteRegistrato.setCognome(resultSet.getString("COGNOME"));
+				utenteRegistrato.setCodf(resultSet.getString("CODF"));
+				utenteRegistrato.setEmail(resultSet.getString("EMAIL"));
+				utenteRegistrato.setData_nascita(resultSet.getDate("DATA_NASCITA"));
+				utenteRegistrato.setFlag_ruolo(resultSet.getInt("FLAG_RUOLO"));
+				utenteRegistrato.setUsername(resultSet.getString("USERNAME"));
+				utenteRegistrato.setPassword(resultSet.getString("PASSWORD"));
+
+			}
 
 		} catch (DAOException | SQLException e) {
 
 			System.out.println(e.getMessage());
 			throw new DAOException(e.getMessage());
-		}
+		} finally {
+			DataSource.getInstance().close(resultSet);
+			DataSource.getInstance().close(preparedStatement);
+			DataSource.getInstance().close(connection);
+			
+			
+		} 
+		return utenteRegistrato;
 
 	}
 
