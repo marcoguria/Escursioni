@@ -25,7 +25,8 @@
 		
 		<br>
 		
-		<!-- DataNascita: <input type="date" name="dataNascita"/> -->
+		DataNascita: <input type="date" name="dataNascita"/>
+		
 		<br>
 		
 		Username: <input type="text" name="username"/>
