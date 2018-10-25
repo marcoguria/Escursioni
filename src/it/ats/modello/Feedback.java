@@ -3,7 +3,7 @@ package it.ats.modello;
 public class Feedback {
 	
 	private Long id;
-	private Long id_escursione;
+	private Escursione escursione;
 	private int voto;
 	
 	
@@ -13,11 +13,11 @@ public class Feedback {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Long getId_escursione() {
-		return id_escursione;
+	public Escursione getEscursione() {
+		return escursione;
 	}
-	public void setId_escursione(Long id_escursione) {
-		this.id_escursione = id_escursione;
+	public void setEscursione(Escursione escursione) {
+		this.escursione = escursione;
 	}
 	public int getVoto() {
 		return voto;
@@ -25,11 +25,11 @@ public class Feedback {
 	public void setVoto(int voto) {
 		this.voto = voto;
 	}
-	
-	
 	@Override
 	public String toString() {
-		return "Feedback [id=" + id + ", id_escursione=" + id_escursione + ", voto=" + voto + "]";
+		return "Feedback [id=" + id + ", escursione=" + escursione + ", voto=" + voto + "]";
 	}
+	
+	
 
 }

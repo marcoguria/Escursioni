@@ -30,7 +30,7 @@ public class TestFrancesco {
 //		findAll();
 
 		//addPrenotazione();
-		verificaAccount();
+//		verificaAccount();
 		
 		
 
@@ -54,9 +54,9 @@ public class TestFrancesco {
 		DAOPrenotazioneImpl daoPrenotazione = new DAOPrenotazioneImpl();
 
 		Prenotazione prenotazione = new Prenotazione();
-		prenotazione.setDataPrenotazione(new Date(2019,5, 8));
-		prenotazione.setId_escursione(26L);
-		prenotazione.setId_utente(2L);
+//		prenotazione.setDataPrenotazione(new Date(2019,5, 8));
+//		prenotazione.setId_escursione(26L);
+//		prenotazione.setId_utente(2L);
 		try {
 			daoPrenotazione.addPrenotazione(prenotazione);
 		} catch (DAOException e) {

@@ -5,9 +5,16 @@ import java.util.Date;
 public class Prenotazione {
 
 	private Long id;
-	private Long id_escursione;
-	private Long id_utente;
+	private Escursione escursione;
+	private UtenteRegistrato utenteRegistrato;
 	private Date data_prenotazione;
+
+	@Override
+	public String toString() {
+		String stampa = "\n**********************\n";
+		return stampa + "Prenotazione: \nid=" + id + "\nid_escursione=" + escursione.getId() + "\nid_utente="
+				+ utenteRegistrato.getID() + "\ndata_prenotazione=" + data_prenotazione;
+	}
 
 	public Long getId() {
 		return id;
@@ -17,35 +24,28 @@ public class Prenotazione {
 		this.id = id;
 	}
 
-	public Long getId_escursione() {
-		return id_escursione;
+	public Escursione getEscursione() {
+		return escursione;
 	}
 
-	public void setId_escursione(Long id_escursione) {
-		this.id_escursione = id_escursione;
+	public void setEscursione(Escursione escursione) {
+		this.escursione = escursione;
 	}
 
-	public Long getId_utente() {
-		return id_utente;
-	}
-
-	public void setId_utente(Long id_utente) {
-		this.id_utente = id_utente;
-	}
-
-	public Date getDataPrenotazione() {
+	public Date getData_prenotazione() {
 		return data_prenotazione;
 	}
 
-	public void setDataPrenotazione(Date data_prenotazione) {
+	public void setData_prenotazione(Date data_prenotazione) {
 		this.data_prenotazione = data_prenotazione;
 	}
 
-	@Override
-	public String toString() {
-		String stampa = "\n**********************\n";
-		return stampa+ "Prenotazione: \nid=" + id + "\nid_escursione=" + id_escursione + "\nid_utente=" + id_utente
-				+ "\ndata_prenotazione=" + data_prenotazione;
+	public UtenteRegistrato getUtenteRegistrato() {
+		return utenteRegistrato;
+	}
+
+	public void setUtenteRegistrato(UtenteRegistrato utenteRegistrato) {
+		this.utenteRegistrato = utenteRegistrato;
 	}
 
 }

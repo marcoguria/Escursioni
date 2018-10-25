@@ -16,8 +16,8 @@ public class DAOClienteImpl implements DAOCliente {
 
 		DAOPrenotazioneImpl daoPrenotazioneImpl = new DAOPrenotazioneImpl();
 		Prenotazione prenotazione = new Prenotazione();
-		prenotazione.setId_escursione(escursione.getId());
-		prenotazione.setId_utente(cliente.getID());
+		prenotazione.getEscursione().getId();
+		prenotazione.getUtenteRegistrato().getID();
 		daoPrenotazioneImpl.addPrenotazione(prenotazione);
 
 	}

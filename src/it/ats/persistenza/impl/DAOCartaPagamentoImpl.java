@@ -22,7 +22,7 @@ public class DAOCartaPagamentoImpl implements DAOCartaPagamento {
 		try {
 			connection = instance.getConnection();
 			prepareStatement = connection.prepareStatement(sql);
-			prepareStatement.setLong(1, cartaPagamento.getId_utente());
+			prepareStatement.setLong(1, cartaPagamento.getUtente().getID());
 			prepareStatement.setString(2, cartaPagamento.getTipo());
 			prepareStatement.setLong(3, cartaPagamento.getNumero_carta());
 			prepareStatement.setLong(4, cartaPagamento.getCvv());
