@@ -12,4 +12,6 @@ public interface DAOAmministratore {
 	public void eliminaEscursione(Escursione escursione) throws DAOException;
 	public Collection<UtenteRegistrato> findAllUtenti () throws DAOException;
 	public void eliminaUtente(UtenteRegistrato utente) throws DAOException;
+	public UtenteRegistrato findUtenteByUsername(String username) throws DAOException;	
+	
 }
