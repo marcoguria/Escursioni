@@ -50,6 +50,8 @@ public class FindAllEscursioniServlet extends HttpServlet {
 		request.setAttribute("escursioni", escursioni);
 		RequestDispatcher rd = request.getRequestDispatcher("escursioni.jsp");
 		rd.forward(request, response);
+		
+
 	}
 
 

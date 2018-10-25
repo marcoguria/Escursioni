@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import it.ats.modello.UtenteRegistrato;
 import it.ats.persistenza.DAOException;
 import it.ats.persistenza.DAOUtenteRegistrato;
 import it.ats.persistenza.DataSource;
@@ -12,9 +13,9 @@ import it.ats.persistenza.DataSource;
 public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 
 	@Override
-	public boolean verificaAccount(String username, String password) throws DAOException {
+	public UtenteRegistrato verificaAccount(String username, String password) throws DAOException {
 
-		String sql = "SELECT ID_UTENTE FROM UTENTE WHERE USERNAME= ? AND PASSWORD = ?";
+		String sql = "SELECT * FROM UTENTE WHERE USERNAME= ? AND PASSWORD = ?";
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -28,11 +29,21 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 
 			resultSet = preparedStatement.executeQuery();
 			
-			if (resultSet.next()) {
-				return true;
-			} else {
-				return false;
-			}
+			UtenteRegistrato utenteRegistrato = null; 
+			
+			if(utenteRegistrato.getFlag_ruolo()==1)              //1=Cliente
+				
+				
+			
+			while (resultSet.next()) {
+			
+			
+				
+				
+				
+				utenteRegistrato.setID(resultSet.getLong("ID"));
+				
+			}		
 
 		} catch (DAOException | SQLException e) {
 
@@ -41,7 +52,5 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 		}
 
 	}
-
-	
 
 }

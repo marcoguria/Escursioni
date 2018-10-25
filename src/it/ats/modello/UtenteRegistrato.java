@@ -13,25 +13,14 @@ public abstract class UtenteRegistrato extends Visitatore {
 	private int flag_ruolo;
 	private String username;
 	private String password;
-	
 
 	public Long getID() {
 		return ID;
 	}
 
-
-
 	public void setID(Long iD) {
 		ID = iD;
 	}
-
-
-
-	public UtenteRegistrato() {
-
-	}
-
-	
 
 	public String getNome() {
 		return nome;
@@ -65,65 +54,33 @@ public abstract class UtenteRegistrato extends Visitatore {
 		this.email = email;
 	}
 
-	public Date getDataNascita() {
-		return data_nascita;
-	}
-
-	public void setDataNascita(Date data) {
-		this.data_nascita = data;
-	}
-
-	public int getFlagRuolo() {
-		return flag_ruolo;
-	}
-
-	public void setFlagRuolo(int flagRuolo) {
-		this.flag_ruolo = flagRuolo;
-	}
-	
-
-
 	public Date getData_nascita() {
 		return data_nascita;
 	}
-
-
 
 	public void setData_nascita(Date data_nascita) {
 		this.data_nascita = data_nascita;
 	}
 
-
-
 	public int getFlag_ruolo() {
 		return flag_ruolo;
 	}
-
-
 
 	public void setFlag_ruolo(int flag_ruolo) {
 		this.flag_ruolo = flag_ruolo;
 	}
 
-
-
 	public String getUsername() {
 		return username;
 	}
-
-
 
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
-
-
 	public String getPassword() {
 		return password;
 	}
-
-
 
 	public void setPassword(String password) {
 		this.password = password;
@@ -175,7 +132,5 @@ public abstract class UtenteRegistrato extends Visitatore {
 			return false;
 		return true;
 	}
-
-
 
 }
