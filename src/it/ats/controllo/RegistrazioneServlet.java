@@ -50,7 +50,9 @@ public class RegistrazioneServlet extends HttpServlet {
 		String string = request.getParameter("dataNascita");
 		Date date1 = null;
 		try {
-			date1 = new SimpleDateFormat("dd/MM/yyyy").parse(string);
+			date1 = new SimpleDateFormat("yyyy-MM-dd").parse(string);
+			System.out.println(date1);
+			
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -62,7 +64,11 @@ public class RegistrazioneServlet extends HttpServlet {
 
 		DAOGuest daoGuest = new DAOGuestImpl();
 		try {
+			
+			System.out.println(cliente);
+			
 			daoGuest.registrazione(cliente);
+			
 		} catch (DAOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
