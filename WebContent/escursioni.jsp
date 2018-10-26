@@ -57,6 +57,7 @@
 				<td><%=escursione.getGuida()%></td>
 				<td><%=escursione.getMaxPartecipanti()%></td>
 				<td><%=escursione.getNumPrenotati()%></td>
+				<td><input type="submit" value="Prenota"/></td>
 			</tr>
 
 			<%
