@@ -203,7 +203,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 			}
 
-			return escursione;
+			
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -213,6 +213,8 @@ public class DAOEscursioneImpl implements DAOEscursione {
 			DataSource.getInstance().close(statement);
 			DataSource.getInstance().close(connection);
 		}
+		
+		return escursione;
 
 	}
 
