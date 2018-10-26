@@ -12,7 +12,8 @@
 <body>
 
 	<%
-		Collection<CartaPagamento> cartePagamento = (Collection<CartaPagamento>) request.getAttribute("cartePagamento");
+		Collection<CartaPagamento> cartePagamento = (Collection<CartaPagamento>) request
+				.getAttribute("cartePagamento");
 	%>
 	<%
 		Escursione escursione = (Escursione) request.getAttribute("escursione");
@@ -28,7 +29,7 @@
 		} else {
 	%>
 
-<h1>RIEPILOGO ESCURSIONE</h1>
+	<h1>RIEPILOGO ESCURSIONE</h1>
 	<table>
 		<thead>
 			<tr>
@@ -46,7 +47,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			
+
 			<tr>
 				<td><%=escursione.getId()%></td>
 				<td><%=escursione.getLuogo()%></td>
@@ -58,16 +59,14 @@
 				<td><%=escursione.getGuida()%></td>
 				<td><%=escursione.getMaxPartecipanti()%></td>
 				<td><%=escursione.getNumPrenotati()%></td>
-				<td>
-						
-					</td> 
+				<td></td>
 			</tr>
 		</tbody>
 	</table>
 
-			<%
-				}
-			%>
+	<%
+		}
+	%>
 
 	<h2>PAGA CON:</h2>
 
@@ -81,37 +80,24 @@
 	<%
 		} else {
 	%>
-	<table>
-		<thead>
-			<tr>
-				<th></th>
-				<th>TIPO</th>
-				<th>NUMERO</th>
-				<th>CVV</th>
 
-			</tr>
-		</thead>
 
-		<tbody>
-			<%
-				for (CartaPagamento cartaPagamento : cartePagamento) {
-			%>
+	<%
+		for (CartaPagamento cartaPagamento : cartePagamento) {
+	%>
 
-			<tr>
 
-				<td><label class="container"><input type="checkbox"
-						checked="checked"><span class="checkmark"></span> </label></td>
-				<td><%=cartaPagamento.getTipo()%></td>
-				<td><%=cartaPagamento.getNumero_carta()%></td>
-				<td><%=cartaPagamento.getCvv()%></td>
+		<p>Scegli metodo di pagamento</p>
+	<form action="">		
+		<input type="radio" name="gender" value="male">
+		<%=cartaPagamento.getTipo()%>
+		<%=cartaPagamento.getNumero_carta()%><br>
+	</form>
 
-			</tr>
+	<%
+		}
+		}
+	%>
 
-			<%
-				}
-				}
-			%>
-		</tbody>
-	</table>
 </body>
 </html>
