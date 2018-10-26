@@ -58,7 +58,7 @@
 				<td><%=escursione.getMaxPartecipanti()%></td>
 				<td><%=escursione.getNumPrenotati()%></td>
 				<td>
-						<form method="POST" action="MostraEscursioneServlet">
+						<form method="POST" action="FindByIdEscursioneServlet">
 							<input type="hidden" name="idEscursione" value="<%= escursione.getId() %>"/>
 							<input type="submit" value="Prenota"/>
 						</form>

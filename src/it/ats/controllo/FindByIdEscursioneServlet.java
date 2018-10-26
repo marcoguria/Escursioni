@@ -43,6 +43,8 @@ public class FindByIdEscursioneServlet extends HttpServlet {
 		try {
 
 			escursione = daoEscursione.findById(idEscursione);
+			
+			System.out.println(escursione);
 
 		} catch (DAOException e) {
 

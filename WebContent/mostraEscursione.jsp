@@ -12,7 +12,7 @@
 	<h1>Mostra Escursione</h1>
 
 	<%
-		Escursione escursione = (Escursione) request.getAttribute("escursioni");
+		Escursione escursione = (Escursione) request.getAttribute("escursione");
 	%>
 
 	<%

@@ -28,6 +28,7 @@ public class TestFrancesco {
 //		// deleteEscursione();// CORRETTO
 //		System.out.println("sto ESEGUENDO LA BYALL tipo\n\n\n\n");
 //		findAll();
+		findByID();
 
 		//addPrenotazione();
 //		verificaAccount();
