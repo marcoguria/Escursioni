@@ -56,7 +56,7 @@
 				<td><%=escursione.getNumPrenotati()%></td>
 				<td>
 						<form method="POST" action="FindCarteByIdSessioneServlet">
-							<input type="hidden" name="idUtente" value="<%= session.getId() %>"/>
+							<input type="hidden" name="idEscursione" value="<%= escursione.getId() %>"/>
 							<input type="submit" value="Prosegui"/>
 						</form>
 					</td> 

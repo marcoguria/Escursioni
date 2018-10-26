@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.ats.modello.CartaPagamento;
+import it.ats.modello.Escursione;
 import it.ats.persistenza.DAOException;
 import it.ats.persistenza.impl.DAOCartaPagamentoImpl;
+import it.ats.persistenza.impl.DAOEscursioneImpl;
 
 /**
  * Servlet implementation class PagamentoServlet
@@ -37,13 +39,17 @@ public class FindCarteByIdSessioneServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		DAOCartaPagamentoImpl cartaPagamentoImpl = new DAOCartaPagamentoImpl();
+		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
 		Collection<CartaPagamento> cartaPagamentos = null;
+		Escursione escursione = new Escursione();
 
 		try {
+			Long idEscursione = Long.parseLong(request.getParameter("idEscursione"));
 			Long id = (Long)(request.getSession().getAttribute("id_utente"));
 			System.out.println("IL mio id " +id);
 			
 			cartaPagamentos = cartaPagamentoImpl.findCartePagamentoByIdUtente(id);
+			escursione = daoEscursioneImpl.findById(idEscursione);
 
 		} catch (NumberFormatException | DAOException e) {
 			// TODO Auto-generated catch block
@@ -51,6 +57,7 @@ public class FindCarteByIdSessioneServlet extends HttpServlet {
 		}
 
 		request.setAttribute("cartePagamento", cartaPagamentos);
+		request.setAttribute("escursione", escursione);
 		RequestDispatcher rd = request.getRequestDispatcher("scegliPagamento.jsp");
 		rd.forward(request, response);
 

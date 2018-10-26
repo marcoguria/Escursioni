@@ -1,3 +1,4 @@
+<%@page import="it.ats.modello.Escursione"%>
 <%@page import="it.ats.modello.CartaPagamento"%>
 <%@page import="java.util.Collection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -13,9 +14,62 @@
 	<%
 		Collection<CartaPagamento> cartePagamento = (Collection<CartaPagamento>) request.getAttribute("cartePagamento");
 	%>
+	<%
+		Escursione escursione = (Escursione) request.getAttribute("escursione");
+	%>
 
+	<%
+		if (escursione == null) {
+	%>
 
-	<h1>PAGA CON:</h1>
+	<p>Non esiste questa escursione in archivio</p>
+
+	<%
+		} else {
+	%>
+
+<h1>RIEPILOGO ESCURSIONE</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>LUOGO</th>
+				<th>TIPO</th>
+				<th>DATA ESCURSIONE</th>
+				<th>DURATA</th>
+				<th>DIFFICOLTA'</th>
+				<th>PREZZO</th>
+				<th>GUIDA</th>
+				<th>MAX PARTECIPANTI</th>
+				<th>NUM PRENOTATI</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			
+			<tr>
+				<td><%=escursione.getId()%></td>
+				<td><%=escursione.getLuogo()%></td>
+				<td><%=escursione.getTipo()%></td>
+				<td><%=escursione.getData()%></td>
+				<td><%=escursione.getDurata()%></td>
+				<td><%=escursione.getDifficolta()%></td>
+				<td><%=escursione.getPrezzo()%></td>
+				<td><%=escursione.getGuida()%></td>
+				<td><%=escursione.getMaxPartecipanti()%></td>
+				<td><%=escursione.getNumPrenotati()%></td>
+				<td>
+						
+					</td> 
+			</tr>
+		</tbody>
+	</table>
+
+			<%
+				}
+			%>
+
+	<h2>PAGA CON:</h2>
 
 
 	<%
