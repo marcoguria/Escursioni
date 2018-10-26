@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
 		if(utenteRegistrato==null)
 			response.sendRedirect("errorpage.jsp");
 		else {
-			request.getSession().setAttribute("id", utenteRegistrato.getID());
+			request.getSession().setAttribute("id_utente", utenteRegistrato.getID());
 			request.getSession().setAttribute("ruolo", utenteRegistrato.getFlag_ruolo());
 			RequestDispatcher rd = request.getRequestDispatcher("profilo.jsp");
 			rd.forward(request, response);

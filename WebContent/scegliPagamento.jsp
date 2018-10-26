@@ -10,7 +10,9 @@
 </head>
 <body>
 
-	<% Collection<CartaPagamento> cartePagamento = (Collection<CartaPagamento>) request.getAttribute("cartePagamento"); %>
+	<%
+		Collection<CartaPagamento> cartePagamento = (Collection<CartaPagamento>) request.getAttribute("cartePagamento");
+	%>
 
 
 	<h1>PAGA CON:</h1>
@@ -43,20 +45,17 @@
 
 			<tr>
 
-				<td>
-					<label class="container"><input type="checkbox"
-						   checked="checked"><span class="checkmark"></span> 
-					</label>
-				</td>
-				<td><%= cartaPagamento.getTipo() %></td>
-				<td><%= cartaPagamento.getNumero_carta() %></td>
-				<td><%= cartaPagamento.getCvv() %></td>
+				<td><label class="container"><input type="checkbox"
+						checked="checked"><span class="checkmark"></span> </label></td>
+				<td><%=cartaPagamento.getTipo()%></td>
+				<td><%=cartaPagamento.getNumero_carta()%></td>
+				<td><%=cartaPagamento.getCvv()%></td>
 
 			</tr>
 
 			<%
 				}
-		}
+				}
 			%>
 		</tbody>
 	</table>

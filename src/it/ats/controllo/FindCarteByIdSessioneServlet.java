@@ -17,39 +17,43 @@ import it.ats.persistenza.impl.DAOCartaPagamentoImpl;
 /**
  * Servlet implementation class PagamentoServlet
  */
-@WebServlet("/PagamentoServlet")
+@WebServlet("/FindCarteByIdSessioneServlet")
 public class FindCarteByIdSessioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public FindCarteByIdSessioneServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		DAOCartaPagamentoImpl cartaPagamentoImpl= new DAOCartaPagamentoImpl();
-		Collection<CartaPagamento> cartaPagamentos=null;
-		
-		
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public FindCarteByIdSessioneServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		DAOCartaPagamentoImpl cartaPagamentoImpl = new DAOCartaPagamentoImpl();
+		Collection<CartaPagamento> cartaPagamentos = null;
+
 		try {
-			cartaPagamentos = cartaPagamentoImpl.findCartePagamentoByIdUtente( Long.parseLong( request.getSession().getId()));
+			Long id = (Long)(request.getSession().getAttribute("id_utente"));
+			System.out.println("IL mio id " +id);
 			
+			cartaPagamentos = cartaPagamentoImpl.findCartePagamentoByIdUtente(id);
+
 		} catch (NumberFormatException | DAOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		request.setAttribute("cartePagamento", cartaPagamentos);
 		RequestDispatcher rd = request.getRequestDispatcher("scegliPagamento.jsp");
 		rd.forward(request, response);
-		
+
 	}
 
 }
