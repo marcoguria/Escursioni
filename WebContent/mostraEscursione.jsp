@@ -9,17 +9,17 @@
 <title>Escursioni Ajò in Sardegna</title>
 </head>
 <body>
-	<h1>Elenco Escursioni</h1>
+	<h1>Mostra Escursione</h1>
 
 	<%
-		Collection<Escursione> escursioni = (Collection<Escursione>) request.getAttribute("escursioni");
+		Escursione escursione = (Escursione) request.getAttribute("escursioni");
 	%>
 
 	<%
-		if (escursioni == null || escursioni.isEmpty()) {
+		if (escursione == null) {
 	%>
 
-	<p>Non esistono escursioni in archivio</p>
+	<p>Non esiste questa escursione in archivio</p>
 
 	<%
 		} else {
@@ -42,10 +42,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<%
-				for (Escursione escursione : escursioni) {
-			%>
-
+			
 			<tr>
 				<td><%=escursione.getId()%></td>
 				<td><%=escursione.getLuogo()%></td>
@@ -62,7 +59,7 @@
 							<input type="hidden" name="idEscursione" value="<%= escursione.getId() %>"/>
 							<input type="submit" value="Prenota"/>
 						</form>
-					</td>
+					</td> 
 			</tr>
 
 			<%
@@ -71,9 +68,6 @@
 		</tbody>
 	</table>
 
-	<%
-		}
-	%>
 
 
 </body>
