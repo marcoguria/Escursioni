@@ -57,7 +57,12 @@
 				<td><%=escursione.getGuida()%></td>
 				<td><%=escursione.getMaxPartecipanti()%></td>
 				<td><%=escursione.getNumPrenotati()%></td>
-				<td><input type="submit" value="Prenota"/></td>
+				<td>
+						<form method="POST" action="------Servlet">
+							<input type="hidden" name="idEscursione" value="<%= escursione.getId() %>"/>
+							<input type="submit" value="Prenota"/>
+						</form>
+					</td>
 			</tr>
 
 			<%
