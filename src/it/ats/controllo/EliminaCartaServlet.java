@@ -42,7 +42,7 @@ public class EliminaCartaServlet extends HttpServlet {
 			
 		}
 		
-		 request.getRequestDispatcher("profilo.jsp").forward(request, response);  
+		 request.getRequestDispatcher("modificaProfilo.jsp").forward(request, response);  
 
 	}
 
