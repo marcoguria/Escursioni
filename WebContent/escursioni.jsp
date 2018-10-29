@@ -9,7 +9,7 @@
 <title>Escursioni Ajò in Sardegna</title>
 </head>
 <body>
-	<h1>Elenco prenotazioni</h1>
+	<h1>Elenco Escursioni</h1>
 
 	<%
 		Collection<Escursione> escursioni = (Collection<Escursione>) request.getAttribute("escursioni");
