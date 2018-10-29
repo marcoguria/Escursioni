@@ -15,6 +15,8 @@ public interface DAOEscursione {
 
 	public Collection<Escursione> findAll() throws DAOException;
 
+	public Collection<Escursione> findEscursioniDisponibili() throws DAOException;
+
 	public Escursione findById(Long id) throws DAOException;
 
 	public Collection<Escursione> findByLuogo(String luogo) throws DAOException;
@@ -28,5 +30,7 @@ public interface DAOEscursione {
 	public Collection<Escursione> findByDurata(int durata) throws DAOException;
 
 	public Collection<Escursione> findByDifficolta(int difficolta) throws DAOException;
+	
+	
 
 }
