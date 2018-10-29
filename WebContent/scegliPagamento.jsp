@@ -105,7 +105,7 @@
 	<%
 		}
 	%>
-	<a href="AggiungiMetodoPagamentoServlet"> AGGIUNGI METODO PAGAMENTO </a>
+	<a href="aggiungiMetodoPagamento.jsp"> AGGIUNGI METODO PAGAMENTO </a>
 	<%
 		}
 	%>
