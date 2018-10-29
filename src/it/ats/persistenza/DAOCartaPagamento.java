@@ -10,5 +10,6 @@ public interface DAOCartaPagamento {
 	public Collection<CartaPagamento> findCartePagamentoByIdUtente(Long id) throws DAOException;
 	public CartaPagamento findCartePagamentoByIdCarta(Long id) throws DAOException;
 	
+	
 
 }
