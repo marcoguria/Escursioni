@@ -32,4 +32,5 @@ public class LogoutServlet extends HttpServlet {
         
         request.getRequestDispatcher("index.html").forward(request, response);  
 }  
+
 }  
