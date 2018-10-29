@@ -83,12 +83,12 @@
 	%>
 
 
+	<h3>Scegli metodo di pagamento</h3>
+	
 	<%
 		for (CartaPagamento cartaPagamento : cartePagamento) {
 	%>
 
-
-	<p>Scegli metodo di pagamento</p>
 	<form action="">
 		<input type="radio" name="gender" value="male">
 		<%=cartaPagamento.getTipo()%>
@@ -98,15 +98,15 @@
 	<form method="POST" action="RiepilogoFinalePrenotazione">
 		<input type="hidden" name="idEscursione"
 			value="<%=escursione.getId()%>" /> <input type="hidden"
-			name="idcarta" value="<%=cartaPagamento.getId()%>" /> <input
+			name="idCarta" value="<%=cartaPagamento.getId()%>" /> <input
 			type="submit" value="Prosegui" />
 	</form>
-	
-	<br>
-	 <a href="AggiungiMetodoPagamentoServlet">AGGIUNGI METODO PAGAMENTO</a>
 
 	<%
 		}
+	%>
+	<a href="AggiungiMetodoPagamentoServlet"> AGGIUNGI METODO PAGAMENTO </a>
+	<%
 		}
 	%>
 

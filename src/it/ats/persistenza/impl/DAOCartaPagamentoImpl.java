@@ -139,4 +139,70 @@ public class DAOCartaPagamentoImpl implements DAOCartaPagamento {
 
 	}
 
+	@Override
+	public CartaPagamento findCartePagamentoByIdCarta(Long id) throws DAOException {
+
+		CartaPagamento cartaPagamento = new CartaPagamento();
+
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = DataSource.getInstance().getConnection();
+			statement = connection.prepareStatement(
+					"select * from carta_credito C inner join utente U on C.ID_UTENTE=U.ID \r\n" + "where C.ID=?");
+			statement.setLong(1, id);
+
+			resultSet = statement.executeQuery();
+			if (resultSet == null)
+				System.out.println("ResultSet nullo");
+			else
+				System.out.println("ho trovato qualcosa");
+
+			while (resultSet.next()) {
+
+				UtenteRegistrato utenteRegistrato = null;
+
+				int flag_ruolo = resultSet.getInt("FLAG_RUOLO");
+
+				System.out.println(flag_ruolo);
+
+				if (flag_ruolo == 1) {
+					utenteRegistrato = new Cliente();
+				} else if (flag_ruolo == 0) {
+					utenteRegistrato = new Amministratore();
+				}
+
+				utenteRegistrato.setID(resultSet.getLong("ID_UTENTE"));
+				utenteRegistrato.setNome(resultSet.getString("NOME"));
+				utenteRegistrato.setCognome(resultSet.getString("COGNOME"));
+				utenteRegistrato.setCodf(resultSet.getString("CODF"));
+				utenteRegistrato.setEmail(resultSet.getString("EMAIL"));
+				utenteRegistrato.setData_nascita(resultSet.getDate("DATA_NASCITA"));
+				utenteRegistrato.setFlag_ruolo(resultSet.getInt("FLAG_RUOLO"));
+				utenteRegistrato.setUsername(resultSet.getString("USERNAME"));
+				utenteRegistrato.setPassword(resultSet.getString("PASS"));
+
+				cartaPagamento.setId(resultSet.getLong("ID"));
+				cartaPagamento.setUtente(utenteRegistrato);
+				cartaPagamento.setTipo(resultSet.getString("TIPO"));
+				cartaPagamento.setNumero_carta(resultSet.getLong("NUMERO"));
+				cartaPagamento.setCvv(resultSet.getLong("CVV"));
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException(e.getMessage());
+		} finally {
+			DataSource.getInstance().close(resultSet);
+			DataSource.getInstance().close(statement);
+			DataSource.getInstance().close(connection);
+		}
+
+		return cartaPagamento;
+
+	}
+
 }
