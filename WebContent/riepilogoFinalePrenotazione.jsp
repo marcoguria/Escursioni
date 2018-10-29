@@ -63,7 +63,15 @@
 
 	<%=cartaPagamento.getTipo()%>
 	<%=cartaPagamento.getNumero_carta()%>
+	
+	<br>
+	<br>
 
+	<form method="POST" action="ConfermaPrenotazioneServlet">
+		<input type="hidden" name="idEscursione" value="<%=escursione.getId()%>" />		
+		<input type="submit" value="Conferma e paga" />
+	</form>
+	
 	<%
 		}
 	%>
