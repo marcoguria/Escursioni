@@ -25,7 +25,7 @@
 	}
 %>
 			<ul type="square">
-  			<li><a href="modificaProfilo.jsp">Modifica il mio profilo</a></li>
+  			<li><a href="GetMyProfileServlet">Modifica il mio profilo</a></li>
   			</ul>	
 			
 
