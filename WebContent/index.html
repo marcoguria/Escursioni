@@ -6,16 +6,23 @@
 </head>
 <body>
 
- <a href="FindAllEscursioniServlet">Vai all'elenco escursioni</a>
- <a href="registrazione.jsp">Vai al form di registrazione</a>  
- 
- <br>
- <button onclick="login.jsp" type="button">Login</button> <button type="button">Stracciatiello</button>
- 
-  <a href="login.jsp">vai di Loginnnn</a>  <br>
-  
-  <a href="LogoutServlet">Logout</a>
- 
+
+	<br>
+
+	<form method="POST" action="login.jsp">
+		<input type="submit" value="LOGIN" />
+	</form>
+
+	<form method="POST" action="registrazione.jsp">
+		<input type="submit" value="REGISTRATI" />
+	</form>
+
+
+	<br>
+	<a href="FindAllEscursioniServlet">Visualizza elenco escursioni</a>
+	<br>
+	<a href="LogoutServlet">Logout</a>
+
 
 
 </body>
