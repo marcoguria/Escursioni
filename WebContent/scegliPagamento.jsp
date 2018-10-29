@@ -29,6 +29,7 @@
 		} else {
 	%>
 
+
 	<h1>RIEPILOGO ESCURSIONE</h1>
 	<table>
 		<thead>
@@ -87,12 +88,22 @@
 	%>
 
 
-		<p>Scegli metodo di pagamento</p>
-	<form action="">		
+	<p>Scegli metodo di pagamento</p>
+	<form action="">
 		<input type="radio" name="gender" value="male">
 		<%=cartaPagamento.getTipo()%>
 		<%=cartaPagamento.getNumero_carta()%><br>
 	</form>
+
+	<form method="POST" action="RiepilogoFinalePrenotazione">
+		<input type="hidden" name="idEscursione"
+			value="<%=escursione.getId()%>" /> <input type="hidden"
+			name="idcarta" value="<%=cartaPagamento.getId()%>" /> <input
+			type="submit" value="Prosegui" />
+	</form>
+	
+	<br>
+	 <a href="AggiungiMetodoPagamentoServlet">AGGIUNGI METODO PAGAMENTO</a>
 
 	<%
 		}
