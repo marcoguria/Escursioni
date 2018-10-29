@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 		else {
 			request.getSession().setAttribute("id_utente", utenteRegistrato.getID());
 			request.getSession().setAttribute("ruolo", utenteRegistrato.getFlag_ruolo());
-			RequestDispatcher rd = request.getRequestDispatcher("profilo.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("index.html");
 			rd.forward(request, response);
 					
 		}
