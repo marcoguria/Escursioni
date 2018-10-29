@@ -87,6 +87,7 @@ public class DAOCartaPagamentoImpl implements DAOCartaPagamento {
 			statement.setLong(1, id);
 
 			resultSet = statement.executeQuery();
+
 			if (resultSet == null)
 				System.out.println("ResultSet nullo");
 			else

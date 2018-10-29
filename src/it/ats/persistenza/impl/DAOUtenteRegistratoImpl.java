@@ -85,24 +85,27 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 			prepareStatement.setLong(1, id);
 			resultSet = prepareStatement.executeQuery();
 
-			int flag_ruolo = resultSet.getInt("FLAG_RUOLO");
+			if (resultSet.next()) {
 
-			if (flag_ruolo == 1) {
-				utenteRegistrato = new Cliente();
-			} else {
+				int flag_ruolo = resultSet.getInt("FLAG_RUOLO");
 
-				utenteRegistrato = new Amministratore();
+				if (flag_ruolo == 1) {
+					utenteRegistrato = new Cliente();
+				} else {
+
+					utenteRegistrato = new Amministratore();
+				}
+
+				utenteRegistrato.setID(resultSet.getLong("ID"));
+				utenteRegistrato.setNome(resultSet.getString("NOME"));
+				utenteRegistrato.setCognome(resultSet.getString("COGNOME"));
+				utenteRegistrato.setCodf(resultSet.getString("CODF"));
+				utenteRegistrato.setEmail(resultSet.getString("EMAIL"));
+				utenteRegistrato.setData_nascita(resultSet.getDate("DATA_NASCITA"));
+				utenteRegistrato.setFlag_ruolo(resultSet.getInt("FLAG_RUOLO"));
+				utenteRegistrato.setUsername(resultSet.getString("USERNAME"));
+				utenteRegistrato.setPassword(resultSet.getString("PASS"));
 			}
-
-			utenteRegistrato.setID(resultSet.getLong("ID"));
-			utenteRegistrato.setNome(resultSet.getString("NOME"));
-			utenteRegistrato.setCognome(resultSet.getString("COGNOME"));
-			utenteRegistrato.setCodf(resultSet.getString("CODF"));
-			utenteRegistrato.setEmail(resultSet.getString("EMAIL"));
-			utenteRegistrato.setData_nascita(resultSet.getDate("DATA_NASCITA"));
-			utenteRegistrato.setFlag_ruolo(resultSet.getInt("FLAG_RUOLO"));
-			utenteRegistrato.setUsername(resultSet.getString("USERNAME"));
-			utenteRegistrato.setPassword(resultSet.getString("PASS"));
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

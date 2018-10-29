@@ -46,7 +46,6 @@ public class FindCarteByIdSessioneServlet extends HttpServlet {
 		try {
 			Long idEscursione = Long.parseLong(request.getParameter("idEscursione"));
 			Long id = (Long)(request.getSession().getAttribute("id_utente"));
-			System.out.println("IL mio id " +id);
 			
 			cartaPagamentos = cartaPagamentoImpl.findCartePagamentoByIdUtente(id);
 			escursione = daoEscursioneImpl.findById(idEscursione);
