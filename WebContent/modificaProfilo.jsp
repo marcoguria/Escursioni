@@ -18,19 +18,21 @@
 		UtenteRegistrato utenteRegistrato = (UtenteRegistrato) request.getAttribute("utente");
 	%>
 
-	<%
-		for (CartaPagamento cartaPagamento : cartePagamenti) {
-	%>
-
 	<select id="carta" name="carta">
+		<%
+			for (CartaPagamento cartaPagamento : cartePagamenti) {
+		%>
+
+
 		<option value="<%=cartaPagamento.getId()%>"><%=cartaPagamento.getTipo()%>
 			<%=cartaPagamento.getNumero_carta()%>
 		</option>
 
-	</select>
 
-	<%
-		}
-	%>
+
+		<%
+			}
+		%>
+	</select>
 </body>
 </html>
