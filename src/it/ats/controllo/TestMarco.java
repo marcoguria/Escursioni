@@ -15,19 +15,32 @@ import it.ats.persistenza.DAOException;
 import it.ats.persistenza.DataSource;
 import it.ats.persistenza.impl.DAOAccountImpl;
 import it.ats.persistenza.impl.DAOGuestImpl;
+import it.ats.persistenza.impl.DAOUtenteRegistratoImpl;
 
 public class TestMarco {
 
 	public static void main(String[] args) {
-		testMetodi();
+		//testMetodi();
+		
+		testUpdate();
 		
 		
-		
-		
-		
-		
-		
+			
 
+	}
+
+	private static void testUpdate() {
+		DAOUtenteRegistratoImpl daoUtenteRegistratoImpl = new DAOUtenteRegistratoImpl();
+		try {
+			UtenteRegistrato utenteRegistrato = daoUtenteRegistratoImpl.findUtenteById(4L);
+			utenteRegistrato.setNome("MAX");
+			daoUtenteRegistratoImpl.updateUtente(utenteRegistrato);
+			
+		} catch (DAOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	private static void testMetodi() {

@@ -33,7 +33,9 @@
 		<input type="submit" value="Modifica Profilo" />
 	</form>
 
-
+	<form method="POST" action="eliminaCarta.jsp">
+		<input type="submit" value="Le mie carte" />
+	</form>
 
 
 </body>

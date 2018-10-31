@@ -1,4 +1,3 @@
-<%@page import="javax.swing.text.StyledEditorKit.ForegroundAction"%>
 <%@page import="it.ats.modello.UtenteRegistrato"%>
 <%@page import="it.ats.modello.CartaPagamento"%>
 <%@page import="java.util.Collection"%>
@@ -13,26 +12,44 @@
 <body>
 
 	<%
-		Collection<CartaPagamento> cartePagamenti = (Collection<CartaPagamento>) request
-				.getAttribute("cartePagamenti");
 		UtenteRegistrato utenteRegistrato = (UtenteRegistrato) request.getAttribute("utente");
 	%>
 
-	<select id="carta" name="carta">
+	<form method="POST" action="UpdateUtenteRegistratoServlet">
+		Nome: <input type="text" name="nome"
+			value="<%=utenteRegistrato.getNome()%>" placeholder="nome"> <br>
+		Cognome: <input type="text" name="cognome"
+			value="<%=utenteRegistrato.getCognome()%>" placeholder="cognome">
+		<br>
+		 CodFiscale: <input type="text" name="codf"
+			value="<%=utenteRegistrato.getCodf()%>" placeholder="codice fiscale">
+		<br>
+		 Email: <input type="text" name="email"
+			value="<%=utenteRegistrato.getEmail()%>" placeholder="email">
+		<br> 
+		DataNascita: <input type="date" name="dataNascita"
+			value="<%=utenteRegistrato.getData_nascita()%>" placeholder="dataNascita">  <br>
+		Username: <input type="text" name="username"
+			value="<%=utenteRegistrato.getUsername()%>" placeholder="username">
+		<br>
+		 Password: <input type="password" name="password" value="">
+		<br>
+		 ConfermaPassword: <input type="password"
+			name="confermaPassword" value=""> <br>
+
 		<%
-			for (CartaPagamento cartaPagamento : cartePagamenti) {
-		%>
+			if (true) {
 
-
-		<option value="<%=cartaPagamento.getId()%>"><%=cartaPagamento.getTipo()%>
-			<%=cartaPagamento.getNumero_carta()%>
-		</option>
-
-
-
-		<%
 			}
 		%>
-	</select>
+
+		<input type=submit value="Salva">
+		<input type=reset value="Reset"> 
+
+	</form>
+
+	
+
+
 </body>
 </html>
