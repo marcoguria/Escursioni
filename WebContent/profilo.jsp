@@ -18,20 +18,18 @@
 	<%
 		if ((int) request.getSession().getAttribute("ruolo") == 1) {
 	%>
-	<ul type="square">
-		<li><a href="VisualizzaMiePrenotazioniServlet">Visualizza le
-				mie prenotazioni</a></li>
-	</ul>
+	
+	<form  name="submitForm" method="POST" action="VisualizzaMiePrenotazioniServlet">
+       <A HREF="javascript:document.submitForm.submit()">Visualizza le mie prenotazioni</A>
+    </form>
 	<%
 		}
 	%>
 
-
-	<form action="GetMyProfileServlet" type="square" method="post" >
-		<a href="GetMyProfileServlet">Modifica il mio profilo</a> 
-		<input type="hidden" name="mess"value="Modifica profilo" />			
-					
-	</form>
+	
+	<form  name="submitForm" method="POST" action="GetMyProfileServlet">
+       <A HREF="javascript:document.submitForm.submit()">Modifica Profilo</A>
+    </form>
 	
 	
 
