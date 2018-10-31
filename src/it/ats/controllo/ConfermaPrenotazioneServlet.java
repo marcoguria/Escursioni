@@ -69,7 +69,7 @@ public class ConfermaPrenotazioneServlet extends HttpServlet {
 			System.out.println(e.getMessage());
 		}
 		
-		request.getRequestDispatcher("index.html").forward(request, response);
+		request.getRequestDispatcher("profilo.jsp").forward(request, response);
 	}
 
 }

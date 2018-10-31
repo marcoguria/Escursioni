@@ -51,7 +51,9 @@ public class VisualizzaMiePrenotazioniServlet extends HttpServlet {
 			
 		}
 		
-		
+		if (prenotazioni == null || prenotazioni.isEmpty()) {
+		System.out.println("vuoto");
+		}
 		request.setAttribute("prenotazioni", prenotazioni);
 		RequestDispatcher rd = request.getRequestDispatcher("visualizzaMiePrenotazioni.jsp");
 		rd.forward(request, response);

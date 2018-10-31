@@ -60,11 +60,11 @@ public class DAOPrenotazioneImpl implements DAOPrenotazione {
 
 		try {
 			connection = DataSource.getInstance().getConnection();
-			preparedStatement = connection.prepareStatement(""
-					+ "SELECT * FROM PRENOTAZIONE P INNER JOIN ESCURSIONE E ON "
+			preparedStatement = connection.prepareStatement("SELECT * FROM PRENOTAZIONE P INNER JOIN ESCURSIONE E ON "
 					+ "P.ID_ESCURSIONE= E.ID "
-					+ "INNER JOIN UTENTE U ON"
-					+ "P.ID_UTENTE=U.ID");
+					+ "INNER JOIN UTENTE U ON "
+					+ "P.ID_UTENTE=U.ID "
+					+ "WHERE P.ID_UTENTE=?");
 			
 			preparedStatement.setLong(1, id_utente);
 			resultSet = preparedStatement.executeQuery();
@@ -81,7 +81,7 @@ public class DAOPrenotazioneImpl implements DAOPrenotazione {
 					utenteRegistrato = new Amministratore();
 				}			
 				
-				escursione.setId(resultSet.getLong("ID_1"));
+				escursione.setId(resultSet.getLong("ID_ESCURSIONE"));
 				escursione.setLuogo(resultSet.getString("LUOGO"));
 				escursione.setTipo(resultSet.getString("TIPO"));
 				escursione.setData(resultSet.getDate("DATA_ESCURSIONE"));
@@ -92,7 +92,7 @@ public class DAOPrenotazioneImpl implements DAOPrenotazione {
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
 				
-				utenteRegistrato.setID(resultSet.getLong("ID_2"));
+				utenteRegistrato.setID(resultSet.getLong("ID_UTENTE"));
 				utenteRegistrato.setNome(resultSet.getString("NOME"));
 				utenteRegistrato.setCognome(resultSet.getString("COGNOME"));
 				utenteRegistrato.setCodf(resultSet.getString("CODF"));
@@ -105,7 +105,9 @@ public class DAOPrenotazioneImpl implements DAOPrenotazione {
 				prenotazione.setEscursione(escursione);
 				prenotazione.setUtenteRegistrato(utenteRegistrato);
 				prenotazione.setData_prenotazione(resultSet.getDate("DATA_PRENOTAZIONE"));
+				System.out.println(prenotazione);
 				prenotazioni.add(prenotazione);
+				
 			}
 
 		} catch (SQLException e) {

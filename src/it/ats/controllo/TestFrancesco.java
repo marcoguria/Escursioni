@@ -28,13 +28,30 @@ public class TestFrancesco {
 //		// deleteEscursione();// CORRETTO
 //		System.out.println("sto ESEGUENDO LA BYALL tipo\n\n\n\n");
 //		findAll();
-		findByID();
-
+		//findByID();
+		cercaPrenotazioniByIdUtente();
 		//addPrenotazione();
 //		verificaAccount();
 		
 		
 
+	}
+
+	private static void cercaPrenotazioniByIdUtente() {
+		DAOPrenotazioneImpl daoPrenotazioneImpl = new DAOPrenotazioneImpl();
+		
+		try {
+			Collection<Prenotazione> findPrenotazioneByIdUtente = daoPrenotazioneImpl.findPrenotazioneByIdUtente(10L);
+			
+			for (Iterator iterator = findPrenotazioneByIdUtente.iterator(); iterator.hasNext();) {
+				Prenotazione prenotazione = (Prenotazione) iterator.next();
+				System.out.println(prenotazione);
+			}
+		} catch (DAOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	private static void verificaAccount() {
