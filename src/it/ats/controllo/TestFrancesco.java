@@ -18,7 +18,7 @@ public class TestFrancesco {
 
 	public static void main(String[] args) {
 
-		// addEscursione();//CORRETTO
+		 //addEscursione();//CORRETTO
 		// updateEscursione();//CORRETTO
 //		System.out.println("sto ESEGUENDO LA BY tipo\n\n\n\n");
 //		findByTipo(); // TODO DA CORREGGERE
@@ -27,13 +27,32 @@ public class TestFrancesco {
 //		findByLuogo();
 //		// deleteEscursione();// CORRETTO
 //		System.out.println("sto ESEGUENDO LA BYALL tipo\n\n\n\n");
-//		findAll();
+        //findAll();
 		//findByID();
-		cercaPrenotazioniByIdUtente();
+		//cercaPrenotazioniByIdUtente();
 		//addPrenotazione();
 //		verificaAccount();
 		
-		
+		findAll();
+
+	}
+
+	private static void findAll() {
+		DAOUtenteRegistratoImpl daoEscursioneImpl = new DAOUtenteRegistratoImpl();
+		Collection<UtenteRegistrato> utenti = null;
+
+		try {
+
+			utenti = daoEscursioneImpl.findAll();
+			for (Iterator iterator = utenti.iterator(); iterator.hasNext();) {
+				UtenteRegistrato utente = (UtenteRegistrato) iterator.next();
+				System.out.println(utente);
+
+			}
+		} catch (DAOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -83,24 +102,24 @@ public class TestFrancesco {
 		}
 	}
 
-	private static void findAll() {
-		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
-		Collection<Escursione> escursioni = null;
-
-		try {
-
-			escursioni = daoEscursioneImpl.findAll();
-			for (Iterator iterator = escursioni.iterator(); iterator.hasNext();) {
-				Escursione escursione = (Escursione) iterator.next();
-				System.out.println(escursione);
-
-			}
-		} catch (DAOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
+//	private static void findAll() {
+//		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
+//		Collection<Escursione> escursioni = null;
+//
+//		try {
+//
+//			escursioni = daoEscursioneImpl.findAll();
+//			for (Iterator iterator = escursioni.iterator(); iterator.hasNext();) {
+//				Escursione escursione = (Escursione) iterator.next();
+//				System.out.println(escursione);
+//
+//			}
+//		} catch (DAOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//	}
 
 	private static void deleteEscursione() {
 		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
@@ -183,7 +202,7 @@ public class TestFrancesco {
 	private static void addEscursione() {
 		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
 		Escursione escursione = new Escursione();
-		escursione.setLuogo("ASINARA");
+		escursione.setLuogo("CALABRIA");
 		escursione.setTipo("MARE");
 		escursione.setData(new Date(2018, 1, 5));
 		escursione.setDurata(1);
@@ -198,4 +217,6 @@ public class TestFrancesco {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	
 }
