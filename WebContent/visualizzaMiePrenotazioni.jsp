@@ -49,7 +49,7 @@
 			
 			<tr>
 				<td><%=prenotazione.getData_prenotazione()%></td>
-				<td><%=prenotazione.getLuogo()%></td>
+				<td><%=prenotazione.getEscursione().getLuogo()%></td>
 				<td><%=escursione.getTipo()%></td>
 				<td><%=escursione.getData()%></td>
 				<td><%=escursione.getDurata()%></td>
