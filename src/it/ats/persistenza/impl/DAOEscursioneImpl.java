@@ -17,7 +17,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 	@Override
 	public void addEscursione(Escursione escursione) throws DAOException {
-		String sql = "insert into ESCURSIONE values(SEQ_ESCURSIONE.NEXTVAL,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into ESCURSIONE values(SEQ_ESCURSIONE.NEXTVAL,?,?,?,?,?,?,?,?,?,'1')";
 
 		System.out.println(sql);
 		DataSource instance = DataSource.getInstance();
@@ -446,7 +446,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 		try {
 			connection = DataSource.getInstance().getConnection();
-			statement = connection.prepareStatement("SELECT * FROM ESCURSIONE where NUM_PRENOTATI < MAX_PARTECIPANTI");
+			statement = connection.prepareStatement("SELECT * FROM ESCURSIONE where NUM_PRENOTATI < MAX_PARTECIPANTI AND DISPONIBILE =1");
 			resultSet = statement.executeQuery();
 
 			while (resultSet.next()) {

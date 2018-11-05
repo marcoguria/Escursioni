@@ -14,6 +14,9 @@ public class Escursione {
 	private String guida;
 	private int maxPartecipanti;
 	private int numPrenotati=0;
+	private int disponibile=1; //di default l'escursione è disponibile
+	
+	
 	
 	public Long getId() {
 		return id;
@@ -76,13 +79,19 @@ public class Escursione {
 	public void setNumPrenotati(int numPrenotati) {
 		this.numPrenotati = numPrenotati;
 	}
+	public int getDisponibile() {
+		return disponibile;
+	}
+	public void setDisponibile(int disponibile) {
+		this.disponibile = disponibile;
+	}
 	@Override
 	public String toString() {
-		
-		String stampa="\n*****************************\n";
-		return  stampa +"Escursione id=" + id + ":\nluogo=" + luogo + "\ntipo=" + tipo + "\ndata=" + data + "\ndurata=" + durata
-				+ "\ndifficolta=" + difficolta + "\nprezzo=" + prezzo;
+		return "Escursione [id=" + id + ", luogo=" + luogo + ", tipo=" + tipo + ", data=" + data + ", durata=" + durata
+				+ ", difficolta=" + difficolta + ", prezzo=" + prezzo + ", guida=" + guida + ", maxPartecipanti="
+				+ maxPartecipanti + ", numPrenotati=" + numPrenotati + ", disponibile=" + disponibile + "]";
 	}
+	
 	
 	
 	

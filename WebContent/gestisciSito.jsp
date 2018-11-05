@@ -14,11 +14,12 @@
 	<form method="POST" action="home.jsp">
 		<input type="submit" value="Home" />
 	</form>
-
-	<form method="POST" action="inserisciEscursione.jsp">
-		<input type="submit" value="Inserisci nuova escursione" />
+	
+	<form method="POST" action="gestisciEscursione.jsp">
+		<input type="submit" value="Gestisci escursioni" />
 	</form>
 	
+
 	<form method="POST" action="gestisciClienti.jsp">
 		<input type="submit" value="Gestisci clienti" />
 	</form>
