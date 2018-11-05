@@ -11,7 +11,7 @@
 
 	<%
 		Long id_escursione = Long.parseLong(request.getParameter("idEscursione"));
-		out.println("id del cazzo "+ id_escursione);
+	
 	%>
 	<form method="POST" action="AggiungiMetodoPagamentoServlet">
 		Tipo carta: <input type="text" name="tipoCarta" /> <br> 
