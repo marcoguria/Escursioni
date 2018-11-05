@@ -14,26 +14,24 @@
 		Collection<CartaPagamento> cartePagamenti = (Collection<CartaPagamento>) request
 				.getAttribute("cartePagamenti");
 	%>
-	<select id="carta" name="carta">
-		<%
-			for (CartaPagamento cartaPagamento : cartePagamenti) {
-		%>
 
 
-		<option value="<%=cartaPagamento.getId()%>"><%=cartaPagamento.getTipo()%>
-			<%=cartaPagamento.getNumero_carta()%>
-		</option>
+	<form method="POST" action="EliminaCartaServlet">
+		<select id="carta" name="numero_carta">
+			<%
+				for (CartaPagamento cartaPagamento : cartePagamenti) {
+			%>
 
 
+			<option value="<%=cartaPagamento.getNumero_carta()%>"><%=cartaPagamento.getTipo()%>
+				<%=cartaPagamento.getNumero_carta()%>
+			</option>
 
-		<%
-			}
-		%>
-	</select>
-
-	<form method="POST" action="EliminaCartaPagamentoServlet">
-		<!-- DEvo dare come input la carta selezionata -->
-		<input type="submit" value="ELIMINA CARTA" />
+			<%
+				}
+			%>
+		</select>
+		 <input type="submit" value="ELIMINA CARTA" />
 	</form>
 </body>
 </html>

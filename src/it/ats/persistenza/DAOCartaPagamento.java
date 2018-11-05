@@ -9,6 +9,7 @@ public interface DAOCartaPagamento {
 	public void eliminaCartaPagamento(CartaPagamento cartaPagamento) throws DAOException;
 	public Collection<CartaPagamento> findCartePagamentoByIdUtente(Long id) throws DAOException;
 	public CartaPagamento findCartePagamentoByIdCarta(Long id) throws DAOException;
+	public CartaPagamento findCartePagamentoByNumeroCarta(Long numero_carta) throws DAOException;
 	
 	
 

@@ -35,14 +35,17 @@ public class EliminaCartaServlet extends HttpServlet {
 		DAOCartaPagamentoImpl daoCartaPagamentoImpl = new DAOCartaPagamentoImpl();
 		
 		try {
+			
+			System.out.println("il numero della carta is: " + request.getParameter("numero_carta"));
 			daoCartaPagamentoImpl.eliminaCartaPagamento(daoCartaPagamentoImpl
-					.findCartePagamentoByIdCarta(Long.parseLong(request.getParameter("numero_carta"))));
+					.findCartePagamentoByNumeroCarta(Long.parseLong(request.getParameter("numero_carta"))));
 		} catch (NumberFormatException | DAOException e) {
 			System.out.println(e.getMessage());
 			
+			
 		}
 		
-		 request.getRequestDispatcher("modificaProfilo.jsp").forward(request, response);  
+		 request.getRequestDispatcher("profilo.jsp").forward(request, response);  
 
 	}
 
