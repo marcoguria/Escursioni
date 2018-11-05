@@ -13,6 +13,8 @@ public abstract class UtenteRegistrato extends Visitatore {
 	private int flag_ruolo;
 	private String username;
 	private String password;
+	private int attivo=1;
+
 
 	public Long getID() {
 		return ID;
@@ -85,11 +87,23 @@ public abstract class UtenteRegistrato extends Visitatore {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+
+	public int getAttivo() {
+		return attivo;
+	}
+
+	public void setAttivo(int attivo) {
+		this.attivo = attivo;
+	}
+
+	
 
 	@Override
 	public String toString() {
 		return "UtenteRegistrato [ID=" + ID + ", nome=" + nome + ", cognome=" + cognome + ", codf=" + codf + ", email="
-				+ email + ", data=" + data_nascita + ", flagRuolo=" + flag_ruolo + "]";
+				+ email + ", data_nascita=" + data_nascita + ", flag_ruolo=" + flag_ruolo + ", username=" + username
+				+ ", password=" + password + ", attivo=" + attivo + "]";
 	}
 
 	@Override

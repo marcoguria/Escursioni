@@ -21,7 +21,7 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 	@Override
 	public UtenteRegistrato verificaAccount(String username, String password) throws DAOException {
 
-		String sql = "SELECT * FROM UTENTE WHERE USERNAME= ? AND PASS = ?";
+		String sql = "SELECT * FROM UTENTE WHERE USERNAME= ? AND PASS = ? AND ATTIVO=1";
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -33,6 +33,8 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, username);
 			preparedStatement.setString(2, password);
+			
+
 
 			resultSet = preparedStatement.executeQuery();
 

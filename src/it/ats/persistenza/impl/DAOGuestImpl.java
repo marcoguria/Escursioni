@@ -14,7 +14,7 @@ public class DAOGuestImpl implements DAOGuest {
 	@Override
 	public void registrazione(UtenteRegistrato utente) throws DAOException {
 
-		String sql = "insert into UTENTE values(SEQ_UTENTE.NEXTVAL,?,?,?,?,?,?,?,?)";
+		String sql = "insert into UTENTE values(SEQ_UTENTE.NEXTVAL,?,?,?,?,?,?,?,?,'1')";
 
 		System.out.println(sql);
 		DataSource instance = DataSource.getInstance();
