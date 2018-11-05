@@ -15,7 +15,7 @@
 		<input type="submit" value="Home" />
 	</form>
 	
-	<form method="POST" action="gestisciEscursione.jsp">
+	<form method="POST" action="gestisciEscursioni.jsp">
 		<input type="submit" value="Gestisci escursioni" />
 	</form>
 	

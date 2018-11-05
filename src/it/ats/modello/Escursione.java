@@ -14,7 +14,7 @@ public class Escursione {
 	private String guida;
 	private int maxPartecipanti;
 	private int numPrenotati=0;
-	private int disponibile=1; //di default l'escursione è disponibile
+	private int disponibile; //di default l'escursione è disponibile
 	
 	
 	

@@ -30,6 +30,11 @@ public interface DAOEscursione {
 	public Collection<Escursione> findByDurata(int durata) throws DAOException;
 
 	public Collection<Escursione> findByDifficolta(int difficolta) throws DAOException;
+
+	public void bloccaEscursione(Long id) throws DAOException;
+	
+	public void sbloccaEscursione(Long id) throws DAOException;
+	
 	
 	
 

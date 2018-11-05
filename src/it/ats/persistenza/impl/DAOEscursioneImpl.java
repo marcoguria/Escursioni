@@ -138,6 +138,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
+				escursione.setDisponibile(resultSet.getInt("DISPONIBILE"));
 				escursioni.add(escursione);
 
 			}
@@ -200,6 +201,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
+				escursione.setDisponibile(resultSet.getInt("DISPONIBILE"));
 
 			}
 
@@ -245,6 +247,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
+				escursione.setDisponibile(resultSet.getInt("DISPONIBILE"));
 				escursioni.add(escursione);
 
 			}
@@ -290,6 +293,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
+				escursione.setDisponibile(resultSet.getInt("DISPONIBILE"));
 				escursioni.add(escursione);
 
 			}
@@ -335,6 +339,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
+				escursione.setDisponibile(resultSet.getInt("DISPONIBILE"));
 				escursioni.add(escursione);
 
 			}
@@ -378,6 +383,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
+				escursione.setDisponibile(resultSet.getInt("DISPONIBILE"));
 				escursioni.add(escursione);
 
 			}
@@ -420,6 +426,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
+				escursione.setDisponibile(resultSet.getInt("DISPONIBILE"));
 				escursioni.add(escursione);
 
 			}
@@ -462,6 +469,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
+				escursione.setDisponibile(resultSet.getInt("DISPONIBILE"));
 				escursioni.add(escursione);
 
 			}
@@ -477,5 +485,57 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 		return escursioni;
 	}
+
+	@Override
+	public void sbloccaEscursione(Long id) throws DAOException {
+		String sql = "UPDATE ESCURSIONE SET DISPONIBILE = 1  WHERE ID=?";
+
+		System.out.println(sql);
+		DataSource instance = DataSource.getInstance();
+		Connection connection = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			connection = instance.getConnection();
+			prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setLong(1, id);
+			prepareStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException(e.getMessage());
+		} finally {
+			instance.close(prepareStatement);
+			instance.close(connection);
+
+		}
+		
+	}
+
+	@Override
+	public void bloccaEscursione(Long id) throws DAOException {
+		String sql = "UPDATE ESCURSIONE SET DISPONIBILE = 0  WHERE ID=?";
+
+		System.out.println(sql);
+		DataSource instance = DataSource.getInstance();
+		Connection connection = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			connection = instance.getConnection();
+			prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setLong(1, id);
+			prepareStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException(e.getMessage());
+		} finally {
+			instance.close(prepareStatement);
+			instance.close(connection);
+
+		}
+		
+	}
+
+
 
 }
