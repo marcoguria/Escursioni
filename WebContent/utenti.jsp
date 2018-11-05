@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ page import="it.ats.modello.UtenteRegistrato"%>
-    <%@ page import="java.util.*"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="it.ats.modello.UtenteRegistrato"%>
+<%@ page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,7 @@
 <title>Mostra Utenti</title>
 </head>
 <body>
-<h1>Elenco Utenti</h1>
+	<h1>Elenco Utenti</h1>
 
 	<%
 		Collection<UtenteRegistrato> utenti = (Collection<UtenteRegistrato>) request.getAttribute("utenti");
@@ -36,6 +36,7 @@
 				<th>DATA NASCITA</th>
 				<th>RUOLO</th>
 				<th>USERNAME</th>
+				<th>STATO UTENTE</th>
 
 				<th></th>
 			</tr>
@@ -46,7 +47,7 @@
 			%>
 
 			<tr>
-				<td><%=utenteRegistrato.getID() %></td>
+				<td><%=utenteRegistrato.getID()%></td>
 				<td><%=utenteRegistrato.getNome()%></td>
 				<td><%=utenteRegistrato.getCognome()%></td>
 				<td><%=utenteRegistrato.getCodf()%></td>
@@ -54,8 +55,31 @@
 				<td><%=utenteRegistrato.getData_nascita()%></td>
 				<td><%=utenteRegistrato.getFlag_ruolo()%></td>
 				<td><%=utenteRegistrato.getUsername()%></td>
+				<td><% if(utenteRegistrato.getAttivo()==0){	
+					out.println("DISATTIVO");  %>
+					<% }if(utenteRegistrato.getAttivo()==1){
+						out.println("ATTIVO");
+						} %>
+				</td>
+				<!-- srthrtshwrhthwt -->
+				<td>
+				<% if(utenteRegistrato.getAttivo()==0){%>
+					<form method="POST" action="SbloccaUtenteServlet">
+						<input type="hidden" name="idCliente"
+							value="<%=utenteRegistrato.getID()%>" /> <input type="submit"
+							value="SBLOCCA" />
+						</form>
+					<% }if(utenteRegistrato.getAttivo()==1){%>
+						<form method="POST" action="BloccaUtenteServlet">
+						<input type="hidden" name="idCliente"
+							value="<%=utenteRegistrato.getID()%>" /> <input type="submit"
+							value="BLOCCA" />
+						</form>
+						<%} %>
+					
+				</td>
 
-				
+
 			</tr>
 
 			<%
@@ -67,8 +91,8 @@
 	<%
 		}
 	%>
-	
-	
+
+
 
 
 </body>

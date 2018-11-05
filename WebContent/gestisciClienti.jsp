@@ -11,6 +11,8 @@
 	<form method="POST" action="MostraUtentiRegistratiServlet">
 		<input type="submit" value="Mostra tutti i clienti" />
 	</form>
+	
+	
 
 </body>
 </html>

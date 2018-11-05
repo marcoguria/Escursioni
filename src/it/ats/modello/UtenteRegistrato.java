@@ -13,7 +13,7 @@ public abstract class UtenteRegistrato extends Visitatore {
 	private int flag_ruolo;
 	private String username;
 	private String password;
-	private int attivo=1;
+	private int attivo;
 
 
 	public Long getID() {

@@ -111,6 +111,7 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 				utenteRegistrato.setFlag_ruolo(resultSet.getInt("FLAG_RUOLO"));
 				utenteRegistrato.setUsername(resultSet.getString("USERNAME"));
 				utenteRegistrato.setPassword(resultSet.getString("PASS"));
+				utenteRegistrato.setAttivo(resultSet.getInt("ATTIVO"));
 			}
 
 		} catch (SQLException e) {
@@ -161,6 +162,7 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 				utenteRegistrato.setFlag_ruolo(resultSet.getInt("FLAG_RUOLO"));
 				utenteRegistrato.setUsername(resultSet.getString("USERNAME"));
 				utenteRegistrato.setPassword(resultSet.getString("PASS"));
+				utenteRegistrato.setAttivo(resultSet.getInt("ATTIVO"));
 				utenti.add(utenteRegistrato);
 
 			}

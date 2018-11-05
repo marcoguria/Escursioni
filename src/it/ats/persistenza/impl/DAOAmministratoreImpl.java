@@ -62,6 +62,8 @@ public class DAOAmministratoreImpl implements DAOAmministratore {
 				utenteRegistrato.setEmail(resultSet.getString("EMAIL"));
 				utenteRegistrato.setData_nascita(resultSet.getDate("DATA_NASCITA"));
 				utenteRegistrato.setFlag_ruolo(resultSet.getInt("FLAG_RUOLO"));
+				System.out.println("attivo:\n" + resultSet.getInt("ATTIVO"));
+				utenteRegistrato.setAttivo(resultSet.getInt("ATTIVO"));
 				utenti.add(utenteRegistrato);
 
 			}
@@ -116,18 +118,18 @@ public class DAOAmministratoreImpl implements DAOAmministratore {
 		try {
 			connection = DataSource.getInstance().getConnection();
 			statement = connection.prepareStatement("SELECT * FROM UTENTE where username=?");
-			statement.setString(1,username);
+			statement.setString(1, username);
 			resultSet = statement.executeQuery();
 
 			if (resultSet.next()) {
 				int flag_ruolo = resultSet.getInt("FLAG_RUOLO");
-				
+
 				if (flag_ruolo == 1) {
 					utenteRegistrato = new Cliente();
 				} else if (flag_ruolo == 0) {
 					utenteRegistrato = new Amministratore();
 				}
-				
+
 				utenteRegistrato.setID(resultSet.getLong("ID"));
 				utenteRegistrato.setNome(resultSet.getString("NOME"));
 				utenteRegistrato.setCognome(resultSet.getString("COGNOME"));
@@ -135,7 +137,7 @@ public class DAOAmministratoreImpl implements DAOAmministratore {
 				utenteRegistrato.setEmail(resultSet.getString("EMAIL"));
 				utenteRegistrato.setData_nascita(resultSet.getDate("DATA_NASCITA"));
 				utenteRegistrato.setFlag_ruolo(resultSet.getInt("FLAG_RUOLO"));
-				
+				utenteRegistrato.setAttivo(resultSet.getInt("ATTIVO"));
 
 			}
 
@@ -149,6 +151,64 @@ public class DAOAmministratoreImpl implements DAOAmministratore {
 		}
 
 		return utenteRegistrato;
+	}
+
+	@Override
+	public void bloccaUtente(UtenteRegistrato utente) throws DAOException {
+
+		String sql = "UPDATE UTENTE SET ATTIVO = 0  WHERE ID=?";
+
+		System.out.println(sql);
+		DataSource instance = DataSource.getInstance();
+		Connection connection = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			connection = instance.getConnection();
+			prepareStatement = connection.prepareStatement(sql);
+			System.out.println("nella query" + utente.getID());
+
+			prepareStatement.setLong(1, utente.getID());
+			prepareStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException(e.getMessage());
+		} finally {
+			instance.close(prepareStatement);
+			instance.close(connection);
+
+		}
+
+	}
+
+	@Override
+	public UtenteRegistrato findUtenteByID(Long id) throws DAOException {
+		DAOUtenteRegistratoImpl daoUtenteRegistratoImpl = new DAOUtenteRegistratoImpl();
+		return daoUtenteRegistratoImpl.findUtenteById(id);
+	}
+
+	public void sbloccaUtente(UtenteRegistrato utenteRegistrato) throws DAOException {
+
+		String sql = "UPDATE UTENTE SET ATTIVO = 1  WHERE ID=?";
+
+		System.out.println(sql);
+		DataSource instance = DataSource.getInstance();
+		Connection connection = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			connection = instance.getConnection();
+			prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setLong(1, utenteRegistrato.getID());
+			prepareStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException(e.getMessage());
+		} finally {
+			instance.close(prepareStatement);
+			instance.close(connection);
+
+		}
 	}
 
 }
