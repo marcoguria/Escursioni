@@ -7,6 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+	
+		<form method="POST" action="profilo.jsp">
+		<input type="submit" value="Profilo" />
+	</form>
+
+	<form method="POST" action="home.jsp">
+		<input type="submit" value="Home" />
+	</form>
 
 	<form method="POST" action="inserisciEscursione.jsp">
 		<input type="submit" value="Inserisci nuova escursione" />

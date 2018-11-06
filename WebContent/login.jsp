@@ -14,6 +14,9 @@
 		type="password" name="password" /> <input type="submit" value="Login" />
 
 	</form>
+	<br>
+	<a href="registrazione.jsp">Clicca qui per registrarti</a>
+	<br>
 
 
 

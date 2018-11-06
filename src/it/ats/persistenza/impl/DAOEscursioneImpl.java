@@ -36,6 +36,8 @@ public class DAOEscursioneImpl implements DAOEscursione {
 			prepareStatement.setString(7, escursione.getGuida());
 			prepareStatement.setInt(8, escursione.getMaxPartecipanti());
 			prepareStatement.setInt(9, escursione.getNumPrenotati());
+			
+			System.out.println("inseriment nel database" + escursione);
 			prepareStatement.executeUpdate();
 
 		} catch (SQLException e) {

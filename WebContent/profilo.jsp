@@ -22,6 +22,10 @@
 	<form method="POST" action="VisualizzaMiePrenotazioniServlet">
 		<input type="submit" value="Visualizza mie prenotazioni" />
 	</form>
+	
+	<form method="POST" action="VisualizzaCarteDaEliminareServlet">
+		<input type="submit" value="Le mie carte" />
+	</form>
 
 
 	<%
@@ -33,9 +37,8 @@
 		<input type="submit" value="Modifica Profilo" />
 	</form>
 
-	<form method="POST" action="VisualizzaCarteDaEliminareServlet">
-		<input type="submit" value="Le mie carte" />
-	</form>
+	
+	
 
 
 </body>
