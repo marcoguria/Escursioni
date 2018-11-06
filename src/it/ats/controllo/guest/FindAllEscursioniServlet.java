@@ -1,4 +1,4 @@
-package it.ats.controllo;
+package it.ats.controllo.guest;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -16,33 +16,30 @@ import it.ats.persistenza.DAOException;
 import it.ats.persistenza.impl.DAOEscursioneImpl;
 
 /**
- * Servlet implementation class FindEscursioniDisponibili
+ * Servlet implementation class FindAllEscursioni
  */
-@WebServlet("/FindEscursioniDisponibiliServlet")
-public class FindEscursioniDisponibiliServlet extends HttpServlet {
+@WebServlet("/guest/FindAllEscursioniServlet")
+public class FindAllEscursioniServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
-     * @see HttpServlet#HttpServlet()
+     * Default constructor. 
      */
-    public FindEscursioniDisponibiliServlet() {
+    public FindAllEscursioniServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	
-
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		DAOEscursione daoEscursione = new DAOEscursioneImpl();
 		Collection<Escursione> escursioni = null;
 		
 		try {
 			
-			escursioni = daoEscursione.findEscursioniDisponibili();
+			escursioni = daoEscursione.findAll();
 		} catch (DAOException e) {
 			
 			System.out.println(e.getMessage());
@@ -56,5 +53,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		
 
 	}
+
 
 }

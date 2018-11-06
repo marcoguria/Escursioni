@@ -1,4 +1,4 @@
-package it.ats.controllo;
+package it.ats.controllo.utenteregistrato;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class LogoutServlet
  */
-@WebServlet("/LogoutServlet")
+@WebServlet("/utenteregistrato/LogoutServlet")
 public class LogoutServlet extends HttpServlet {  
     protected void doGet(HttpServletRequest request, HttpServletResponse response)  
                             throws ServletException, IOException {  
@@ -26,11 +26,8 @@ public class LogoutServlet extends HttpServlet {
         //invalido sessione
         session.invalidate();  
           
-        out.print("You are successfully logged out!");  
-          
-        out.close();  
-        
-        request.getRequestDispatcher("index.html").forward(request, response);  
+               
+        request.getRequestDispatcher("../index.html").forward(request, response);  
 }  
 
 }  

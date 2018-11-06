@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form method="POST" action="MostraUtentiRegistratiServlet">
+	<form method="POST" action="admin/MostraUtentiRegistratiServlet">
 		<input type="submit" value="Mostra tutti i clienti" />
 	</form>
 	

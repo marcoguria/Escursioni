@@ -20,7 +20,7 @@
 		<input type="submit" value="Inserisci nuova escursione" />
 	</form>
 	
-		<form method="POST" action="AbiltaDisabilitaEscursioneServlet">
+		<form method="POST" action="admin/AbiltaDisabilitaEscursioneServlet">
 		<input type="submit" value="Abilita/Disabilita Escursione" />
 	</form>
 </body>

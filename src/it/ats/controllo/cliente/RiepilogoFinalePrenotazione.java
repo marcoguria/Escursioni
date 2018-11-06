@@ -1,7 +1,6 @@
-package it.ats.controllo;
+package it.ats.controllo.cliente;
 
 import java.io.IOException;
-import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,18 +14,19 @@ import it.ats.modello.Escursione;
 import it.ats.persistenza.DAOException;
 import it.ats.persistenza.impl.DAOCartaPagamentoImpl;
 import it.ats.persistenza.impl.DAOEscursioneImpl;
+import it.ats.persistenza.impl.DAOPrenotazioneImpl;
 
 /**
- * Servlet implementation class PagamentoServlet
+ * Servlet implementation class RiepilogoFinalePrenotazione
  */
-@WebServlet("/FindCarteByIdSessioneServlet")
-public class FindCarteByIdSessioneServlet extends HttpServlet {
+@WebServlet("/RiepilogoFinalePrenotazione")
+public class RiepilogoFinalePrenotazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public FindCarteByIdSessioneServlet() {
+	public RiepilogoFinalePrenotazione() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -40,26 +40,22 @@ public class FindCarteByIdSessioneServlet extends HttpServlet {
 
 		DAOCartaPagamentoImpl cartaPagamentoImpl = new DAOCartaPagamentoImpl();
 		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
-		Collection<CartaPagamento> cartaPagamentos = null;
+		Long idEscursione = Long.parseLong(request.getParameter("idEscursione"));
+		Long idCarta = Long.parseLong(request.getParameter("idCarta"));
 		Escursione escursione = new Escursione();
+		CartaPagamento cartaPagamento = new CartaPagamento();
 
 		try {
-			Long idEscursione = Long.parseLong(request.getParameter("idEscursione"));
-			Long id = (Long)(request.getSession().getAttribute("id_utente"));
-			
-			cartaPagamentos = cartaPagamentoImpl.findCartePagamentoByIdUtente(id);
 			escursione = daoEscursioneImpl.findById(idEscursione);
-
-		} catch (NumberFormatException | DAOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			cartaPagamento = cartaPagamentoImpl.findCartePagamentoByIdCarta(idCarta);
+		} catch (DAOException e) {
+			System.out.println(e.getMessage());
 		}
 
-		request.setAttribute("cartePagamento", cartaPagamentos);
 		request.setAttribute("escursione", escursione);
-		RequestDispatcher rd = request.getRequestDispatcher("scegliPagamento.jsp");
+		request.setAttribute("carta", cartaPagamento);
+		RequestDispatcher rd = request.getRequestDispatcher("riepilogoFinalePrenotazione.jsp");
 		rd.forward(request, response);
-
 	}
 
 }

@@ -1,6 +1,7 @@
-package it.ats.controllo;
+package it.ats.controllo.cliente;
 
 import java.io.IOException;
+import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,19 +15,18 @@ import it.ats.modello.Escursione;
 import it.ats.persistenza.DAOException;
 import it.ats.persistenza.impl.DAOCartaPagamentoImpl;
 import it.ats.persistenza.impl.DAOEscursioneImpl;
-import it.ats.persistenza.impl.DAOPrenotazioneImpl;
 
 /**
- * Servlet implementation class RiepilogoFinalePrenotazione
+ * Servlet implementation class PagamentoServlet
  */
-@WebServlet("/RiepilogoFinalePrenotazione")
-public class RiepilogoFinalePrenotazione extends HttpServlet {
+@WebServlet("/FindCarteByIdSessioneServlet")
+public class FindCarteByIdSessioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public RiepilogoFinalePrenotazione() {
+	public FindCarteByIdSessioneServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -40,22 +40,26 @@ public class RiepilogoFinalePrenotazione extends HttpServlet {
 
 		DAOCartaPagamentoImpl cartaPagamentoImpl = new DAOCartaPagamentoImpl();
 		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
-		Long idEscursione = Long.parseLong(request.getParameter("idEscursione"));
-		Long idCarta = Long.parseLong(request.getParameter("idCarta"));
+		Collection<CartaPagamento> cartaPagamentos = null;
 		Escursione escursione = new Escursione();
-		CartaPagamento cartaPagamento = new CartaPagamento();
 
 		try {
+			Long idEscursione = Long.parseLong(request.getParameter("idEscursione"));
+			Long id = (Long)(request.getSession().getAttribute("id_utente"));
+			
+			cartaPagamentos = cartaPagamentoImpl.findCartePagamentoByIdUtente(id);
 			escursione = daoEscursioneImpl.findById(idEscursione);
-			cartaPagamento = cartaPagamentoImpl.findCartePagamentoByIdCarta(idCarta);
-		} catch (DAOException e) {
-			System.out.println(e.getMessage());
+
+		} catch (NumberFormatException | DAOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
+		request.setAttribute("cartePagamento", cartaPagamentos);
 		request.setAttribute("escursione", escursione);
-		request.setAttribute("carta", cartaPagamento);
-		RequestDispatcher rd = request.getRequestDispatcher("riepilogoFinalePrenotazione.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("scegliPagamento.jsp");
 		rd.forward(request, response);
+
 	}
 
 }

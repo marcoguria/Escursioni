@@ -1,7 +1,8 @@
-package it.ats.controllo;
+package it.ats.controllo.admin;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Iterator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,30 +17,31 @@ import it.ats.persistenza.DAOException;
 import it.ats.persistenza.impl.DAOEscursioneImpl;
 
 /**
- * Servlet implementation class FindAllEscursioni
+ * Servlet implementation class AbiltaDisabilitaEscursioneServlet
  */
-@WebServlet("/FindAllEscursioniServlet")
-public class FindAllEscursioniServlet extends HttpServlet {
+@WebServlet("/admin/AbiltaDisabilitaEscursioneServlet")
+public class AbiltaDisabilitaEscursioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public FindAllEscursioniServlet() {
+    public AbiltaDisabilitaEscursioneServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DAOEscursione daoEscursione = new DAOEscursioneImpl();
 		Collection<Escursione> escursioni = null;
 		
 		try {
 			
 			escursioni = daoEscursione.findAll();
+			
 		} catch (DAOException e) {
 			
 			System.out.println(e.getMessage());
@@ -48,11 +50,16 @@ public class FindAllEscursioniServlet extends HttpServlet {
 		
 		
 		request.setAttribute("escursioni", escursioni);
-		RequestDispatcher rd = request.getRequestDispatcher("escursioni.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("abilitaDisabilitaEscursione.jsp");
 		rd.forward(request, response);
 		
 
 	}
 
+		
+	}
 
-}
+
+	
+
+

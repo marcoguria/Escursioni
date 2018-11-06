@@ -1,8 +1,8 @@
-package it.ats.controllo;
+package it.ats.controllo.guest;
 
 import java.io.IOException;
-import java.util.Collection;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,22 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.ats.modello.Escursione;
-import it.ats.modello.UtenteRegistrato;
+import it.ats.persistenza.DAOEscursione;
 import it.ats.persistenza.DAOException;
-import it.ats.persistenza.impl.DAOAmministratoreImpl;
 import it.ats.persistenza.impl.DAOEscursioneImpl;
 
 /**
- * Servlet implementation class DisabilitaEscursioneServlet
+ * Servlet implementation class FindByIdEscursioneServlet
  */
-@WebServlet("/DisabilitaEscursioneServlet")
-public class DisabilitaEscursioneServlet extends HttpServlet {
+@WebServlet("/guest/FindByIdEscursioneServlet")
+public class FindByIdEscursioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DisabilitaEscursioneServlet() {
+    public FindByIdEscursioneServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,25 +34,29 @@ public class DisabilitaEscursioneServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		
-		DAOEscursioneImpl daoEscursioneImpl= new DAOEscursioneImpl();
-		Collection<Escursione> allEscursioni = null;
+		Long idEscursione = Long.parseLong(request.getParameter("idEscursione"));
+
+		DAOEscursione daoEscursione = new DAOEscursioneImpl();
+
+		Escursione escursione = null;
 
 		try {
-			long escursioneBlock = Long.parseLong(request.getParameter("idEscursione"));
-			System.out.println(escursioneBlock);
+
+			escursione = daoEscursione.findById(idEscursione);
 			
+			System.out.println(escursione);
 
-					daoEscursioneImpl.bloccaEscursione(escursioneBlock);
-					
-						
+		} catch (DAOException e) {
 
-		} catch (NumberFormatException | DAOException e) {
 			System.out.println(e.getMessage());
+
 		}
-	
-		request.getRequestDispatcher("gestisciEscursioni.jsp").forward(request, response);
+		
+		request.setAttribute("escursione", escursione);
+		RequestDispatcher rd = request.getRequestDispatcher("mostraEscursione.jsp");
+		rd.forward(request, response);
 	}
+	
+	
 
 }

@@ -1,4 +1,4 @@
-package it.ats.controllo;
+package it.ats.controllo.guest;
 
 import java.io.IOException;
 
@@ -19,7 +19,7 @@ import it.ats.persistenza.impl.DAOUtenteRegistratoImpl;
  */
 
 
-@WebServlet("/LoginServlet")
+@WebServlet("/guest/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

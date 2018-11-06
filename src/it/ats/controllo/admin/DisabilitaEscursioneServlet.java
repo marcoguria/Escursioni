@@ -1,4 +1,4 @@
-package it.ats.controllo;
+package it.ats.controllo.admin;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -10,24 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.ats.modello.Escursione;
+import it.ats.modello.UtenteRegistrato;
 import it.ats.persistenza.DAOException;
+import it.ats.persistenza.impl.DAOAmministratoreImpl;
 import it.ats.persistenza.impl.DAOEscursioneImpl;
 
 /**
- * Servlet implementation class AbilitaEscursioneServlet
+ * Servlet implementation class DisabilitaEscursioneServlet
  */
-@WebServlet("/AbilitaEscursioneServlet")
-public class AbilitaEscursioneServlet extends HttpServlet {
+@WebServlet("/admin/DisabilitaEscursioneServlet")
+public class DisabilitaEscursioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AbilitaEscursioneServlet() {
+    public DisabilitaEscursioneServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
-
 
 
 	/**
@@ -41,10 +42,10 @@ public class AbilitaEscursioneServlet extends HttpServlet {
 
 		try {
 			long escursioneBlock = Long.parseLong(request.getParameter("idEscursione"));
-		
+			System.out.println(escursioneBlock);
 			
 
-					daoEscursioneImpl.sbloccaEscursione(escursioneBlock);
+					daoEscursioneImpl.bloccaEscursione(escursioneBlock);
 					
 						
 

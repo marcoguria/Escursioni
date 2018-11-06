@@ -1,6 +1,7 @@
-package it.ats.controllo;
+package it.ats.controllo.guest;
 
 import java.io.IOException;
+import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,48 +16,45 @@ import it.ats.persistenza.DAOException;
 import it.ats.persistenza.impl.DAOEscursioneImpl;
 
 /**
- * Servlet implementation class FindByIdEscursioneServlet
+ * Servlet implementation class FindEscursioniDisponibili
  */
-@WebServlet("/FindByIdEscursioneServlet")
-public class FindByIdEscursioneServlet extends HttpServlet {
+@WebServlet("/guest/FindEscursioniDisponibiliServlet")
+public class FindEscursioniDisponibiliServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindByIdEscursioneServlet() {
+    public FindEscursioniDisponibiliServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Long idEscursione = Long.parseLong(request.getParameter("idEscursione"));
-
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		DAOEscursione daoEscursione = new DAOEscursioneImpl();
-
-		Escursione escursione = null;
-
+		Collection<Escursione> escursioni = null;
+		
 		try {
-
-			escursione = daoEscursione.findById(idEscursione);
 			
-			System.out.println(escursione);
-
+			escursioni = daoEscursione.findEscursioniDisponibili();
 		} catch (DAOException e) {
-
+			
 			System.out.println(e.getMessage());
-
+			
 		}
 		
-		request.setAttribute("escursione", escursione);
-		RequestDispatcher rd = request.getRequestDispatcher("mostraEscursione.jsp");
+		
+		request.setAttribute("escursioni", escursioni);
+		RequestDispatcher rd = request.getRequestDispatcher("escursioni.jsp");
 		rd.forward(request, response);
+		
+
 	}
-	
-	
 
 }

@@ -1,4 +1,4 @@
-package it.ats.controllo;
+package it.ats.controllo.cliente;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

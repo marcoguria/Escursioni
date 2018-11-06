@@ -1,4 +1,4 @@
-package it.ats.controllo;
+package it.ats.controllo.utenteregistrato;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import it.ats.persistenza.impl.DAOUtenteRegistratoImpl;
 /**
  * Servlet implementation class GetMyProfileServlet
  */
-@WebServlet("/GetMyProfileServlet")
+@WebServlet("/utenteregistrato/GetMyProfileServlet")
 public class GetMyProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

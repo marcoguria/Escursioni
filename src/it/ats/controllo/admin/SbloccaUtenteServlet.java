@@ -1,4 +1,4 @@
-package it.ats.controllo;
+package it.ats.controllo.admin;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -16,7 +16,7 @@ import it.ats.persistenza.impl.DAOAmministratoreImpl;
 /**
  * Servlet implementation class SbloccaUtenteServlet
  */
-@WebServlet("/SbloccaUtenteServlet")
+@WebServlet("/admin/SbloccaUtenteServlet")
 public class SbloccaUtenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

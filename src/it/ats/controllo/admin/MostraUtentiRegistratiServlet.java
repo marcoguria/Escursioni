@@ -1,8 +1,7 @@
-package it.ats.controllo;
+package it.ats.controllo.admin;
 
 import java.io.IOException;
 import java.util.Collection;
-import java.util.Iterator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,36 +11,40 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.ats.modello.Escursione;
+import it.ats.modello.UtenteRegistrato;
 import it.ats.persistenza.DAOEscursione;
 import it.ats.persistenza.DAOException;
+import it.ats.persistenza.DAOUtenteRegistrato;
 import it.ats.persistenza.impl.DAOEscursioneImpl;
+import it.ats.persistenza.impl.DAOUtenteRegistratoImpl;
 
 /**
- * Servlet implementation class AbiltaDisabilitaEscursioneServlet
+ * Servlet implementation class MostraClientiServlet
  */
-@WebServlet("/AbiltaDisabilitaEscursioneServlet")
-public class AbiltaDisabilitaEscursioneServlet extends HttpServlet {
+@WebServlet("/admin/MostraUtentiRegistratiServlet")
+public class MostraUtentiRegistratiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AbiltaDisabilitaEscursioneServlet() {
+    public MostraUtentiRegistratiServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+	
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DAOEscursione daoEscursione = new DAOEscursioneImpl();
-		Collection<Escursione> escursioni = null;
+		DAOUtenteRegistrato daoUtenteRegistrato = new DAOUtenteRegistratoImpl();
+		Collection<UtenteRegistrato> utenti = null;
 		
 		try {
 			
-			escursioni = daoEscursione.findAll();
-			
+			utenti = daoUtenteRegistrato.findAll();
 		} catch (DAOException e) {
 			
 			System.out.println(e.getMessage());
@@ -49,17 +52,11 @@ public class AbiltaDisabilitaEscursioneServlet extends HttpServlet {
 		}
 		
 		
-		request.setAttribute("escursioni", escursioni);
-		RequestDispatcher rd = request.getRequestDispatcher("abilitaDisabilitaEscursione.jsp");
+		request.setAttribute("utenti", utenti);
+		RequestDispatcher rd = request.getRequestDispatcher("utenti.jsp");
 		rd.forward(request, response);
 		
 
 	}
 
-		
-	}
-
-
-	
-
-
+}

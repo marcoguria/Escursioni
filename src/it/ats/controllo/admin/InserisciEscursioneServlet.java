@@ -1,4 +1,4 @@
-package it.ats.controllo;
+package it.ats.controllo.admin;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -21,7 +21,7 @@ import it.ats.persistenza.impl.DAOGuestImpl;
 /**
  * Servlet implementation class InserisciEscursioneServlet
  */
-@WebServlet("/InserisciEscursioneServlet")
+@WebServlet("/admin/InserisciEscursioneServlet")
 public class InserisciEscursioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
