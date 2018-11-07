@@ -19,11 +19,11 @@
 		if ((int) request.getSession().getAttribute("ruolo") == 1) {
 	%>
 
-	<form method="POST" action="VisualizzaMiePrenotazioniServlet">
+	<form method="POST" action="../cliente/VisualizzaMiePrenotazioniServlet">
 		<input type="submit" value="Visualizza mie prenotazioni" />
 	</form>
 	
-	<form method="POST" action="VisualizzaCarteDaEliminareServlet">
+	<form method="POST" action="../cliente/VisualizzaCarteDaEliminareServlet">
 		<input type="submit" value="Le mie carte" />
 	</form>
 

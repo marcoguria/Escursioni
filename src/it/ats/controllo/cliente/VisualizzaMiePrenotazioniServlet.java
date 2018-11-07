@@ -20,7 +20,7 @@ import it.ats.persistenza.impl.DAOPrenotazioneImpl;
 /**
  * Servlet implementation class VisualizzaMiePrenotazioniServlet
  */
-@WebServlet("/VisualizzaMiePrenotazioniServlet")
+@WebServlet("/cliente/VisualizzaMiePrenotazioniServlet")
 public class VisualizzaMiePrenotazioniServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

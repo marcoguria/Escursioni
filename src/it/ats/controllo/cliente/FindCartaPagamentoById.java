@@ -14,7 +14,7 @@ import it.ats.persistenza.impl.DAOCartaPagamentoImpl;
 /**
  * Servlet implementation class FindCartaPagamentoById
  */
-@WebServlet("/FindCartaPagamentoById")
+@WebServlet("/cliente/FindCartaPagamentoById")
 public class FindCartaPagamentoById extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

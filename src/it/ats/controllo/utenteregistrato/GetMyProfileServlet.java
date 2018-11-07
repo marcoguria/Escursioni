@@ -55,7 +55,7 @@ public class GetMyProfileServlet extends HttpServlet {
 
 		request.setAttribute("utente", utenteRegistrato);
 		request.setAttribute("cartePagamenti", cartePagamenti);
-		request.getRequestDispatcher("modificaProfilo.jsp").forward(request, response);
+		request.getRequestDispatcher("../cliente/modificaProfilo.jsp").forward(request, response);
 		
 	}
 

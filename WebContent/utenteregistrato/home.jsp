@@ -8,17 +8,17 @@
 </head>
 <body>
 
-	<form method="GET" action="LogoutServlet">
+	<form method="GET" action="../utenteregistrato/LogoutServlet">
 		<input type="submit" value="Logout" />
 	</form>
 
-	<form method="POST" action="profilo.jsp">
+	<form method="POST" action="../utenteregistrato/profilo.jsp">
 		<input type="submit" value="Profilo" />
 	</form>
 	<%
 		if ((int) request.getSession().getAttribute("ruolo") == 0) {
 	%>
-	<form method="POST" action="gestisciSito.jsp">
+	<form method="POST" action="../admin/gestisciSito.jsp">
 		<input type="submit" value="GestisciSito" />
 	</form>
 

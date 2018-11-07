@@ -14,7 +14,7 @@ import it.ats.persistenza.impl.DAOCartaPagamentoImpl;
 /**
  * Servlet implementation class EliminaCartaServlet
  */
-@WebServlet("/EliminaCartaServlet")
+@WebServlet("/cliente/EliminaCartaServlet")
 public class EliminaCartaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -45,7 +45,7 @@ public class EliminaCartaServlet extends HttpServlet {
 			
 		}
 		
-		 request.getRequestDispatcher("profilo.jsp").forward(request, response);  
+		 response.sendRedirect("../utenteregistrato/profilo.jsp");
 
 	}
 

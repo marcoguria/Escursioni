@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.ats.modello.Escursione;
 import it.ats.modello.UtenteRegistrato;
+import it.ats.persistenza.DAOEscursione;
 import it.ats.persistenza.DAOException;
 import it.ats.persistenza.impl.DAOAmministratoreImpl;
 import it.ats.persistenza.impl.DAOEscursioneImpl;
@@ -21,39 +22,39 @@ import it.ats.persistenza.impl.DAOEscursioneImpl;
 @WebServlet("/admin/DisabilitaEscursioneServlet")
 public class DisabilitaEscursioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DisabilitaEscursioneServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		
-		DAOEscursioneImpl daoEscursioneImpl= new DAOEscursioneImpl();
+	public DisabilitaEscursioneServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
 		Collection<Escursione> allEscursioni = null;
 
 		try {
+
 			long escursioneBlock = Long.parseLong(request.getParameter("idEscursione"));
 			System.out.println(escursioneBlock);
-			
 
-					daoEscursioneImpl.bloccaEscursione(escursioneBlock);
-					
-						
+			daoEscursioneImpl.bloccaEscursione(escursioneBlock);
+			allEscursioni = daoEscursioneImpl.findAll();
 
 		} catch (NumberFormatException | DAOException e) {
 			System.out.println(e.getMessage());
 		}
-	
-		request.getRequestDispatcher("gestisciEscursioni.jsp").forward(request, response);
+
+		request.setAttribute("escursioni", allEscursioni);
+		request.getRequestDispatcher("abilitaDisabilitaEscursione.jsp").forward(request, response);
 	}
 
 }

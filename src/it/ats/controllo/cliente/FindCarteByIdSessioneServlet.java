@@ -19,7 +19,7 @@ import it.ats.persistenza.impl.DAOEscursioneImpl;
 /**
  * Servlet implementation class PagamentoServlet
  */
-@WebServlet("/FindCarteByIdSessioneServlet")
+@WebServlet("/cliente/FindCarteByIdSessioneServlet")
 public class FindCarteByIdSessioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

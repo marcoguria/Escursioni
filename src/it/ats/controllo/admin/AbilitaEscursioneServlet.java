@@ -45,14 +45,15 @@ public class AbilitaEscursioneServlet extends HttpServlet {
 			
 
 					daoEscursioneImpl.sbloccaEscursione(escursioneBlock);
-					
+					allEscursioni=daoEscursioneImpl.findAll();
 						
 
 		} catch (NumberFormatException | DAOException e) {
 			System.out.println(e.getMessage());
 		}
 	
-		request.getRequestDispatcher("../gestisciEscursioni.jsp").forward(request, response);
+		request.setAttribute("escursioni", allEscursioni);
+		request.getRequestDispatcher("abilitaDisabilitaEscursione.jsp").forward(request, response);
 	}
 
 }

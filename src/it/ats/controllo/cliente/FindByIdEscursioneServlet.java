@@ -1,4 +1,4 @@
-package it.ats.controllo.guest;
+package it.ats.controllo.cliente;
 
 import java.io.IOException;
 
@@ -17,7 +17,7 @@ import it.ats.persistenza.impl.DAOEscursioneImpl;
 /**
  * Servlet implementation class FindByIdEscursioneServlet
  */
-@WebServlet("/guest/FindByIdEscursioneServlet")
+@WebServlet("/cliente/FindByIdEscursioneServlet")
 public class FindByIdEscursioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

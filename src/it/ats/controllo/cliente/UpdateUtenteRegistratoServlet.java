@@ -24,7 +24,7 @@ import it.ats.persistenza.impl.DAOUtenteRegistratoImpl;
 /**
  * Servlet implementation class UpdateUtenteRegistratoServlet
  */
-@WebServlet("/UpdateUtenteRegistratoServlet")
+@WebServlet("/cliente/UpdateUtenteRegistratoServlet")
 public class UpdateUtenteRegistratoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -76,9 +76,7 @@ public class UpdateUtenteRegistratoServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		request.setAttribute("utente", cliente);
-		request.setAttribute("cartePagamenti", cartePagamenti);
-		request.getRequestDispatcher("profilo.jsp").forward(request, response);
+		response.sendRedirect("../utenteregistrato/profilo.jsp");
 	}
 
 }

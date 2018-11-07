@@ -20,7 +20,7 @@ import it.ats.persistenza.impl.DAOUtenteRegistratoImpl;
 /**
  * Servlet implementation class ConfermaPrenotazioneServlet
  */
-@WebServlet("/ConfermaPrenotazioneServlet")
+@WebServlet("/cliente/ConfermaPrenotazioneServlet")
 public class ConfermaPrenotazioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -69,7 +69,7 @@ public class ConfermaPrenotazioneServlet extends HttpServlet {
 			System.out.println(e.getMessage());
 		}
 		
-		request.getRequestDispatcher("profilo.jsp").forward(request, response);
+		response.sendRedirect("../utenteregistrato/profilo.jsp");
 	}
 
 }

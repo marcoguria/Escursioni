@@ -19,7 +19,7 @@ import it.ats.persistenza.impl.DAOUtenteRegistratoImpl;
 /**
  * Servlet implementation class AggiungiMetodoPagamentoServlet
  */
-@WebServlet("/AggiungiMetodoPagamentoServlet")
+@WebServlet("/cliente/AggiungiMetodoPagamentoServlet")
 public class AggiungiMetodoPagamentoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

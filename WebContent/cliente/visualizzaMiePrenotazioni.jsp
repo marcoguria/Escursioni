@@ -26,6 +26,11 @@
 		} else {
 	%>
 
+	<form method="GET" action="../utenteregistrato/home.jsp">
+		<input type="submit" value="Home" />
+	</form>
+	<br>
+	
 	<table>
 		<thead>
 			<tr>

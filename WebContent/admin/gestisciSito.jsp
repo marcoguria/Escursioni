@@ -7,11 +7,11 @@
 <title>Gestisci sito</title>
 </head>
 <body>
-	<form method="POST" action="profilo.jsp">
+	<form method="POST" action="../utenteregistrato/profilo.jsp">
 		<input type="submit" value="Profilo" />
 	</form>
 
-	<form method="POST" action="home.jsp">
+	<form method="POST" action="../utenteregistrato/home.jsp">
 		<input type="submit" value="Home" />
 	</form>
 	

@@ -19,7 +19,7 @@ import it.ats.persistenza.impl.DAOPrenotazioneImpl;
 /**
  * Servlet implementation class RiepilogoFinalePrenotazione
  */
-@WebServlet("/RiepilogoFinalePrenotazione")
+@WebServlet("/cliente/RiepilogoFinalePrenotazione")
 public class RiepilogoFinalePrenotazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

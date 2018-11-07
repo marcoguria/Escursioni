@@ -7,12 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-		<form method="POST" action="profilo.jsp">
+
+	<form method="POST" action="../utenteregistrato/home.jsp">
+		<input type="submit" value="Home" />
+	</form>
+
+	<form method="POST" action="../utenteregistrato/profilo.jsp">
 		<input type="submit" value="Profilo" />
 	</form>
 
-	<form method="POST" action="home.jsp">
+	<form method="POST" action="../utenteregistrato/home.jsp">
 		<input type="submit" value="Home" />
 	</form>
 
@@ -20,7 +24,7 @@
 		<input type="submit" value="Inserisci nuova escursione" />
 	</form>
 	
-		<form method="POST" action="admin/AbiltaDisabilitaEscursioneServlet">
+		<form method="POST" action="AbiltaDisabilitaEscursioneServlet">
 		<input type="submit" value="Abilita/Disabilita Escursione" />
 	</form>
 </body>

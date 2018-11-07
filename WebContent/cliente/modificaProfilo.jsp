@@ -15,7 +15,7 @@
 		UtenteRegistrato utenteRegistrato = (UtenteRegistrato) request.getAttribute("utente");
 	%>
 
-	<form method="POST" action="UpdateUtenteRegistratoServlet">
+	<form method="POST" action="../cliente/UpdateUtenteRegistratoServlet">
 		Nome: <input type="text" name="nome"
 			value="<%=utenteRegistrato.getNome()%>" placeholder="nome"> <br>
 		Cognome: <input type="text" name="cognome"

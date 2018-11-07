@@ -16,7 +16,7 @@ import it.ats.persistenza.impl.DAOCartaPagamentoImpl;
 /**
  * Servlet implementation class VisualizzaCarteDaEliminareServlet
  */
-@WebServlet("/VisualizzaCarteDaEliminareServlet")
+@WebServlet("/cliente/VisualizzaCarteDaEliminareServlet")
 public class VisualizzaCarteDaEliminareServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
