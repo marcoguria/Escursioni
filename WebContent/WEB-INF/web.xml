@@ -19,6 +19,7 @@
     <url-pattern>/admin/*</url-pattern>
   </filter-mapping>
   
+  
   <filter>
     <filter-name>verificaPermessiClienteFilter</filter-name>
     <filter-class>it.ats.controllo.filtri.permessi.VerificaPermessiClienteFilter</filter-class>
@@ -26,5 +27,15 @@
   <filter-mapping>
     <filter-name>verificaPermessiClienteFilter</filter-name>
     <url-pattern>/cliente/*</url-pattern>
+  </filter-mapping>
+  
+    
+  <filter>
+    <filter-name>FormRegistrazioneFilter</filter-name>
+    <filter-class>it.ats.controllo.filtri.validazioneform.FormRegistrazioneFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FormRegistrazioneFilter</filter-name>
+    <url-pattern>/guest/RegistrazioneServlet</url-pattern>
   </filter-mapping>
 </web-app>

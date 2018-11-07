@@ -10,5 +10,6 @@ public interface DAOUtenteRegistrato {
 	public UtenteRegistrato findUtenteById(Long id) throws DAOException;
 	public Collection<UtenteRegistrato> findAll() throws DAOException;
 	public void updateUtente(UtenteRegistrato utenteRegistrato) throws DAOException;
+	public String findUsername(String username) throws DAOException;
 
 }

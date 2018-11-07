@@ -33,8 +33,6 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, username);
 			preparedStatement.setString(2, password);
-			
-
 
 			resultSet = preparedStatement.executeQuery();
 
@@ -135,13 +133,12 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		UtenteRegistrato utenteRegistrato = null;
-		
+
 		try {
 			connection = DataSource.getInstance().getConnection();
 			statement = connection.prepareStatement("SELECT * FROM UTENTE");
 			resultSet = statement.executeQuery();
 
-			
 			while (resultSet.next()) {
 				int flag_ruolo = resultSet.getInt("FLAG_RUOLO");
 
@@ -151,7 +148,6 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 
 					utenteRegistrato = new Amministratore();
 				}
-	
 
 				utenteRegistrato.setID(resultSet.getLong("ID"));
 				utenteRegistrato.setNome(resultSet.getString("NOME"));
@@ -179,36 +175,72 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 		return utenti;
 
 	}
+
 	@Override
-    public void updateUtente(UtenteRegistrato utenteRegistrato) throws DAOException {
-        String sql = "UPDATE utente SET nome = ?,cognome =?,codf=?,EMAIL=?,DATA_NASCITA=?,FLAG_RUOLO=?,USERNAME=?,PASS=? WHERE id =?";
+	public void updateUtente(UtenteRegistrato utenteRegistrato) throws DAOException {
+		String sql = "UPDATE utente SET nome = ?,cognome =?,codf=?,EMAIL=?,DATA_NASCITA=?,FLAG_RUOLO=?,USERNAME=?,PASS=? WHERE id =?";
 
-        DataSource instance = DataSource.getInstance();
-        Connection connection = null;
-        PreparedStatement prepareStatement = null;
-        try {
-            connection = instance.getConnection();
-            prepareStatement = connection.prepareStatement(sql);
-            prepareStatement.setString(1, utenteRegistrato.getNome());
-            prepareStatement.setString(2, utenteRegistrato.getCognome());
-            prepareStatement.setString(3, utenteRegistrato.getCodf());
-            prepareStatement.setString(4, utenteRegistrato.getEmail());
-            Date sqlDate = new Date(utenteRegistrato.getData_nascita().getTime());
-            prepareStatement.setDate(5, sqlDate);
-            prepareStatement.setInt(6, utenteRegistrato.getFlag_ruolo());
-            prepareStatement.setString(7, utenteRegistrato.getUsername());
-            prepareStatement.setString(8, utenteRegistrato.getPassword());
-            prepareStatement.setLong(9, utenteRegistrato.getID());
-            prepareStatement.executeUpdate();
+		DataSource instance = DataSource.getInstance();
+		Connection connection = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			connection = instance.getConnection();
+			prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setString(1, utenteRegistrato.getNome());
+			prepareStatement.setString(2, utenteRegistrato.getCognome());
+			prepareStatement.setString(3, utenteRegistrato.getCodf());
+			prepareStatement.setString(4, utenteRegistrato.getEmail());
+			Date sqlDate = new Date(utenteRegistrato.getData_nascita().getTime());
+			prepareStatement.setDate(5, sqlDate);
+			prepareStatement.setInt(6, utenteRegistrato.getFlag_ruolo());
+			prepareStatement.setString(7, utenteRegistrato.getUsername());
+			prepareStatement.setString(8, utenteRegistrato.getPassword());
+			prepareStatement.setLong(9, utenteRegistrato.getID());
+			prepareStatement.executeUpdate();
 
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            throw new DAOException(e.getMessage());
-        } finally {
-            instance.close(prepareStatement);
-            instance.close(connection);
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException(e.getMessage());
+		} finally {
+			instance.close(prepareStatement);
+			instance.close(connection);
 
-        }
+		}
 
-    }
+	}
+
+	@Override
+	public String findUsername(String username) throws DAOException {
+		String sql = "select USERNAME from utente where USERNAME=?";
+		DataSource instance = DataSource.getInstance();
+
+		Connection connection = instance.getConnection();
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		String risultato=null;
+
+		try {
+			prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setString(1, username);
+			resultSet = prepareStatement.executeQuery();
+
+			if (resultSet.next()) {
+
+			risultato=(resultSet.getString("USERNAME"));
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+
+		} finally {
+			instance.close(resultSet);
+			instance.close(prepareStatement);
+			instance.close(connection);
+
+		}
+
+		return risultato;
+	}
+
 }
