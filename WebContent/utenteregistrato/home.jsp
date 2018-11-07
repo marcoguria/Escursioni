@@ -8,11 +8,11 @@
 </head>
 <body>
 
-	<form method="GET" action="../utenteregistrato/LogoutServlet">
+	<form method="GET" action="LogoutServlet">
 		<input type="submit" value="Logout" />
 	</form>
 
-	<form method="POST" action="../utenteregistrato/profilo.jsp">
+	<form method="POST" action="profilo.jsp">
 		<input type="submit" value="Profilo" />
 	</form>
 	<%
@@ -27,7 +27,7 @@
 		}
 	%>
 	<br>
-	<a href="FindEscursioniDisponibiliServlet">Visualizza elenco escursioni</a>
+	<a href="../guest/FindEscursioniDisponibiliServlet">Visualizza elenco escursioni</a>
 	<br>
 
 

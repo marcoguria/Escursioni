@@ -69,7 +69,7 @@ public class ConfermaPrenotazioneServlet extends HttpServlet {
 			System.out.println(e.getMessage());
 		}
 		
-		response.sendRedirect("../utenteregistrato/profilo.jsp");
+		response.sendRedirect("../utenteregistrato/home.jsp");
 	}
 
 }

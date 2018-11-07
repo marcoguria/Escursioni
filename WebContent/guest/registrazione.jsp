@@ -10,36 +10,36 @@
 
 <form method="POST" action="RegistrazioneServlet">
 		
-		Nome: <input type="text" name="nome"/>
+		Nome: <input type="text" name="nome" required/>
 		
-		<br>
+		<br>	<br>
 		
-		Cognome: <input type="text" name="cognome"/>
+		Cognome: <input type="text" name="cognome" required/>
 		
-		<br>
-		CodFiscale: <input type="text" name="codf"/>
+		<br>	<br>
+		CodFiscale: <input type="text" name="codf" required/>
 		
-		<br>
+		<br>	<br>
 		
-		Email: <input type="text" name="email"/>
+		Email: <input type="text" name="email" required />
 		
-		<br>
+		<br>	<br>
 		
-		DataNascita: <input type="date" name="dataNascita"/>
+		DataNascita: <input type="date" name="dataNascita" required />
 		
-		<br>
-		
-		
-		Username: <input type="text" name="username"/>
+		<br>	<br>
 		
 		
-		<br>
+		Username: <input type="text" name="username" required />
 		
-		Password: <input type="password" name="password"/>
 		
-		<br>
+		<br>	<br>
 		
-		<input type="submit" value="REGISTRATI"/>
+		Password: <input type="password" name="password" required/>
+		
+		<br>	<br>
+		
+		<input type="submit" value="REGISTRATI" />
 		
 	</form>
 </body>

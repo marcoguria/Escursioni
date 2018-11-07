@@ -1,4 +1,4 @@
-package it.ats.controllo.filtri;
+package it.ats.controllo.filtri.permessi;
 
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class VerificaPermessiFilter
  */
-@WebFilter("/VerificaPermessiFilter")
+@WebFilter("/permessi/VerificaPermessiFilter")
 public class VerificaPermessiFilter implements Filter {
 
     /**
@@ -40,9 +40,9 @@ public class VerificaPermessiFilter implements Filter {
 		HttpServletRequest request=(HttpServletRequest) request1;
 		HttpServletResponse response=(HttpServletResponse) response1;
 		
-		if ((int) request.getSession().getAttribute("ruolo") == 1 ) {
-			
-			response.sendRedirect("../");
+		if ((int) request.getSession().getAttribute("ruolo") !=0 ) {
+			System.out.println("non sei un amministratore\n");
+			response.sendRedirect(".../");
 		}
 		else
 			chain.doFilter(request, response);
