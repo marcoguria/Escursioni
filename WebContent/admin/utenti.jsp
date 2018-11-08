@@ -15,6 +15,10 @@
 		Collection<UtenteRegistrato> utenti = (Collection<UtenteRegistrato>) request.getAttribute("utenti");
 	%>
 
+
+	<form method="POST" action="../utenteregistrato/home.jsp">
+		<input type="submit" value="Home" />
+	</form>
 	<%
 		if (utenti == null || utenti.isEmpty()) {
 	%>

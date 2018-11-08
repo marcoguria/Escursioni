@@ -15,6 +15,10 @@
 				.getAttribute("cartePagamenti");
 	%>
 
+	<form method="GET" action="../utenteregistrato/home.jsp">
+		<input type="submit" value="Home" />
+	</form>
+	<br>
 
 	<form method="POST" action="EliminaCartaServlet">
 		<select id="carta" name="numero_carta">
@@ -30,8 +34,7 @@
 			<%
 				}
 			%>
-		</select>
-		 <input type="submit" value="ELIMINA CARTA" />
+		</select> <input type="submit" value="ELIMINA CARTA" />
 	</form>
 </body>
 </html>

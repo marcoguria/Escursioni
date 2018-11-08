@@ -16,9 +16,7 @@
 		<input type="submit" value="Profilo" />
 	</form>
 
-	<form method="POST" action="../utenteregistrato/home.jsp">
-		<input type="submit" value="Home" />
-	</form>
+	
 
 	<form method="POST" action="inserisciEscursione.jsp">
 		<input type="submit" value="Inserisci nuova escursione" />

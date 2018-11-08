@@ -52,7 +52,7 @@ public class SbloccaUtenteServlet extends HttpServlet {
 			System.out.println(e.getMessage());
 		}
 		request.setAttribute("utenti", allUtenti);
-		request.getRequestDispatcher("gestisciClienti.jsp").forward(request, response);
+		request.getRequestDispatcher("utenti.jsp").forward(request, response);
 	}
 
 }

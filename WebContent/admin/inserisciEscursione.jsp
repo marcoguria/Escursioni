@@ -13,6 +13,12 @@
 	<%
 		Map<String, String> map = (Map) request.getAttribute("mappaErrori");
 	%>
+	
+	<form method="POST" action="../utenteregistrato/home.jsp">
+		<input type="submit" value="Home" />
+	</form>
+	
+	
 	<form method="POST" action="InserisciEscursioneServlet">
 
 		Luogo: <input type="text" name="luogo"  required/> <br>

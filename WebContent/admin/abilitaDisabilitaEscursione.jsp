@@ -9,6 +9,12 @@
 <title>Abilita/Disabilita Escursione</title>
 </head>
 <body>
+
+	<form method="GET" action="../utenteregistrato/home.jsp">
+		<input type="submit" value="Home" />
+	</form>
+	<br>
+	
 	<h1>Elenco Escursioni</h1>
 
 	<%
@@ -59,24 +65,21 @@
 				<td><%=escursione.getNumPrenotati()%></td>
 				<td>
 					<%
-						if (escursione.getDisponibile() == 0){
+						if (escursione.getDisponibile() == 0) {
 					%>
 					<form method="POST" action="AbilitaEscursioneServlet">
 						<input type="hidden" name="idEscursione"
 							value="<%=escursione.getId()%>" /> <input type="submit"
 							value="Abilita" />
-					</form> 
-					<%
-						}
-					%>
-					
-<%
- 	if (escursione.getDisponibile() == 1){
- 		
- %>	
+					</form> <%
+ 	}
+ %> <%
+ 	if (escursione.getDisponibile() == 1) {
+ %>
 					<form method="POST" action="DisabilitaEscursioneServlet">
-						<input type="hidden" name="idEscursione" value="<%=escursione.getId()%>" /> 
-						<input type="submit" value="Disabilita" />
+						<input type="hidden" name="idEscursione"
+							value="<%=escursione.getId()%>" /> <input type="submit"
+							value="Disabilita" />
 					</form>
 				</td>
 			</tr>
@@ -93,7 +96,7 @@
 	<%
 		}
 	%>
-	
+
 
 </body>
 </html>

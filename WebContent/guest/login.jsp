@@ -10,8 +10,10 @@
 
 	<form method="POST" action="LoginServlet">
 
-		Username: <input type="text" name="username" /> <br> Password: <input
-		type="password" name="password" /> <input type="submit" value="Login" />
+		Username: <input type="text" name="username" /> <br>
+		Password: <input type="password" name="password" /> <br>
+		
+		<input type="submit" value="Login" />
 
 	</form>
 	<br>

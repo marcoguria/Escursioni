@@ -9,6 +9,19 @@
 <title>Escursioni Ajò in Sardegna</title>
 </head>
 <body>
+
+
+	<%
+		if (request.getSession().getAttribute("ruolo") != null) {
+	%>
+	<form method="POST" action="../utenteregistrato/home.jsp">
+		<input type="submit" value="Home" />
+	</form>
+
+	<%
+		}
+	%>
+
 	<h1>Elenco Escursioni</h1>
 
 	<%
@@ -57,12 +70,36 @@
 				<td><%=escursione.getGuida()%></td>
 				<td><%=escursione.getMaxPartecipanti()%></td>
 				<td><%=escursione.getNumPrenotati()%></td>
+
+				<%
+					if (request.getSession().getAttribute("ruolo") == null) {
+				%>
 				<td>
-						<form method="POST" action="../cliente/FindByIdEscursioneServlet">
-							<input type="hidden" name="idEscursione" value="<%= escursione.getId() %>"/>
-							<input type="submit" value="Prenota"/>
-						</form>
-					</td>
+
+					<form method="POST" action="../cliente/FindByIdEscursioneServlet">
+						<input type="hidden" name="idEscursione"
+							value="<%=escursione.getId()%>" /> <input type="submit"
+							value="Prenota" />
+					</form>
+
+				</td>
+				<%
+					} else if (((int) request.getSession().getAttribute("ruolo") != 0)) {
+				%>
+
+
+				<td>
+
+					<form method="POST" action="../cliente/FindByIdEscursioneServlet">
+						<input type="hidden" name="idEscursione"
+							value="<%=escursione.getId()%>" /> <input type="submit"
+							value="Prenota" />
+					</form>
+
+				</td>
+				<%
+					}
+				%>
 			</tr>
 
 			<%
