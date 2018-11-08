@@ -45,25 +45,20 @@ public class FormRegistrazioneFilter implements Filter {
 
 		String nome = request.getParameter("nome");
 
-		if (nome.length() > 20 || nome.contains("\\d+")) {
+		if (nome.length() > 20 || nome.matches(".*\\d+.*")) {
 			map.put("nome", "Il nome deve essere di max 20 caratteri.Non può contenere numeri");
 		}
 
 		String cognome = request.getParameter("cognome");
-		if (cognome.length() > 20 || cognome.contains("\\d+")) {
+		if (cognome.length() > 20 || cognome.matches(".*\\d+.*")) {
 			map.put("cognome", "Il cognome deve essere di max 20 caratteri.Non può contenere numeri");
 		}
 		String codf = request.getParameter("codf");
 		if (codf.length() != 16) {
-			map.put("codf", "Codice fiscale non valido");
+			map.put("codf", " Min 16 caratteri");
 		}
-		String email = request.getParameter("email");
-		if (!email.contains("@") || email.length() > 40) {
-			map.put("email", "Email non valida");
-		}
-
-		String dataNascita = request.getParameter("dataNascita");
-		System.out.println(dataNascita);
+		
+		
 
 		String username = request.getParameter("username");
 		DAOUtenteRegistratoImpl daoUtenteRegistratoImpl = new DAOUtenteRegistratoImpl();
@@ -79,13 +74,13 @@ public class FormRegistrazioneFilter implements Filter {
 		}
 
 		String password = request.getParameter("password");
-		;
+		
 		if (password.length() < 3) {
 			map.put("password", "Password troppo corta");
 		}
 
 		String conferma = request.getParameter("conferma");
-		;
+		
 		if (!password.equals(conferma)) {
 			map.put("conferma", "Le password non non corrispondo");
 		}

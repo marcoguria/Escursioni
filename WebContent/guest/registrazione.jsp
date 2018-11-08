@@ -19,7 +19,7 @@
 		<%
 			if (map != null && map.containsKey("nome")) {
 		%>
-		<input type="text" class="form-control" value="<%=map.get("nome")%>">
+		<p><%=map.get("nome")%></p>
 		<%
 			}
 		%>
@@ -40,7 +40,7 @@
 		<%
 			}
 		%>
-		<br> Email: <input type="text" name="email" required />
+		<br>  E-mail: <input type="email" name="email" required />
 		<%
 			if (map != null && map.containsKey("email")) {
 		%>
@@ -48,7 +48,7 @@
 		<%
 			}
 		%>
-		<br> DataNascita: <input type="date" name="dataNascita" required />
+		<br> DataNascita: <input type="date" name="dataNascita" min="1920-01-01" max="2000-01-01" required />
 
 		<br> Username: <input type="text" name="username" required />
 		<%
