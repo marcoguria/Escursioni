@@ -1,7 +1,6 @@
 package it.ats.controllo.filtri.validazioneform;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,8 +14,6 @@ import javax.servlet.annotation.WebFilter;
 
 import it.ats.persistenza.DAOException;
 import it.ats.persistenza.impl.DAOUtenteRegistratoImpl;
-import it.ats.persistenza.impl.DAOVisitatoreImpl;
-import oracle.net.nt.SdpNTAdapter;
 
 /**
  * Servlet Filter implementation class FormRegistrazioneFilter
@@ -81,12 +78,25 @@ public class FormRegistrazioneFilter implements Filter {
 			System.out.println(e.getMessage());
 		}
 
+		String password = request.getParameter("password");
+		;
+		if (password.length() < 3) {
+			map.put("password", "Password troppo corta");
+		}
+
+		String conferma = request.getParameter("conferma");
+		;
+		if (!password.equals(conferma)) {
+			map.put("conferma", "Le password non non corrispondo");
+		}
+
 		if (!map.isEmpty()) {
 			request.setAttribute("mappaErrori", map);
 			request.getRequestDispatcher("../guest/registrazione.jsp").forward(request, response);
-			
-		} else
+
+		} else {
 			chain.doFilter(request, response);
+		}
 	}
 
 	/**
