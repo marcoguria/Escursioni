@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/bootstrap.min.css" >
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="customCss/index.css">
 <meta charset="ISO-8859-1">
 <title>Ajò Escursioni</title>
 </head>
 <body>
 
-		<div class="page-header">
-			<div class="row">			
-				<div class="pull-right">
-					<div class="col-lg-6">				
-						<form method="POST" action="guest/login.jsp">
-							<input type="submit" value="LOGIN" class="btn btn-default"/>
-						</form>
-					</div>											
-				</div>
-			
-				<div class="pull-right">
-					<div class="col-lg-6">
-						<form method="POST" action="guest/registrazione.jsp">
-							<input type="submit" value="REGISTRATI"  class="btn btn-default"/>
-						</form>
-					</div>
+	<div class="page-header">
+		<div class="row">
+			<div class="pull-right">
+				<div class="col-lg-6">
+					<form method="POST" action="guest/login.jsp">
+						<input type="submit" value="LOGIN" class="btn btn-default" />
+					</form>
 				</div>
 			</div>
-		</div>		
 
-		<div class="row">	
-			<div class="col-lg-12" align="center" id="panel">				
-				<p>Sardina Experience</p><br>
-				<a href="guest/FindEscursioniDisponibiliServlet">Visualizza elenco escursioni</a>
-			</div>	
-		</div>				
+			<div class="pull-right">
+				<div class="col-lg-6">
+					<form method="POST" action="guest/registrazione.jsp">
+						<input type="submit" value="REGISTRATI" class="btn btn-default" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-12" align="center" id="panel">
+			<p>Sardina Experience</p>
+			<br> <a href="guest/FindEscursioniDisponibiliServlet">Visualizza
+				elenco escursioni</a>
+		</div>
+	</div>
+
+
+	<a href="guest/FindEscursioniBySearchServlet">Cerca Escursioni</a>
+
 
 </body>
 </html>

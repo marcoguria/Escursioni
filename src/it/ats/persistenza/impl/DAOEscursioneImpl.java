@@ -5,10 +5,12 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-
 
 import it.ats.modello.Escursione;
 import it.ats.persistenza.DAOEscursione;
@@ -341,10 +343,21 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 			if (mapValori.get("dataEscursione") != null) {
 				index++;
-				
-				java.util.Date date = new java.util.Date();
-				 
-				prepareStatement.setString(index, mapValori.get("dataEscursione")); // TODO controllare data escursione
+
+				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+				String dataString = mapValori.get("dataEscursione");
+				java.util.Date parsed = null;
+				try {
+					parsed = format.parse(dataString);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				Date sqlDate = new Date(parsed.getTime());
+
+				prepareStatement.setDate(index, sqlDate); // TODO controllare data escursione
 
 			}
 

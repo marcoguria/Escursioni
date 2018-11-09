@@ -131,24 +131,7 @@ public class TestFrancesco {
 		}
 	}
 
-	private static void findByLuogo() {
-		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
-		Collection<Escursione> escursioni = null;
-
-		try {
-
-			escursioni = daoEscursioneImpl.findByLuogo("GORROPPU");
-			for (Iterator iterator = escursioni.iterator(); iterator.hasNext();) {
-				Escursione escursione = (Escursione) iterator.next();
-				System.out.println(escursione);
-
-			}
-		} catch (DAOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
+	
 	private static void findByID() {
 		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
 		try {
@@ -161,23 +144,7 @@ public class TestFrancesco {
 
 	}
 
-	private static void findByTipo() {
-		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
-		Collection<Escursione> escursioni = null;
-
-		try {
-
-			escursioni = daoEscursioneImpl.findByLuogo("MARE");
-			for (Iterator iterator = escursioni.iterator(); iterator.hasNext();) {
-				Escursione escursione = (Escursione) iterator.next();
-				System.out.println(escursione);
-
-			}
-		} catch (DAOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
 
 	private static void updateEscursione() {
 		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();

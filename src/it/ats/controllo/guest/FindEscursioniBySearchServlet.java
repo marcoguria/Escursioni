@@ -1,7 +1,10 @@
 package it.ats.controllo.guest;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -63,11 +66,34 @@ public class FindEscursioniBySearchServlet extends HttpServlet {
 
 				sql += "DATA_ESCURSIONE=?";
 				first = false;
-				mapValori.put("dataEscursione", request.getParameter("dataEscursione")); //TODO controllare data escursione
+
+				String string = request.getParameter("dataEscursione");
+				Date date1 = null;
+
+				try {
+					date1 = new SimpleDateFormat("yyyy-MM-dd").parse(string);
+					System.out.println(date1);
+
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				mapValori.put("dataEscursione", date1.toString()); // TODO controllare data escursione
 			} else {
 
 				sql += " and DATA_ESCURSIONE=?";
-				mapValori.put("dataEscursione", request.getParameter("dataEscursione"));//TODO controllare data escursione
+				String string = request.getParameter("dataEscursione");
+				Date date1 = null;
+
+				try {
+					date1 = new SimpleDateFormat("yyyy-MM-dd").parse(string);
+					System.out.println(date1);
+
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				mapValori.put("dataEscursione", date1.toString());
 			}
 		}
 
@@ -113,9 +139,15 @@ public class FindEscursioniBySearchServlet extends HttpServlet {
 				mapValori.put("difficolta", request.getParameter("difficolta"));
 			}
 		}
+		
+		DAOEscursioneImpl daoEscursioneImpl= new DAOEscursioneImpl();
+		
+		try {
+			escursioni = daoEscursioneImpl.findEscursioniBySearch(sql, mapValori);
+		} catch (DAOException e) {
+			System.out.println(e.getMessage());
+		}
 
-		
-		
 		request.setAttribute("escursioni", escursioni);
 		RequestDispatcher rd = request.getRequestDispatcher("escursioni.jsp");
 		rd.forward(request, response);
