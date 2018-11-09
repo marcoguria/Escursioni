@@ -74,7 +74,7 @@ public class RegistrazioneServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("../index.jsp");
+		response.sendRedirect("../index.html");
 	}
 
 }
