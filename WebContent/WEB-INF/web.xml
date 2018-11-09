@@ -12,7 +12,6 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
-	
 	<filter>
 		<filter-name>verificaPermessiFilter</filter-name>
 		<filter-class>it.ats.controllo.filtri.permessi.VerificaPermessiFilter</filter-class>
@@ -21,7 +20,6 @@
 		<filter-name>verificaPermessiFilter</filter-name>
 		<url-pattern>/admin/*</url-pattern>
 	</filter-mapping>
-	
 	<filter>
 		<filter-name>verificaPermessiClienteFilter</filter-name>
 		<filter-class>it.ats.controllo.filtri.permessi.VerificaPermessiClienteFilter</filter-class>
@@ -30,7 +28,6 @@
 		<filter-name>verificaPermessiClienteFilter</filter-name>
 		<url-pattern>/cliente/*</url-pattern>
 	</filter-mapping>
-	
 	<filter>
 		<filter-name>FormRegistrazioneFilter</filter-name>
 		<filter-class>it.ats.controllo.filtri.validazioneform.FormRegistrazioneFilter</filter-class>
@@ -39,7 +36,6 @@
 		<filter-name>FormRegistrazioneFilter</filter-name>
 		<url-pattern>/guest/RegistrazioneServlet</url-pattern>
 	</filter-mapping>
-	
 	<filter>
 		<filter-name>FormInserisciEscursioneForm</filter-name>
 		<filter-class>it.ats.controllo.filtri.validazioneform.FormInserisciEscursioneForm</filter-class>
@@ -47,5 +43,14 @@
 	<filter-mapping>
 		<filter-name>FormInserisciEscursioneForm</filter-name>
 		<url-pattern>/admin/InserisciEscursioneServlet</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>FormInserisciMetodoPagamentoFilter</filter-name>
+		<filter-class>it.ats.controllo.filtri.validazioneform.FormInserisciMetodoPagamentoFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>FormInserisciMetodoPagamentoFilter</filter-name>
+		<url-pattern>/cliente/AggiungiMetodoPagamentoServlet</url-pattern>
 	</filter-mapping>
 </web-app>
