@@ -19,7 +19,7 @@
 		<div id="fontPanel"> Username: <input type="text" name="username"/> </div> <br><br>
 		<div id="fontPanel"> Password: <input type="password" name="password" /> </div><br><br>
 		
-		<input type="submit" value="Login" />
+		<input type="submit" value="Login" class="btn btn-default"/>
 
 	</form>
 	<br>
