@@ -1,7 +1,7 @@
 package it.ats.persistenza;
 
 import java.util.Collection;
-import java.util.Date;
+import java.util.Map;
 
 import it.ats.modello.Escursione;
 
@@ -16,20 +16,12 @@ public interface DAOEscursione {
 	public Collection<Escursione> findAll() throws DAOException;
 
 	public Collection<Escursione> findEscursioniDisponibili() throws DAOException;
+	
+	public Collection<Escursione> findEscursioniBySearch(String sql,Map<String,String> mapValori) throws DAOException;
 
 	public Escursione findById(Long id) throws DAOException;
 
-	public Collection<Escursione> findByLuogo(String luogo) throws DAOException;
-
-	public Collection<Escursione> findByTipo(String tipo) throws DAOException;
-
-	public Collection<Escursione> findByData(Date data) throws DAOException;
-
 	public void deleteById(Long id) throws DAOException;
-
-	public Collection<Escursione> findByDurata(int durata) throws DAOException;
-
-	public Collection<Escursione> findByDifficolta(int difficolta) throws DAOException;
 
 	public void bloccaEscursione(Long id) throws DAOException;
 	

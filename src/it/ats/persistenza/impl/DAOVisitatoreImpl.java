@@ -3,6 +3,7 @@ package it.ats.persistenza.impl;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import it.ats.modello.Escursione;
 import it.ats.modello.Visitatore;
@@ -19,40 +20,11 @@ public class DAOVisitatoreImpl implements DAOVisitatore {
 	}
 
 	@Override
-	public Collection<Escursione> cercaEscursioneByTipo(String tipo) throws DAOException {
+	public Collection<Escursione> findBySearch(String sql, Map<String, String> mapValori) throws DAOException {
 		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
-		Collection<Escursione> escursioni = daoEscursioneImpl.findByTipo(tipo);
-		return escursioni;
-	}
-
-	@Override
-	public Collection<Escursione> cercaEscursioneByData(Date data) throws DAOException {
-		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
-		Collection<Escursione> escursioni = daoEscursioneImpl.findByData(data);
-		return escursioni;
-	}
-
-	@Override
-	public Collection<Escursione> cercaEscursioneByLuogo(String luogo) throws DAOException {
-		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
-		Collection<Escursione> escursioni = daoEscursioneImpl.findByLuogo(luogo);				
-		return escursioni;
-	}
-
-	@Override
-	public Collection<Escursione> cercaEscursioneByDurata(int durata) throws DAOException {
-		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
-		Collection<Escursione> escursioni = daoEscursioneImpl.findByDurata(durata);				
-		return escursioni;
-	}
-
-	@Override
-	public Collection<Escursione> cercaEscursioneByDifficolta(int difficolta) throws DAOException {
-		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
-		Collection<Escursione> escursioni = daoEscursioneImpl.findByDifficolta(difficolta);				
+		Collection<Escursione> escursioni = daoEscursioneImpl.findEscursioniBySearch(sql, mapValori);				
 		return escursioni;
 	}
 
 	
-
 }
