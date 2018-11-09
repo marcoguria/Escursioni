@@ -186,8 +186,8 @@ public class DAOUtenteRegistratoImpl implements DAOUtenteRegistrato {
 		try {
 			connection = instance.getConnection();
 			prepareStatement = connection.prepareStatement(sql);
-			prepareStatement.setString(1, utenteRegistrato.getNome());
-			prepareStatement.setString(2, utenteRegistrato.getCognome());
+			prepareStatement.setString(1, utenteRegistrato.getNome().toUpperCase());
+			prepareStatement.setString(2, utenteRegistrato.getCognome().toUpperCase());
 			prepareStatement.setString(3, utenteRegistrato.getCodf());
 			prepareStatement.setString(4, utenteRegistrato.getEmail());
 			Date sqlDate = new Date(utenteRegistrato.getData_nascita().getTime());

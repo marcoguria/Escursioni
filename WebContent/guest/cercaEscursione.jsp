@@ -10,29 +10,31 @@
 </head>
 <body>
 
-	<form method="POST" action="FindEscursioniBySearchServlet">
-		Tipo : <select id="tipo" name="tipo" multiple>
-			<option value="mare">Mare</option>
-			<option value="montagna">Montagna</option>
-			<option value="lago">Lago</option>
+	<form method="GET" action="FindEscursioniBySearchServlet">
+		Tipo : <select id="tipo" name="tipo">
+			<option value=''>Select a thing</option>
+			<option value="MARE">Mare</option>
+			<option value="MONTAGNA">Montagna</option>
+			<option value="LAGO">Lago</option>
 		</select>
-
+		<br>
 		<%
 			String pattern = "yyyy-MM-dd";
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 			String date = simpleDateFormat.format(new Date());
 		%>
 
-		Data Escursione: <input type="date" name="dataEscursione"  min="<%=date%>" /> 
-		Luogo: <input type="text" name="luogo" />
+		Data Escursione: <input type="date" name="dataEscursione" min="<%=date%>" /> <br>
+		Luogo: <input type="text" name="luogo" /><br>
 		
-		Durata: <input type="number" name="durata" min="1" max="25" /> 
+		Durata: <input type="number" name="durata" min="1" max="25" /> <br>
 		Difficoltà:
-		 <select id="difficolta" name="difficolta" multiple>
-			<option value="bassa">Bassa</option>
-			<option value="media">Media</option>
-			<option value="alta">Alta</option>
-		</select> 
+		 <select id="difficolta" name="difficolta"> 
+		 <option value=''>Select a thing</option>
+			<option value="BASSA">Bassa</option>
+			<option value="MEDIA">Media</option>
+			<option value="ALTA">Alta</option>
+		</select> <br>
 			
 		<input type="submit" value="CERCA" />
 	</form>

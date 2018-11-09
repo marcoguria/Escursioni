@@ -23,7 +23,7 @@ import it.ats.persistenza.impl.DAOEscursioneImpl;
 /**
  * Servlet implementation class FindEscursioniBySearchServlet
  */
-@WebServlet("/guest//FindEscursioniBySearchServlet")
+@WebServlet("/guest/FindEscursioniBySearchServlet")
 public class FindEscursioniBySearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

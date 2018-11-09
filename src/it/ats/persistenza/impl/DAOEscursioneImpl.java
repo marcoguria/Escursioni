@@ -30,14 +30,14 @@ public class DAOEscursioneImpl implements DAOEscursione {
 		try {
 			connection = instance.getConnection();
 			prepareStatement = connection.prepareStatement(sql);
-			prepareStatement.setString(1, escursione.getLuogo());
-			prepareStatement.setString(2, escursione.getTipo());
+			prepareStatement.setString(1, escursione.getLuogo().toUpperCase());
+			prepareStatement.setString(2, escursione.getTipo().toUpperCase());
 			Date sqlDate = new Date(escursione.getData().getTime());
 			prepareStatement.setDate(3, sqlDate);
 			prepareStatement.setDouble(4, escursione.getDurata());
-			prepareStatement.setString(5, escursione.getDifficolta());
+			prepareStatement.setString(5, escursione.getDifficolta().toUpperCase());
 			prepareStatement.setDouble(6, escursione.getPrezzo());
-			prepareStatement.setString(7, escursione.getGuida());
+			prepareStatement.setString(7, escursione.getGuida().toUpperCase());
 			prepareStatement.setInt(8, escursione.getMaxPartecipanti());
 			prepareStatement.setInt(9, escursione.getNumPrenotati());
 
@@ -68,14 +68,14 @@ public class DAOEscursioneImpl implements DAOEscursione {
 		try {
 			connection = instance.getConnection();
 			prepareStatement = connection.prepareStatement(sql);
-			prepareStatement.setString(1, escursione.getLuogo());
-			prepareStatement.setString(2, escursione.getTipo());
+			prepareStatement.setString(1, escursione.getLuogo().toUpperCase());
+			prepareStatement.setString(2, escursione.getTipo().toUpperCase());
 			Date sqlDate = new Date(escursione.getData().getTime());
 			prepareStatement.setDate(3, sqlDate);
 			prepareStatement.setDouble(4, escursione.getDurata());
-			prepareStatement.setString(5, escursione.getDifficolta());
+			prepareStatement.setString(5, escursione.getDifficolta().toUpperCase());
 			prepareStatement.setDouble(6, escursione.getPrezzo());
-			prepareStatement.setString(7, escursione.getGuida());
+			prepareStatement.setString(7, escursione.getGuida().toUpperCase());
 			prepareStatement.setInt(8, escursione.getMaxPartecipanti());
 			prepareStatement.setInt(9, escursione.getNumPrenotati());
 			prepareStatement.setLong(10, escursione.getId());
@@ -337,7 +337,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 			if (mapValori.get("tipo") != null) {
 				index++;
-				prepareStatement.setString(index, mapValori.get("tipo"));
+				prepareStatement.setString(index, mapValori.get("tipo").toUpperCase());
 
 			}
 
@@ -363,7 +363,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 			if (mapValori.get("luogo") != null) {
 				index++;
-				prepareStatement.setString(index, mapValori.get("luogo"));
+				prepareStatement.setString(index, mapValori.get("luogo").toUpperCase());
 
 			}
 
@@ -375,7 +375,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 			if (mapValori.get("difficolta") != null) {
 				index++;
-				prepareStatement.setString(index, mapValori.get("difficolta"));
+				prepareStatement.setString(index, mapValori.get("difficolta").toUpperCase());
 
 			}
 
