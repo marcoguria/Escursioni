@@ -1,5 +1,7 @@
-#login {
-    background: url('');
+body {
+    background: url('../ImgSource/bgImg/climberMan.jpg');
+    background-position: center;
+    background-size: auto;
    
 }
 
