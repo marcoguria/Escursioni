@@ -16,8 +16,8 @@
   
 	<form method="POST" action="LoginServlet">
 
-		Username: <input type="text" name="username" /> <br><br>
-		Password: <input type="password" name="password" /> <br><br>
+		<div id="fontPanel"> Username: <input type="text" name="username"/> </div> <br><br>
+		<div id="fontPanel"> Password: <input type="password" name="password" /> </div><br><br>
 		
 		<input type="submit" value="Login" />
 
