@@ -38,8 +38,7 @@
 				<th>CODF</th>
 				<th>EMAIL</th>
 				<th>DATA NASCITA</th>
-				<th>RUOLO</th>
-				<th>USERNAME</th>
+				<th>RUOLO</th>				
 				<th>STATO UTENTE</th>
 
 				<th></th>
@@ -57,8 +56,11 @@
 				<td><%=utenteRegistrato.getCodf()%></td>
 				<td><%=utenteRegistrato.getEmail()%></td>
 				<td><%=utenteRegistrato.getData_nascita()%></td>
-				<td><%=utenteRegistrato.getFlag_ruolo()%></td>
-				<td><%=utenteRegistrato.getUsername()%></td>
+				<td><%if(utenteRegistrato.getFlag_ruolo()==0){	
+					out.println("AMMINISTRATORE");  %>
+					<% }if(utenteRegistrato.getFlag_ruolo()==1){
+						out.println("CLIENTE");
+						}%></td>				
 				<td><% if(utenteRegistrato.getAttivo()==0){	
 					out.println("DISATTIVO");  %>
 					<% }if(utenteRegistrato.getAttivo()==1){
@@ -67,6 +69,8 @@
 				</td>
 				<!-- srthrtshwrhthwt -->
 				<td>
+				
+				<%if (utenteRegistrato.getFlag_ruolo()==1){ %>
 				<% if(utenteRegistrato.getAttivo()==0){%>
 					<form method="POST" action="SbloccaUtenteServlet">
 						<input type="hidden" name="idCliente"
@@ -79,6 +83,8 @@
 							value="<%=utenteRegistrato.getID()%>" /> <input type="submit"
 							value="BLOCCA" />
 						</form>
+						<%} %>
+						
 						<%} %>
 					
 				</td>

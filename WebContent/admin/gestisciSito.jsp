@@ -16,12 +16,15 @@
 	</form>
 	
 	<form method="POST" action="gestisciEscursioni.jsp">
-		<input type="submit" value="Gestisci escursioni" />
+		<input type="submit" value="Gestisci Escursioni" />
 	</form>
 	
+	<form method="POST" action="ReportEscursioniServlet">
+		<input type="submit" value="Report Escursioni" />
+	</form>
 
 	<form method="POST" action="gestisciClienti.jsp">
-		<input type="submit" value="Gestisci clienti" />
+		<input type="submit" value="Gestisci Clienti" />
 	</form>
 
 

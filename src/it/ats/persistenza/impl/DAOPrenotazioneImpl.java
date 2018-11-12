@@ -51,36 +51,32 @@ public class DAOPrenotazioneImpl implements DAOPrenotazione {
 	@Override
 	public Collection<Prenotazione> findPrenotazioneByIdUtente(Long id_utente) throws DAOException {
 		Collection<Prenotazione> prenotazioni = new ArrayList();
-		
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		
 
 		try {
 			connection = DataSource.getInstance().getConnection();
-			preparedStatement = connection.prepareStatement("SELECT * FROM PRENOTAZIONE P INNER JOIN ESCURSIONE E ON "
-					+ "P.ID_ESCURSIONE= E.ID "
-					+ "INNER JOIN UTENTE U ON "
-					+ "P.ID_UTENTE=U.ID "
-					+ "WHERE P.ID_UTENTE=?");
-			
+			preparedStatement = connection.prepareStatement(
+					"SELECT * FROM PRENOTAZIONE P INNER JOIN ESCURSIONE E ON " + "P.ID_ESCURSIONE= E.ID "
+							+ "INNER JOIN UTENTE U ON " + "P.ID_UTENTE=U.ID " + "WHERE P.ID_UTENTE=?");
+
 			preparedStatement.setLong(1, id_utente);
 			resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
 				Prenotazione prenotazione = new Prenotazione();
-				Escursione escursione=new Escursione();
+				Escursione escursione = new Escursione();
 				UtenteRegistrato utenteRegistrato = null;
-				
-				int flag_ruolo = resultSet.getInt("FLAG_RUOLO");			
+
+				int flag_ruolo = resultSet.getInt("FLAG_RUOLO");
 				if (flag_ruolo == 1) {
-					utenteRegistrato  = new Cliente();
+					utenteRegistrato = new Cliente();
 				} else if (flag_ruolo == 0) {
 					utenteRegistrato = new Amministratore();
-				}			
-				
+				}
+
 				escursione.setId(resultSet.getLong("ID_ESCURSIONE"));
 				escursione.setLuogo(resultSet.getString("LUOGO"));
 				escursione.setTipo(resultSet.getString("TIPO"));
@@ -91,7 +87,7 @@ public class DAOPrenotazioneImpl implements DAOPrenotazione {
 				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
-				
+
 				utenteRegistrato.setID(resultSet.getLong("ID_UTENTE"));
 				utenteRegistrato.setNome(resultSet.getString("NOME"));
 				utenteRegistrato.setCognome(resultSet.getString("COGNOME"));
@@ -99,15 +95,14 @@ public class DAOPrenotazioneImpl implements DAOPrenotazione {
 				utenteRegistrato.setEmail(resultSet.getString("EMAIL"));
 				utenteRegistrato.setData_nascita(resultSet.getDate("DATA_NASCITA"));
 				utenteRegistrato.setFlag_ruolo(resultSet.getInt("FLAG_RUOLO"));
-				
-				
+
 				prenotazione.setId(resultSet.getLong("ID"));
 				prenotazione.setEscursione(escursione);
 				prenotazione.setUtenteRegistrato(utenteRegistrato);
 				prenotazione.setData_prenotazione(resultSet.getDate("DATA_PRENOTAZIONE"));
 				System.out.println(prenotazione);
 				prenotazioni.add(prenotazione);
-				
+
 			}
 
 		} catch (SQLException e) {
@@ -145,6 +140,74 @@ public class DAOPrenotazioneImpl implements DAOPrenotazione {
 
 		}
 
+	}
+
+	@Override
+	public Collection<Prenotazione> findPrenotazioneByIdEscursione(Long id_escursione) throws DAOException {
+		Collection<Prenotazione> prenotazioni = new ArrayList();
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = DataSource.getInstance().getConnection();
+			preparedStatement = connection.prepareStatement(
+					"SELECT * FROM PRENOTAZIONE P INNER JOIN ESCURSIONE E ON " + "P.ID_ESCURSIONE= E.ID "
+							+ "INNER JOIN UTENTE U ON " + "P.ID_UTENTE=U.ID " + "WHERE P.ID_ESCURSIONE=?");
+
+			preparedStatement.setLong(1, id_escursione);
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				Prenotazione prenotazione = new Prenotazione();
+				Escursione escursione = new Escursione();
+				UtenteRegistrato utenteRegistrato = null;
+
+				int flag_ruolo = resultSet.getInt("FLAG_RUOLO");
+				if (flag_ruolo == 1) {
+					utenteRegistrato = new Cliente();
+				} else if (flag_ruolo == 0) {
+					utenteRegistrato = new Amministratore();
+				}
+
+				escursione.setId(resultSet.getLong("ID_ESCURSIONE"));
+				escursione.setLuogo(resultSet.getString("LUOGO"));
+				escursione.setTipo(resultSet.getString("TIPO"));
+				escursione.setData(resultSet.getDate("DATA_ESCURSIONE"));
+				escursione.setDurata(resultSet.getDouble("DURATA"));
+				escursione.setDifficolta(resultSet.getString("DIFFICOLTA"));
+				escursione.setPrezzo(resultSet.getDouble("PREZZO"));
+				escursione.setGuida(resultSet.getString("GUIDA_ESCURSIONE"));
+				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
+				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
+
+				utenteRegistrato.setID(resultSet.getLong("ID_UTENTE"));
+				utenteRegistrato.setNome(resultSet.getString("NOME"));
+				utenteRegistrato.setCognome(resultSet.getString("COGNOME"));
+				utenteRegistrato.setCodf(resultSet.getString("CODF"));
+				utenteRegistrato.setEmail(resultSet.getString("EMAIL"));
+				utenteRegistrato.setData_nascita(resultSet.getDate("DATA_NASCITA"));
+				utenteRegistrato.setFlag_ruolo(resultSet.getInt("FLAG_RUOLO"));
+
+				prenotazione.setId(resultSet.getLong("ID"));
+				prenotazione.setEscursione(escursione);
+				prenotazione.setUtenteRegistrato(utenteRegistrato);
+				prenotazione.setData_prenotazione(resultSet.getDate("DATA_PRENOTAZIONE"));
+				System.out.println(prenotazione);
+				prenotazioni.add(prenotazione);
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new DAOException(e.getMessage());
+		} finally {
+			DataSource.getInstance().close(resultSet);
+			DataSource.getInstance().close(preparedStatement);
+			DataSource.getInstance().close(connection);
+		}
+		return prenotazioni;
 	}
 
 }
