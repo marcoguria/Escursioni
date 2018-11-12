@@ -51,7 +51,6 @@ public class VerificaPermessiClienteFilter implements Filter {
 			out.println("location='../';");
 			out.println("</script>");
 
-			// response.sendRedirect("../");
 
 		} else if ((int) request.getSession().getAttribute("ruolo") != 1) {
 			System.out.println("non sei un cliente\n");

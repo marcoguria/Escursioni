@@ -41,13 +41,13 @@ public class RiepilogoFinalePrenotazione extends HttpServlet {
 		DAOCartaPagamentoImpl cartaPagamentoImpl = new DAOCartaPagamentoImpl();
 		DAOEscursioneImpl daoEscursioneImpl = new DAOEscursioneImpl();
 		Long idEscursione = Long.parseLong(request.getParameter("idEscursione"));
-		Long idCarta = Long.parseLong(request.getParameter("idCarta"));
+		Long numero_carta = Long.parseLong(request.getParameter("numero_carta"));		
 		Escursione escursione = new Escursione();
 		CartaPagamento cartaPagamento = new CartaPagamento();
 
 		try {
 			escursione = daoEscursioneImpl.findById(idEscursione);
-			cartaPagamento = cartaPagamentoImpl.findCartePagamentoByIdCarta(idCarta);
+			cartaPagamento = cartaPagamentoImpl.findCartePagamentoByNumeroCarta(numero_carta);			
 		} catch (DAOException e) {
 			System.out.println(e.getMessage());
 		}

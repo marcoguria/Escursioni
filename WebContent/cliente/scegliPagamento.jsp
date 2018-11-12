@@ -79,27 +79,29 @@
 	<p>Non è stato inserito nessun metodo di pagamamento</p>
 
 	<%
-		}
+		} else {
 	%>
 
 
 	<h3>Scegli metodo di pagamento</h3>
 
-	<%
-		for (CartaPagamento cartaPagamento : cartePagamento) {
-	%>
-
-	<form action="">
-		<input type="radio" name="gender" value="male">
-		<%=cartaPagamento.getTipo()%>
-		<%=cartaPagamento.getNumero_carta()%><br>
-	</form>
-
 	<form method="POST" action="RiepilogoFinalePrenotazione">
-		<input type="hidden" name="idEscursione"
-			value="<%=escursione.getId()%>" /> <input type="hidden"
-			name="idCarta" value="<%=cartaPagamento.getId()%>" /> <input
-			type="submit" value="Prosegui" />
+		<select id="carta" name="numero_carta">
+			<%
+				for (CartaPagamento cartaPagamento : cartePagamento) {
+			%>
+			<option value="<%=cartaPagamento.getNumero_carta()%>"><%=cartaPagamento.getTipo()%>
+				<%=cartaPagamento.getNumero_carta()%>
+			</option>
+
+			<%
+				}
+			%>
+
+		</select>
+		
+		 <input type="hidden" name="idEscursione" value="<%=escursione.getId()%>" />
+		  <input type="submit" value="Prosegui" />
 	</form>
 
 	<%
@@ -111,7 +113,7 @@
 			value="<%=escursione.getId()%>" /> <input type="submit"
 			value="AGGIUNGI METODO PAGAMENTO" />
 	</form>
-	
+
 
 
 </body>

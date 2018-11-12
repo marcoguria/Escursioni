@@ -1,6 +1,7 @@
 package it.ats.controllo.guest;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +18,6 @@ import it.ats.persistenza.impl.DAOUtenteRegistratoImpl;
 /**
  * Servlet implementation class LoginServlet
  */
-
 
 @WebServlet("/guest/LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -48,27 +48,26 @@ public class LoginServlet extends HttpServlet {
 		try {
 
 			utenteRegistrato = daoUtenteRegistrato.verificaAccount(username, password);
-			System.out.println("\n\n\n\n");
-			System.out.println(utenteRegistrato.getUsername());
-			System.out.println(utenteRegistrato.getPassword());
-			
-			
+
 		} catch (DAOException e) {
 
 			System.out.println(e.getMessage());
 
 		}
 
-		if(utenteRegistrato==null)
-			response.sendRedirect("errorpage.jsp");
-		else {
+		if (utenteRegistrato == null) {
+			PrintWriter out = response.getWriter();
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Account non valido');");
+			out.println("location='login.jsp';");
+			out.println("</script>");
+
+		} else {
 			request.getSession().setAttribute("id_utente", utenteRegistrato.getID());
 			request.getSession().setAttribute("ruolo", utenteRegistrato.getFlag_ruolo());
 			response.sendRedirect("../utenteregistrato/home.jsp");
-					
+
 		}
-		
-		
 
 	}
 
