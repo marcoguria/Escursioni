@@ -1,4 +1,4 @@
-package it.ats.controllo.cliente;
+package it.ats.controllo.utenteregistrato;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -24,7 +24,7 @@ import it.ats.persistenza.impl.DAOUtenteRegistratoImpl;
 /**
  * Servlet implementation class UpdateUtenteRegistratoServlet
  */
-@WebServlet("/cliente/UpdateUtenteRegistratoServlet")
+@WebServlet("/utenteregistrato/UpdateUtenteRegistratoServlet")
 public class UpdateUtenteRegistratoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -59,7 +59,6 @@ public class UpdateUtenteRegistratoServlet extends HttpServlet {
 			System.out.println(date1);
 
 		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		cliente.setData_nascita(date1);
@@ -76,7 +75,7 @@ public class UpdateUtenteRegistratoServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("../utenteregistrato/profilo.jsp");
+		response.sendRedirect("profilo.jsp");
 	}
 
 }

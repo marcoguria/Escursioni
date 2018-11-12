@@ -57,37 +57,45 @@ public class FormRegistrazioneFilter implements Filter {
 		if (codf.length() != 16) {
 			map.put("codf", " Min 16 caratteri");
 		}
-		
-		
 
 		String username = request.getParameter("username");
 		DAOUtenteRegistratoImpl daoUtenteRegistratoImpl = new DAOUtenteRegistratoImpl();
+		
+		
 		try {
 			String findUsername = daoUtenteRegistratoImpl.findUsername(username);
-			if (findUsername != null) {
 
-				map.put("username", "Username già esistente");
+			if (request.getParameter("contesto").equals("registrazione")) {
+				if (findUsername != null) {
+
+					map.put("username", "Username già esistente");
+				}
 			}
+			
 
 		} catch (DAOException e) {
 			System.out.println(e.getMessage());
 		}
 
 		String password = request.getParameter("password");
-		
+
 		if (password.length() < 3) {
 			map.put("password", "Password troppo corta");
 		}
 
 		String conferma = request.getParameter("conferma");
-		
+
 		if (!password.equals(conferma)) {
-			map.put("conferma", "Le password non non corrispondo");
+			map.put("conferma", "Le password non corrispondo");
 		}
 
 		if (!map.isEmpty()) {
 			request.setAttribute("mappaErrori", map);
-			request.getRequestDispatcher("../guest/registrazione.jsp").forward(request, response);
+			if (request.getParameter("contesto").equals("registrazione")) {
+				request.getRequestDispatcher("../guest/registrazione.jsp").forward(request, response);
+			} else {
+				request.getRequestDispatcher("../utenteregistrato/GetMyProfileServlet").forward(request, response);
+			}
 
 		} else {
 			chain.doFilter(request, response);
