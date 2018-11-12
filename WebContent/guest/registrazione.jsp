@@ -5,15 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/registrazioneCss.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<title>Registrazione</title>
 </head>
 <body>
-
+	
 	<%
 		Map<String, String> map = (Map) request.getAttribute("mappaErrori");
 	%>
+	
+	<div class="row">
+
+  <div class="col-lg-4" align="center" id="panel">
+	
 
 	<form method="POST" action="RegistrazioneServlet">
+	
+	
 
 		Nome: <input type="text" name="nome" required />
 		<%
@@ -76,8 +85,12 @@
 		<%
 			}
 		%>
+		 <input type="hidden" name="contesto" value="registrazione" />
 		<br> <input type="submit" value="REGISTRATI" />
 
 	</form>
+		</div>
+		</div>
+	
 </body>
 </html>

@@ -13,12 +13,12 @@
 
 <div class="row">
 
-  <div class="col-lg-12" align="center" id="panel">
+  <div class="col-lg-4" align="center" id="panel">
   
 	<form method="POST" action="LoginServlet">
 
-		<div id="fontPanel"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Username <br><input type="text" name="username"/> </div> <br><br>
-		<div id="fontPanel"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Password <br> <input type="password" name="password" /> </div><br><br>
+		<div id="fontPanel"><span class="glyphicon glyphicon-user" ></span> Username</div> <br><input type="text" name="username"/>  <br><br>
+		<div id="fontPanel"><span class="glyphicon glyphicon-lock" ></span> Password <br> <input type="password" name="password" /> </div><br><br>
 				
 		<input type="submit" value="Login" class="btn btn-default" />
 
