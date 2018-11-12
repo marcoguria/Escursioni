@@ -15,7 +15,7 @@ public class Escursione {
 	private int maxPartecipanti;
 	private int numPrenotati=0;
 	private int disponibile; //di default l'escursione è disponibile
-	
+	private String Descrizione;
 	
 	
 	public Long getId() {
@@ -78,6 +78,12 @@ public class Escursione {
 	}
 	public void setNumPrenotati(int numPrenotati) {
 		this.numPrenotati = numPrenotati;
+	}
+	public String getDescrizione() {
+		return Descrizione;
+	}
+	public void setDescrizione(String descrizione) {
+		Descrizione = descrizione;
 	}
 	public int getDisponibile() {
 		return disponibile;

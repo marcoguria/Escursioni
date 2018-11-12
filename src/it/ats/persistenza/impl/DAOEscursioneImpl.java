@@ -21,7 +21,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 	@Override
 	public void addEscursione(Escursione escursione) throws DAOException {
-		String sql = "insert into ESCURSIONE values(SEQ_ESCURSIONE.NEXTVAL,?,?,?,?,?,?,?,?,?,'1')";
+		String sql = "insert into ESCURSIONE values(SEQ_ESCURSIONE.NEXTVAL,?,?,?,?,?,?,?,?,?,'1',?)";
 
 		System.out.println(sql);
 		DataSource instance = DataSource.getInstance();
@@ -40,6 +40,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 			prepareStatement.setString(7, escursione.getGuida().toUpperCase());
 			prepareStatement.setInt(8, escursione.getMaxPartecipanti());
 			prepareStatement.setInt(9, escursione.getNumPrenotati());
+			prepareStatement.setString(10, escursione.getDescrizione());
 
 			System.out.println("inseriment nel database" + escursione);
 			prepareStatement.executeUpdate();
@@ -59,7 +60,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 	public void updateEscursione(Escursione escursione) throws DAOException {
 
 		String sql = "update ESCURSIONE set luogo=?," + "tipo=?," + "data_escursione=?," + "durata=?," + "difficolta=?,"
-				+ "prezzo=?," + "guida_escursione=?," + "max_partecipanti=?," + "num_prenotati=?" + "where id=?";
+				+ "prezzo=?," + "guida_escursione=?," + "max_partecipanti=?," + "num_prenotati=?," + "descrizione=? " + "where id=?";
 
 		System.out.println(sql);
 		DataSource instance = DataSource.getInstance();
@@ -78,7 +79,8 @@ public class DAOEscursioneImpl implements DAOEscursione {
 			prepareStatement.setString(7, escursione.getGuida().toUpperCase());
 			prepareStatement.setInt(8, escursione.getMaxPartecipanti());
 			prepareStatement.setInt(9, escursione.getNumPrenotati());
-			prepareStatement.setLong(10, escursione.getId());
+			prepareStatement.setString(10, escursione.getDescrizione());
+			prepareStatement.setLong(11, escursione.getId());
 
 			prepareStatement.executeUpdate();
 
@@ -145,6 +147,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
 				escursione.setDisponibile(resultSet.getInt("DISPONIBILE"));
+				escursione.setDescrizione(resultSet.getString("DESCRIZIONE"));
 				escursioni.add(escursione);
 
 			}
@@ -208,6 +211,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
 				escursione.setDisponibile(resultSet.getInt("DISPONIBILE"));
+				escursione.setDescrizione(resultSet.getString("DESCRIZIONE"));
 
 			}
 
@@ -252,6 +256,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
 				escursione.setDisponibile(resultSet.getInt("DISPONIBILE"));
+				escursione.setDescrizione(resultSet.getString("DESCRIZIONE"));
 				escursioni.add(escursione);
 
 			}
@@ -395,6 +400,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 				escursione.setMaxPartecipanti(resultSet.getInt("MAX_PARTECIPANTI"));
 				escursione.setNumPrenotati(resultSet.getInt("NUM_PRENOTATI"));
 				escursione.setDisponibile(resultSet.getInt("DISPONIBILE"));
+				escursione.setDescrizione(resultSet.getString("DESCRIZIONE"));
 				escursioni.add(escursione);
 
 			}

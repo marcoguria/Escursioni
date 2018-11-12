@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../css/elencoEscursioni.css">
 <title>Escursioni Ajò in Sardegna</title>
 </head>
 <body>
@@ -51,6 +53,7 @@
 				<th>GUIDA</th>
 				<th>MAX PARTECIPANTI</th>
 				<th>NUM PRENOTATI</th>
+				<th>DESCRIZIONE</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -70,6 +73,8 @@
 				<td><%=escursione.getGuida()%></td>
 				<td><%=escursione.getMaxPartecipanti()%></td>
 				<td><%=escursione.getNumPrenotati()%></td>
+				<td><div class=desc><%=escursione.getDescrizione()%></div></td>
+			
 
 				<%
 					if (request.getSession().getAttribute("ruolo") == null) {
@@ -115,3 +120,11 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+            
