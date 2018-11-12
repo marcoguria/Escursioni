@@ -18,7 +18,7 @@
 	<form method="POST" action="LoginServlet">
 
 		<div id="fontPanel"><span class="glyphicon glyphicon-user" ></span> Username</div> <br><input type="text" name="username"/>  <br><br>
-		<div id="fontPanel"><span class="glyphicon glyphicon-lock" ></span> Password <br> <input type="password" name="password" /> </div><br><br>
+		<div id="fontPanel"><span class="glyphicon glyphicon-lock" ></span> Password</div> <br> <input type="password" name="password" /> <br><br>
 				
 		<input type="submit" value="Login" class="btn btn-default" />
 
