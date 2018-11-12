@@ -5,24 +5,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="../css/registrazioneCss.css">
+<link rel="stylesheet" type="text/css" href="../css/registrazione.css">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <title>Registrazione</title>
 </head>
 <body>
+
 	
+	<span class="align-middle">
 	<%
 		Map<String, String> map = (Map) request.getAttribute("mappaErrori");
 	%>
+	<div class= "conteiner">
 	
 	<div class="row">
-
-  <div class="col-lg-4" align="center" id="panel">
+   <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3" align="center" id="panel">
 	
 
 	<form method="POST" action="RegistrazioneServlet">
 	
-	
+	<div class="row">
+	<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
 
 		Nome: <input type="text" name="nome" required />
 		<%
@@ -31,8 +34,10 @@
 		<p><%=map.get("nome")%></p>
 		<%
 			}
-		%>
-		<br> <br> Cognome: <input type="text" name="cognome"
+		%><br>
+		</div>
+		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
+		 Cognome: <input type="text" name="cognome"
 			required />
 		<%
 			if (map != null && map.containsKey("cognome")) {
@@ -41,6 +46,12 @@
 		<%
 			}
 		%>
+		</div>
+		</div>
+		
+		<div class="row">
+		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
+		
 		<br> CodFiscale: <input type="text" name="codf" required />
 		<%
 			if (map != null && map.containsKey("codf")) {
@@ -49,7 +60,9 @@
 		<%
 			}
 		%>
-		<br>  E-mail: <input type="email" name="email" required />
+		</div>
+		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
+		<br> E-mail: <input type="email" name="email" required />
 		<%
 			if (map != null && map.containsKey("email")) {
 		%>
@@ -57,8 +70,14 @@
 		<%
 			}
 		%>
+		</div>
+		</div>
+		
+		<div class="row">
+		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
 		<br> DataNascita: <input type="date" name="dataNascita" min="1920-01-01" max="2000-01-01" required />
-
+		</div>
+		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
 		<br> Username: <input type="text" name="username" required />
 		<%
 			if (map != null && map.containsKey("username")) {
@@ -67,7 +86,11 @@
 		<%
 			}
 		%>
-
+		</div>
+		</div>
+		
+		<div class="row">
+		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
 		<br> Password: <input type="password" name="password" required />
 		<%
 			if (map != null && map.containsKey("password")) {
@@ -76,8 +99,9 @@
 		<%
 			}
 		%>
-		
-		<br> Conferma Password: <input type="password" name="conferma" required />
+		</div>
+		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
+		<br>ConfermaPassword: <input type="password" name="conferma" required />
 		<%
 			if (map != null && map.containsKey("conferma")) {
 		%>
@@ -85,12 +109,17 @@
 		<%
 			}
 		%>
+		</div>
+		</div>
 		 <input type="hidden" name="contesto" value="registrazione" />
-		<br> <input type="submit" value="REGISTRATI" />
+		<br><br> <input type="submit" value="REGISTRATI" />
 
 	</form>
 		</div>
 		</div>
-	
+		</div>
+		
+		</span>
+			
 </body>
 </html>
