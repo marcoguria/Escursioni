@@ -60,42 +60,7 @@ public class FindEscursioniBySearchServlet extends HttpServlet {
 
 		}
 
-		if (!request.getParameter("dataEscursione").isEmpty()) {
-
-			if (first) {
-
-				sql += "DATA_ESCURSIONE=?";
-				first = false;
-
-				String string = request.getParameter("dataEscursione");
-				Date date1 = null;
-
-				try {
-					date1 = new SimpleDateFormat("yyyy-MM-dd").parse(string);
-					System.out.println(date1);
-
-				} catch (ParseException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				mapValori.put("dataEscursione", date1.toString()); // TODO controllare data escursione
-			} else {
-
-				sql += " and DATA_ESCURSIONE=?";
-				String string = request.getParameter("dataEscursione");
-				Date date1 = null;
-
-				try {
-					date1 = new SimpleDateFormat("yyyy-MM-dd").parse(string);
-					System.out.println(date1);
-
-				} catch (ParseException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				mapValori.put("dataEscursione", date1.toString());
-			}
-		}
+		
 
 		if (!request.getParameter("luogo").isEmpty()) {
 

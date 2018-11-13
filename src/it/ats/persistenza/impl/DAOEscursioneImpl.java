@@ -346,25 +346,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 			}
 
-			if (mapValori.get("dataEscursione") != null) {
-				index++;
-
-				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
-				String dataString = mapValori.get("dataEscursione");
-				java.util.Date parsed = null;
-				try {
-					parsed = format.parse(dataString);
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-				Date sqlDate = new Date(parsed.getTime());
-
-				prepareStatement.setDate(index, sqlDate); // TODO controllare data escursione
-
-			}
+			
 
 			if (mapValori.get("luogo") != null) {
 				index++;

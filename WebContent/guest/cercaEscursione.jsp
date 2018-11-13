@@ -54,16 +54,7 @@
 									</div>
 									<div class="row">
 										<div class="col-sm-6">
-											<div class="form-group">
-												<span class="form-label">Data</span>
-												<%
-													String pattern = "yyyy-MM-dd";
-													SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-													String date = simpleDateFormat.format(new Date());
-												%>
-												<input class="form-control" type="date"
-													name="dataEscursione" min="<%=date%>" />
-											</div>
+											
 										</div>
 										<div class="col-sm-6"></div>
 									</div>
@@ -92,9 +83,9 @@
 										</div>
 										<div class="col-sm-4">
 											<div class="form-group">
-												<span class="form-label">Durata</span> <input
-													class="form-control" type="number" name="durata" min="1"
-													max="25" /> <span class="select-arrow"></span>
+												<span class="form-label">Durata</span> <input type="number"
+													class="form-control" name="durata" min="1" max="25" /> <span
+													class="select-arrow"></span>
 											</div>
 										</div>
 									</div>
