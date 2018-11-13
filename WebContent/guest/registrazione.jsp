@@ -90,8 +90,10 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-list-alt"></i>
 										</div>
-										<textarea class="form-control" name="codf"
-											placeholder="Codice Fiscale" required></textarea>
+
+
+										<input type="text" class="form-control" name="codf"
+											placeholder="Codice Fiscale" required>
 
 									</div>
 									<%
@@ -115,7 +117,7 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-envelope"></i>
 										</div>
-										<input type="email" class="form-control" name="Email"
+										<input type="email" class="form-control" name="email"
 											placeholder="E-Mail" required>
 
 									</div>
@@ -180,9 +182,8 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-lock"></i>
 										</div>
-										<input type="password" minlength="8" maxlength="20"
-											placeholder="Password" name="password" class="form-control"
-											required>
+										<input type="password" placeholder="Password" name="password"
+											class="form-control" required>
 
 									</div>
 									<%
@@ -204,19 +205,18 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-lock"></i>
 										</div>
-										<input type="password" minlength="8" maxlength="20"
-											placeholder="Conferma password" name="conferma"
-											class="form-control" required>
-										
+										<input type="password" placeholder="Conferma password"
+											name="conferma" class="form-control" required>
+
 									</div>
 									<%
-											if (map != null && map.containsKey("conferma")) {
-										%>
-										<div class="alert alert-danger" role="alert">
+										if (map != null && map.containsKey("conferma")) {
+									%>
+									<div class="alert alert-danger" role="alert">
 										<%=map.get("conferma")%></div>
-										<%
-											}
-										%>
+									<%
+										}
+									%>
 								</div>
 							</div>
 						</div>
