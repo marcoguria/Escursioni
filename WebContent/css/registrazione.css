@@ -17,3 +17,5 @@
       	background-color: #ffde6c;
       	color: #d17d00;
       }
+      
+      body{ background-image:url("../ImgSource/bgImg/capreara.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
