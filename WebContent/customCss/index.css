@@ -19,14 +19,19 @@
          height: 350px;
       }
 
-
+p{
+	font-family: 'Comic Sans', coursive;
+    font-weight: 1000;
+    line-height: initial;
+    color: mediumblue;
+    font-size: 100%;
+}
 
 
 
 
 .fancy-monk {
 	font-size: 25px;
-	
 	margin: 0px;
 	text-align: center;
 	height: 600px;
