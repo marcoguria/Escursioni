@@ -3,12 +3,18 @@
 <head>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="customCss/index.css">
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
 <meta charset="ISO-8859-1">
-<title>Ajò Escursioni</title>
+<title>AjÃ² Escursioni</title>
 </head>
 <body>
-
-	<div class="page-header">
+	
+		<div class="page-header">
 		<div class="row">
 			<div class="pull-right">
 				<div class="col-lg-6">
@@ -27,13 +33,50 @@
 			</div>
 		</div>
 	</div>
+	
 
-<!--  	<div class="row">
+
+
+
+	<div>
+
+	
+	
+<section id="main">
+    <div class="fancy-monk">
+      <h1>Broccoletto Experience</h1> 
+      <div>
+         <div class="signinup">
+			<br>
+			<br>
+             <div>
+                 <form method="GET" action="guest/FindEscursioniDisponibiliServlet">
+						<input type="submit" value="Visualizza escursioni" class="btn btn-dark" /></form>
+						
+					<form method="GET" action="guest/cercaEscursione.jsp">
+                 <input type="submit" value="Cerca escursione" class="btn btn-dark" /></form>
+					
+					
+             </div>
+         </div> 
+      </div>
+    </div>
+  </section>
+	</div>
+
+
+
+
+
+<!-- 
+
+ 	<div class="row">
 		<div class="col-lg-6" align="center" id="panel">
 			<p>Sardina Experience</p>
 			
 			<div class="btn-toolbar" role="toolbar" >
-  			<div class="btn-group" role="group"><form method="GET" action="guest/FindEscursioniDisponibiliServlet">
+  			<div class="btn-group" role="group">
+  					<form method="GET" action="guest/FindEscursioniDisponibiliServlet">
 						<input type="submit" value="Visualizza escursioni" class="btn btn-default" />
 					</form>
 					
@@ -46,7 +89,7 @@
 
 		</div>
 	</div>
--->
+
 
 <div class="intro center-content">
                     <div class="container">
@@ -74,11 +117,34 @@
                                 </form>
                             </div>
 
-                        </div><!-- row -->
+                        </div>
 
-                    </div><!-- intro -->
+                    </div>
 
-                </div><!-- container -->
+                </div> 
+                
+                
+
+	#panel{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -100px;
+		margin-left: -100px;
+		width: 400px;
+		height: 200px;
+		border-radius: 25px;
+		padding-top: 3%;
+		padding-left: 50px;
+		background-color: rgba(192, 192, 192, 0.6);
+		
+	}          
+                
+                
+  
+                
+                
+-->
 
 
 
