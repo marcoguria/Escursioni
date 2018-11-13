@@ -28,18 +28,59 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-lg-12" align="center" id="panel">
+<!--  	<div class="row">
+		<div class="col-lg-6" align="center" id="panel">
 			<p>Sardina Experience</p>
-			<br> <a href="guest/FindEscursioniDisponibiliServlet">Visualizza
-				elenco escursioni</a> <br>
+			
+			<div class="btn-toolbar" role="toolbar" >
+  			<div class="btn-group" role="group"><form method="GET" action="guest/FindEscursioniDisponibiliServlet">
+						<input type="submit" value="Visualizza escursioni" class="btn btn-default" />
+					</form>
+					
+					<form method="GET" action="guest/cercaEscursione.jsp">
+						<input type="submit" value="Cerca escursione" class="btn btn-default" />
+					</form></div>
+					
+
 				
-				<a href="guest/cercaEscursione.jsp">Cerca Escursione</a>
+
 		</div>
 	</div>
+-->
+
+<div class="intro center-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+                                <div class="email text-center"><i class="fa fa-envelope-o"></i></div>
+                               
+
+                                <h1 class="pull-stop text-center">Sardina Experience</h1>
+                                <form class="login-reg subscribe text-center form-inline">
+                                    <div class="row margin-bottom-0">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <form method="GET" action="guest/FindEscursioniDisponibiliServlet">
+														<input type="submit" value="Visualizza escursioni" class="btn btn-default" />
+												</form>
+												<br>
+                                            </div>
+                                            	<br><form method="GET" action="guest/cercaEscursione.jsp">
+												<input type="submit" value="Cerca escursione" class="btn btn-default" />
+											</form></div>
+                                        </div> 
+                                        
+                                    </div> 
+                                </form>
+                            </div>
+
+                        </div><!-- row -->
+
+                    </div><!-- intro -->
+
+                </div><!-- container -->
 
 
-	
 
 
 </body>
