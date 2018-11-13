@@ -39,7 +39,7 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-user"></i>
 										</div>
-										<input type="text" placeholder="nome" name="nome"
+										<input type="text" placeholder="Nome" name="nome"
 											class="form-control" required>
 
 									</div>
@@ -64,7 +64,7 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-user"></i>
 										</div>
-										<input type="text" placeholder="cognome" name="cognome"
+										<input type="text" placeholder="Cognome" name="cognome"
 											class="form-control" required>
 
 									</div>
@@ -91,7 +91,7 @@
 											<i class="glyphicon glyphicon-list-alt"></i>
 										</div>
 										<textarea class="form-control" name="codf"
-											placeholder="Codice Fiscle" required></textarea>
+											placeholder="Codice Fiscale" required></textarea>
 
 									</div>
 									<%
@@ -115,7 +115,7 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-envelope"></i>
 										</div>
-										<input type="email" class="form-control" name="email"
+										<input type="email" class="form-control" name="Email"
 											placeholder="E-Mail" required>
 
 									</div>
