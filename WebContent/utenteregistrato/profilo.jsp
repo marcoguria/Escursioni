@@ -6,82 +6,97 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="../css/profilo.css">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>Profile</title>
 </head>
-<body>
-        <nav class="navbar navbar-default" role="navigation">
-    	  <div class="container">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <div class="navbar-brand navbar-brand-centered">Profilo</div>
-		    </div>
+<body background="../ImgSource/bgImg/profileBg.jpg">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a href="#" class="navbar-brand">PROFILO</a>
+		<button class="navbar-toggler" data-target="#navigation"
+			data-control="navigation" data-toggle="collapse">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navigation">
+			<ul class="nav navbar-nav">
+				<li class="nav-item active"><a href="home.jsp" class="nav-link">Home</a>
+				</li>
+				<li class="nav-item"><a href="LogoutServlet" class="nav-link">Logout</a>
+				</li>
 
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="navbar-brand-centered">
-		      <ul class="nav navbar-nav">
-		        <br> <li><form method="GET" action="home.jsp">
- 	 <div class="btn-group" role="group"><button class="" type="submit">Home</button></div>
-	</form>  <br> </li> 
-		        
-		      </ul>
-		      <ul class="nav navbar-nav navbar-right">
-		         <br> <li><form method="GET" action="LogoutServlet">
-		 <div class="btn-group" role="group"><button class="" type="submit">Logout</button></div>
-	</form></li>
-		        
-		        
-                  </ul>
-              
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
+			</ul>
+		</div>
+	</nav>
 
-           
+	<div class="container" >
+		<div class="row">
+			<div class="col-md-4">
+				<!-- It can be fixed with bootstrap affix http://getbootstrap.com/javascript/#affix-->
+				<div id="sidebar" class="well sidebar-nav">
+					<%
+						if ((int) request.getSession().getAttribute("ruolo") == 1) {
+					%>
+					<h5>
+						<i class="glyphicon glyphicon-home" ></i> <small><b>
+								GESTIONE PRENOTAZIONI</b></small>
+					</h5>
+					<ul class="nav nav-pills nav-stacked">
+						<li></li>
+						<li><form method="POST"
+								action="../cliente/VisualizzaMiePrenotazioniServlet">
+								<input type="submit" value="Visualizza mie prenotazioni" />
+							</form></li>
+
+					</ul>
+					<br> <br>
+					<%
+						}
+					%>
+
+					<h5>
+						<i class="glyphicon glyphicon-user"></i> <small><b>GESTIONE
+								PROFILO</b></small>
+					</h5>
+					<ul class="nav nav-pills nav-stacked">
+						<li>
+							<form method="POST" action="GetMyProfileServlet">
+								<input type="submit" value="Modifica Profilo" />
+							</form>
+						</li>
+						<br>
+						<br>
+						<%
+							if ((int) request.getSession().getAttribute("ruolo") == 1) {
+						%>
+						<li><form method="POST"
+								action="../cliente/VisualizzaCarteDaEliminareServlet">
+								<input type="submit" value="Le mie carte" />
+							</form></li>
+						<%
+							}
+						%>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<!-- Content Here -->
+			</div>
+		</div>
+	</div>
 
 
-  <!--  <form method="GET" action="home.jsp">
- 	 <div class="btn-group" role="group"><button class="" type="submit">Home</button></div>
-	</form>
-	
-	<form method="GET" action="LogoutServlet">
-		 <div class="btn-group" role="group"><button class="" type="submit">Logout</button></div>
-	</form>
-	
-	-->
 
-	<%
-		if ((int) request.getSession().getAttribute("ruolo") == 1) {
-	%>
-
-	<form method="POST" action="../cliente/VisualizzaMiePrenotazioniServlet">
-		<input type="submit" value="Visualizza mie prenotazioni" />
-	</form>
-	
-	<form method="POST" action="../cliente/VisualizzaCarteDaEliminareServlet">
-		<input type="submit" value="Le mie carte" />
-	</form>
-
-
-	<%
-		}
-	%>
-
-
-	<form method="POST" action="GetMyProfileServlet">
-		<input type="submit" value="Modifica Profilo" />
-	</form>
-
-	
-	
 
 
 </body>
