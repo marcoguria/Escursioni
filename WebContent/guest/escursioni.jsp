@@ -15,7 +15,7 @@
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<title>Escursioni Ajò in Sardegna</title>
+<title>Escursioni Ajo in Sardegna</title>
 </head>
 <body background="../ImgSource/bgImg/bgEscursioni.jpg">
 
