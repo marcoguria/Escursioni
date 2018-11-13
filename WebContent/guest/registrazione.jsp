@@ -7,119 +7,233 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="../css/registrazione.css">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <title>Registrazione</title>
 </head>
 <body>
 
-	
-	<span class="align-middle">
-	<%
-		Map<String, String> map = (Map) request.getAttribute("mappaErrori");
-	%>
-	<div class= "conteiner">
-	
-	<div class="row">
-   <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3" align="center" id="panel">
-	
+	<span class="align-middle"> <%
+ 	Map<String, String> map = (Map) request.getAttribute("mappaErrori");
+ %>
 
-	<form method="POST" action="RegistrazioneServlet">
-	
-	<div class="row">
-	<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
+		<form action="RegistrazioneServlet" name="registrazione" method="post"
+			onsubmit="return(validate());">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="well center-block">
+						<div class="well-header">
+							<h3 class="text-center text-success">Benvenuto, registrati!
+							</h3>
+							<hr>
+						</div>
 
-		Nome: <input type="text" name="nome" required />
-		<%
-			if (map != null && map.containsKey("nome")) {
-		%>
-		<p><%=map.get("nome")%></p>
-		<%
-			}
-		%><br>
-		</div>
-		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
-		 Cognome: <input type="text" name="cognome"
-			required />
-		<%
-			if (map != null && map.containsKey("cognome")) {
-		%>
-		<p><%=map.get("cognome")%></p>
-		<%
-			}
-		%>
-		</div>
-		</div>
-		
-		<div class="row">
-		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
-		
-		<br> CodFiscale: <input type="text" name="codf" required />
-		<%
-			if (map != null && map.containsKey("codf")) {
-		%>
-		<p><%=map.get("codf")%></p>
-		<%
-			}
-		%>
-		</div>
-		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
-		<br> E-mail: <input type="email" name="email" required />
-		<%
-			if (map != null && map.containsKey("email")) {
-		%>
-		<p><%=map.get("email")%></p>
-		<%
-			}
-		%>
-		</div>
-		</div>
-		
-		<div class="row">
-		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
-		<br> DataNascita: <input type="date" name="dataNascita" min="1920-01-01" max="2000-01-01" required />
-		</div>
-		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
-		<br> Username: <input type="text" name="username" required />
-		<%
-			if (map != null && map.containsKey("username")) {
-		%>
-		<p><%=map.get("username")%></p>
-		<%
-			}
-		%>
-		</div>
-		</div>
-		
-		<div class="row">
-		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
-		<br> Password: <input type="password" name="password" required />
-		<%
-			if (map != null && map.containsKey("password")) {
-		%>
-		<p><%=map.get("password")%></p>
-		<%
-			}
-		%>
-		</div>
-		<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2">
-		<br>ConfermaPassword: <input type="password" name="conferma" required />
-		<%
-			if (map != null && map.containsKey("conferma")) {
-		%>
-		<p><%=map.get("conferma")%></p>
-		<%
-			}
-		%>
-		</div>
-		</div>
-		 <input type="hidden" name="contesto" value="registrazione" />
-		<br><br> <input type="submit" value="REGISTRATI" />
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="glyphicon glyphicon-user"></i>
+										</div>
+										<input type="text" placeholder="nome" name="nome"
+											class="form-control" required>
 
-	</form>
-		</div>
-		</div>
-		</div>
-		
-		</span>
-			
+									</div>
+									<%
+										if (map != null && map.containsKey("nome")) {
+									%>
+									<div class="alert alert-danger" role="alert">
+										<%=map.get("nome")%>
+									</div>
+
+									<%
+										}
+									%>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="glyphicon glyphicon-user"></i>
+										</div>
+										<input type="text" placeholder="cognome" name="cognome"
+											class="form-control" required>
+
+									</div>
+									<%
+										if (map != null && map.containsKey("cognome")) {
+									%>
+									<div class="alert alert-danger" role="alert">
+
+										<%=map.get("cognome")%>
+									</div>
+									<%
+										}
+									%>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 col-xs-12 col-sm-12">
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="glyphicon glyphicon-list-alt"></i>
+										</div>
+										<textarea class="form-control" name="codf"
+											placeholder="Codice Fiscle" required></textarea>
+
+									</div>
+									<%
+										if (map != null && map.containsKey("codf")) {
+									%>
+									<div class="alert alert-danger" role="alert">
+										<%=map.get("codf")%>
+									</div>
+
+									<%
+										}
+									%>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 col-xs-12 col-sm-12">
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="glyphicon glyphicon-envelope"></i>
+										</div>
+										<input type="email" class="form-control" name="email"
+											placeholder="E-Mail" required>
+
+									</div>
+									<%
+										if (map != null && map.containsKey("email")) {
+									%>
+									<div class="alert alert-danger" role="alert">
+										<%=map.get("email")%>
+									</div>
+
+									<%
+										}
+									%>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 col-xs-12 col-sm-12">
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</div>
+										<input type="date" name="dataNascita"
+											placeholder="Data di nascita" class="form-control"
+											id="datepicker" min="1920-01-01" max="2000-01-01" required>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 col-xs-12 col-sm-12">
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="glyphicon glyphicon-user"></i>
+										</div>
+										<input type="text" minlength="2" maxlength="20"
+											class="form-control" name="username" placeholder="Username"
+											required>
+
+									</div>
+									<%
+										if (map != null && map.containsKey("username")) {
+									%><div class="alert alert-danger" role="alert">
+										<%=map.get("username")%>
+									</div>
+
+									<%
+										}
+									%>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="glyphicon glyphicon-lock"></i>
+										</div>
+										<input type="password" minlength="8" maxlength="20"
+											placeholder="Password" name="password" class="form-control"
+											required>
+
+									</div>
+									<%
+										if (map != null && map.containsKey("password")) {
+									%>
+									<div class="alert alert-danger" role="alert">
+										<%=map.get("password")%></div>
+									<%
+										}
+									%>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="glyphicon glyphicon-lock"></i>
+										</div>
+										<input type="password" minlength="8" maxlength="20"
+											placeholder="Conferma password" name="conferma"
+											class="form-control" required>
+										
+									</div>
+									<%
+											if (map != null && map.containsKey("conferma")) {
+										%>
+										<div class="alert alert-danger" role="alert">
+										<%=map.get("conferma")%></div>
+										<%
+											}
+										%>
+								</div>
+							</div>
+						</div>
+
+						<div class="row widget">
+							<div class="col-md-12 col-xs-12 col-sm-12">
+								<input type="hidden" name="contesto" value="registrazione" />
+								<button class="btn btn-warning btn-block">Registrati</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</form>
+	</span>
+
 </body>
 </html>

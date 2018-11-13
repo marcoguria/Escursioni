@@ -46,7 +46,7 @@ public class FormRegistrazioneFilter implements Filter {
 		String nome = request.getParameter("nome");
 
 		if (nome.length() > 20 || nome.matches(".*\\d+.*")) {
-			map.put("nome", "Il nome deve essere di max 20 caratteri.Non può contenere numeri");
+			map.put("nome", "Il nome deve essere di max 20 caratteri. Non può contenere numeri");
 		}
 
 		String cognome = request.getParameter("cognome");
@@ -55,7 +55,7 @@ public class FormRegistrazioneFilter implements Filter {
 		}
 		String codf = request.getParameter("codf");
 		if (codf.length() != 16) {
-			map.put("codf", " Min 16 caratteri");
+			map.put("codf", " Codice fiscale deve contenere 16 caratteri");
 		}
 
 		String username = request.getParameter("username");
@@ -80,13 +80,13 @@ public class FormRegistrazioneFilter implements Filter {
 		String password = request.getParameter("password");
 
 		if (password.length() < 3) {
-			map.put("password", "Password troppo corta");
+			map.put("password", "Password troppo corta, min 3 caratteri");
 		}
 
 		String conferma = request.getParameter("conferma");
 
 		if (!password.equals(conferma)) {
-			map.put("conferma", "Le password non corrispondo");
+			map.put("conferma", "password e conferma password non corrispondo");
 		}
 
 		if (!map.isEmpty()) {
