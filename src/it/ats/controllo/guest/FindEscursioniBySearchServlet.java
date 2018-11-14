@@ -66,12 +66,12 @@ public class FindEscursioniBySearchServlet extends HttpServlet {
 
 			if (first) {
 
-				sql += "LUOGO=?";
+				sql += "LUOGO like ?";
 				first = false;
-				mapValori.put("luogo", request.getParameter("luogo"));
+				mapValori.put("luogo",request.getParameter("luogo"));
 			} else {
 
-				sql += " and LUOGO=?";
+				sql += " and LUOGO like ?";
 				mapValori.put("luogo", request.getParameter("luogo"));
 			}
 		}

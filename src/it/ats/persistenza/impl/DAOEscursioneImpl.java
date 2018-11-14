@@ -350,7 +350,7 @@ public class DAOEscursioneImpl implements DAOEscursione {
 
 			if (mapValori.get("luogo") != null) {
 				index++;
-				prepareStatement.setString(index, mapValori.get("luogo").toUpperCase());
+				prepareStatement.setString(index, "%" + mapValori.get("luogo").toUpperCase() +"%");
 
 			}
 
