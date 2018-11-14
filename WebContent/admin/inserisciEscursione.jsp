@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="../css/registrazione.css">
+<link rel="stylesheet" type="text/css" href="../css/inserisciEscursione.css">
 <!-- Cambia Link! -->
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link
@@ -226,6 +226,30 @@
 									<%
 										}
 									%>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="glyphicon glyphicon-info-sign"></i>
+										</div>
+										<textarea name="descrizione" class="form-control" placeholder="Descrizione escursione" required></textarea>
+
+									</div>
+									<%
+										if (map != null && map.containsKey("descrizione")) {
+									%>
+									<div class="alert alert-danger" role="alert">
+									<p><%=map.get("descrizione")%></p>
+									</div>
+									<%
+										}
+									%>
+
 								</div>
 							</div>
 						</div>

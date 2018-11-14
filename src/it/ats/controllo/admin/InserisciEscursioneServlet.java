@@ -66,6 +66,8 @@ public class InserisciEscursioneServlet extends HttpServlet {
 		escursione.setGuida(request.getParameter("guida"));
 		Integer maxPartecipanti = Integer.parseInt(request.getParameter("maxPartecipanti"));
 		escursione.setMaxPartecipanti(maxPartecipanti);
+		escursione.setDescrizione(request.getParameter("descrizione"));
+		
 
 		System.out.println("LA nuova escursione**********:\n\n ");
 
