@@ -107,7 +107,7 @@
 									<form method="POST" action="aggiungiMetodoPagamento.jsp">
 										<input type="hidden" name="idEscursione"
 											value="<%=escursione.getId()%>" /> <input
-											class="subscribe btn btn-success btn-lg btn-block"
+											class="subscribe btn btn-light btn-lg btn-block"
 											type="submit" value="Scegli un altra carta">
 
 									</form>
