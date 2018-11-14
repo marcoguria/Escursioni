@@ -56,16 +56,18 @@
 							</div>
 						</div>
 					</div>
-					<form method="POST" action="RiepilogoFinalePrenotazione">
+
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
 									<label for="cardNumber">CARD NUMBER</label>
+
 									<div class="input-group">
-										
+										<form method="POST" action="RiepilogoFinalePrenotazione">
+
 											<select type="tel" class="form-control" id="carta"
-												name="numero_carta">
+												name="numero_carta">  
 												<%
 													for (CartaPagamento cartaPagamento : cartePagamento) {
 												%>
@@ -77,37 +79,45 @@
 													}
 												%>
 
-											</select> <span class="input-group-addon"><i
-												class="fa fa-credit-card"></i> <input type="hidden"
-												name="idEscursione" value="<%=escursione.getId()%>" /> <input
-												type="submit" value="Prosegui" />
-									
-
-
-										</span>
+											</select>  
+											
+											 <input type="hidden" name="idEscursione"
+												value="<%=escursione.getId()%>" /> 
 									</div>
+
 								</div>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="col-xs-12">
+
 								<div class="form-group">
-									<button class="subscribe btn btn-success btn-lg btn-block"
-										type="button">Scegli altra carta</button>
 
-										
+									<input type="hidden" name="idEscursione"
+										value="<%=escursione.getId()%>" /> <input
+										class="subscribe btn btn-success btn-lg btn-block"
+										type="submit" value="Prosegui">
+
+									</form>
+
 								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-12">
 
-								<button class="subscribe btn btn-success btn-lg btn-block"
-									type="button">Prosegui</button>
-								</form>
+								<div class="form-group">
+									<form method="POST" action="aggiungiMetodoPagamento.jsp">
+										<input type="hidden" name="idEscursione"
+											value="<%=escursione.getId()%>" /> <input
+											class="subscribe btn btn-success btn-lg btn-block"
+											type="submit" value="Scegli un altra carta">
+
+									</form>
+
+								</div>
+
 							</div>
 						</div>
+
+						<div class="row"></div>
 						<div class="row" style="display: none;">
 							<div class="col-xs-12">
 								<p class="payment-errors"></p>
@@ -115,7 +125,7 @@
 						</div>
 
 					</div>
-					</form>
+
 				</div>
 				<!-- CREDIT CARD FORM ENDS HERE -->
 
