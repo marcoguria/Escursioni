@@ -51,100 +51,84 @@
 	%>
 
 	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 my-3"></div>
-		</div>
 
+		<table class="table table-hover">
+			<thead>
 
-		<div id="products" class="row view-group">
+				<tr>
+					<th>LUOGO</th>
+					<th>TIPO</th>
+					<th>DATA</th>
+					<th>DURATA</th>
+					<th>DIFFICOLTA</th>
+					<th>PREZZO</th>
+					<th>GUIDA</th>
+					<th>MAX PARTECIPANTI</th>
+					<th>DISPONIBILITA</th>
+					<th class="text-center">Action</th>
+				</tr>
+			</thead>
+
 			<%
 				for (Escursione escursione : escursioni) {
 			%>
 
-			<div class="item col-xs-4 col-lg-4">
 
-				<div class="thumbnail card">
-					<div class="img-event">
-						<img class="group list-group-image img-fluid"
-							src="../ImgSource/bgImg/<%out.println(escursione.getLuogo());%>.jpg"
-							alt="" />
-					</div>
-					<div class="caption card-body">
-						<h4 class="group card-title inner list-group-item-heading">
-							<%=escursione.getLuogo()%></h4>
-						<ul class="container details">
-							<li><p>
-									<span class="glyphicon glyphicon-calendar" style="width: 50px;"></span>Data
-									escursione:
-									<%=escursione.getData()%></p></li>
-							<li><p>
-									<span class="glyphicon glyphicon-info-sign"
-										style="width: 50px;"></span>Durata:
-									<%=escursione.getDurata()%></p></li>
-							<li><p>
-									<span class="glyphicon glyphicon-map-marker one"
-										style="width: 50px;"></span>Luogo:
-									<%=escursione.getLuogo()%></p></li>
+			<tr>
+
+				<td><%=escursione.getLuogo()%></td>
+				<td><%=escursione.getTipo()%></td>
+				<td><%=escursione.getData()%></td>
+				<td><%=escursione.getDurata()%></td>
+				<td><%=escursione.getDifficolta()%></td>
+				<td><%=escursione.getPrezzo()%></td>
+				<td><%=escursione.getGuida()%></td>
+				<td><%=escursione.getMaxPartecipanti()%></td>
+				<td>
+					<%
+						if (escursione.getDisponibile() == 0)
+									out.println("NON DISPONIBILE");
+								else
+									out.println("DISPONIBILE");
+					%>
+				</td>
 
 
-							<li><p>
-									<span class="glyphicon glyphicon-calendar" style="width: 50px;"></span>Difficolta:
-									<%=escursione.getDifficolta()%></p></li>
-							<li><p>
-									<span class="glyphicon glyphicon-info-sign"
-										style="width: 50px;"></span>Numero prenotati:
-									<%=escursione.getNumPrenotati()%></p></li>
-							<li><p>
-									<span class="glyphicon glyphicon-euro one" style="width: 50px;"></span>Prezzo:
-									<%=escursione.getPrezzo()%></p>
-								</a>
-						</ul>
-						<div class="row">
-							<div class="col-xs-12 col-md-6"></div>
-							<div class="col-xs-12 col-md-6">
+				<!-- srthrtshwrhthwt -->
+				<td>
+					<%
+						if (escursione.getDisponibile() == 0) {
+					%>
+					<form method="POST" action="AbilitaEscursioneServlet">
+						<input type="hidden" name="idEscursione"
+							value="<%=escursione.getId()%>" /> <input type="submit"
+							class="btn btn-success" value="Abilita" />
+					</form> <%
+ 	}
+ %> <%
+ 	if (escursione.getDisponibile() == 1) {
+ %>
+					<form method="POST" action="DisabilitaEscursioneServlet">
+						<input type="hidden" name="idEscursione"
+							value="<%=escursione.getId()%>" /> <input type="submit"
+							class="btn btn-danger" value="Disabilita" />
+					</form> <%
+ 	}
+ %>
 
-								<%
-									if (escursione.getDisponibile() == 0) {
-								%>
-								<form method="POST" action="AbilitaEscursioneServlet">
-									<input type="hidden" name="idEscursione"
-										value="<%=escursione.getId()%>" /> <input type="submit"
-										class="btn btn-success" value="Abilita" />
-								</form>
-								<%
-									}
-								%>
-								<%
-									if (escursione.getDisponibile() == 1) {
-								%>
-								<form method="POST" action="DisabilitaEscursioneServlet">
-									<input type="hidden" name="idEscursione"
-										value="<%=escursione.getId()%>" /> <input type="submit"
-										class="btn btn-danger" value="Disabilita" />
-								</form>
-
-								<%
-									}
-								%>
-
-							</div>
-						</div>
-					</div>
-				</div>
-				<br> <br>
-			</div>
-
+				</td>
+			</tr>
 
 			<%
 				}
 			%>
+			</tbody>
+		</table>
 
-			<%
-				}
-			%>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 my-3"></div>
-				</div>
+		<%
+			}
+		%>
+	</div>
+
 </body>
 </html>
