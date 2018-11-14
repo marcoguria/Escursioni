@@ -25,7 +25,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
-<body>
+<body background="../ImgSource/bgImg/profileBg.jpg">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a href="#" class="navbar-brand">LE MIE <br> PRENOTAZIONI</a>

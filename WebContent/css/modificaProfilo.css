@@ -1,0 +1,21 @@
+	.well
+      {
+         padding: 35px;
+         padding-left: 30px;
+         box-shadow: 0 0 10px #666666;
+         margin: 4% auto 0;
+         width: 450px;
+      }
+
+      body
+      {
+      	background-color:  #dedede;
+      }
+
+      .input-group-addon
+      {
+      	background-color: #ffde6c;
+      	color: #d17d00;
+      }
+      
+      body{ background-image:url("../ImgSource/bgImg/capreara.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
