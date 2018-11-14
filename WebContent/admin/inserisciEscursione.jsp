@@ -6,6 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/inserisciEscursione.css">
 <!-- Cambia Link! -->
 <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -19,13 +25,27 @@
 </head>
 <body>
 
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <a
+		href="#" class="navbar-brand">INSERISCI <br> ESCURSIONE </a>
+	<button class="navbar-toggler" data-target="#navigation"
+		data-control="navigation" data-toggle="collapse">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navigation">
+		<ul class="nav navbar-nav">
+			<li class="nav-item active"><a
+				href="../utenteregistrato/home.jsp" class="nav-link">Home</a></li>
+
+		</ul>
+	</div>
+	</nav>
+
 	<span class="align-middle"> <%
  	Map<String, String> map = (Map) request.getAttribute("mappaErrori");
  %>
 
-		<form method="POST" action="../utenteregistrato/home.jsp">
-			<input type="submit" value="Home" />
-		</form>
+		
 
 		<form method="POST" action="InserisciEscursioneServlet"
 			onsubmit="return(validate());">
