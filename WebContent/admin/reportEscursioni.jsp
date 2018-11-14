@@ -63,7 +63,7 @@
 					<th>DIFFICOLTA</th>
 					<th>PREZZO</th>
 					<th>GUIDA</th>
-					<th>MAX PARTECIPANTI</th>
+					<th>NUM PRENOTATI</th>
 					<th>DISPONIBILITA</th>
 					<th class="text-center">Action</th>
 				</tr>
@@ -83,7 +83,7 @@
 				<td><%=escursione.getDifficolta()%></td>
 				<td><%=escursione.getPrezzo()%></td>
 				<td><%=escursione.getGuida()%></td>
-				<td><%=escursione.getMaxPartecipanti()%></td>
+				<td><%=escursione.getNumPrenotati()%></td>
 				<td>
 					<%
 						if (escursione.getDisponibile() == 0)
@@ -96,12 +96,16 @@
 
 				<!-- srthrtshwrhthwt -->
 				<td>
-
+					<%
+						if (escursione.getNumPrenotati() > 0) {
+					%>
 					<form method="POST" action="FindPrenotazioniByIdEscursioneServlet">
 						<input type="hidden" name="idEscursione"
 							value="<%=escursione.getId()%>" /> <input type="submit"
 							class="btn btn-info" value="Dettagli Prenotazioni" />
-					</form>
+					</form> <%
+	 	}
+	 %>
 
 				</td>
 			</tr>
