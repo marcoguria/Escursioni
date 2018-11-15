@@ -26,7 +26,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Abilita/Disabilita Escursione</title>
 </head>
-<body background="../ImgSource/bgImg/adminBg.jpg">
+<body background="../ImgSource/bgImg/sfondo.jpg">
 
 
 

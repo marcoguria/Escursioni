@@ -21,7 +21,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Home</title>
 </head>
-<body>
+<body >
 	<div class="navbar-wrapper">
 		<div class="container">
 			<div class="navbar navbar-inverse navbar-static-top">

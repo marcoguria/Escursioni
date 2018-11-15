@@ -32,7 +32,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <title>Mostra Utenti</title>
 </head>
-<body background="../ImgSource/bgImg/adminBg.jpg">
+<body background="../ImgSource/bgImg/sfondo.jpg">
 
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
