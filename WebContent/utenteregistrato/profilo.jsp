@@ -47,57 +47,68 @@
 	<div class="container" >
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
+			<br><br>
 				<!-- It can be fixed with bootstrap affix http://getbootstrap.com/javascript/#affix-->
 				<div id="sidebar" class="well sidebar-nav">
 					<%
 						if ((int) request.getSession().getAttribute("ruolo") == 1) {
 					%>
-					<h3>
-						<i class="glyphicon glyphicon-home" ></i> <b>
-								GESTIONE PRENOTAZIONI</b>
-					</h3>
-					<ul class="nav nav-pills nav-stacked">
+					<div class="row">
+						<div class="col-md-12 ">
+					<h3><center><i class="glyphicon glyphicon-home" ></i> <b>GESTIONE PRENOTAZIONI</b></center></h3>
+					
+					</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-12">
 						
-						<li><form method="POST"
+						<form method="POST"
 								action="../cliente/VisualizzaMiePrenotazioniServlet">
 								
-								<button type="submit" class="btn btn-info">Visualizza le mie prenotazioni</button>
-							</form></li>
-
-					</ul>
-					<br> 
+								<button type="submit" class="btn btn-info center-block">Visualizza le mie prenotazioni</button>
+							</form>
+							
+							
 					<%
 						}
 					%>
 
-					<h3>
-						<i class="glyphicon glyphicon-user"></i> <b>GESTIONE PROFILO</b>
-					</h3>
+
+						</div>
+					</div>
+					<br><br>
+					<div class="row">
+						<div class="col-md-12 ">
 					
+					<h3><center><i class="glyphicon glyphicon-user"></i> <b>GESTIONE PROFILO</b></center></h3>
+					</div>
+					</div>
 					
-					<ul class="nav nav-pills nav-stacked">
-					<li>
+					<br>
+					<div class="row">
+						<div class="col-md-6 ">
 							<form method="POST" action="GetMyProfileServlet">
-								<button type="submit" class="btn btn-info"/>Modifica Profilo</button>
+								<button type="submit" class="btn btn-info pull-left"/>Modifica Profilo</button>
 							</form>
 						
-					
-						
+					</div>
+						<div class="col-md-6 ">
 						<%
 							if ((int) request.getSession().getAttribute("ruolo") == 1) {
 						%>
 						<form method="POST"
 								action="../cliente/VisualizzaCarteDaEliminareServlet">
-								<button type="submit" class="btn btn-info"/>Elimina carte</button>
+								<button type="submit" class="btn btn-info pull-right"/>Elimina carte</button>
 							</form>
 						<%
 							}
 						%>
 						
-						
-						</li>
-					</ul>
+							</div>
+				
 				</div>
+				
 			</div>
 			<div class="col-md-8">
 				<!-- Content Here -->

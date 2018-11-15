@@ -183,21 +183,10 @@
 							%>
 
 							<br>
-							<h1 id="slideB">Registrati subito, e' gratis</h1>
+							<h1 id="slideB">La Sardegna esplorata con lo zaino in spalla</h1>
 							<br> <br> <br>
 
-							<div>
-
-								<div class="signinup">
-									<div>
-										<form method="POST" action="guest/registrazione.jsp">
-											<input type="submit" value="Registrati"
-												class="btn btn-lg btn-primary active" />
-										</form>
-									</div>
-
-								</div>
-							</div>
+						
 							<%
 								}
 							%>
