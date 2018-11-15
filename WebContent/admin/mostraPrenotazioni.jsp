@@ -8,39 +8,47 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
 <link
 	href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
 <script
 	src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a href="#" class="navbar-brand">elenco prenotati 
-		</a>
-		<button class="navbar-toggler" data-target="#navigation"
-			data-control="navigation" data-toggle="collapse">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navigation">
-			<ul class="nav navbar-nav">
-				<li class="nav-item active"><a
-					href="../utenteregistrato/home.jsp" class="nav-link">Home</a></li>
 
-			</ul>
+	<div class="navbar-wrapper">
+		<div class="container">
+			<div class="navbar navbar-inverse navbar-static-top">
+
+				<div class="navbar-header">
+					<a class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse"> <span class="icon-bar"></span>
+						<span class="icon-bar"></span> <span class="icon-bar"></span>
+					</a> <a class="navbar-brand">Sardinia Experience</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="allign-right"><a
+							href="../utenteregistrato/home.jsp">Home</a></li>
+
+					</ul>
+				</div>
+
+			</div>
 		</div>
-	</nav>
+		<!-- /container -->
+	</div>
+	<!-- /navbar wrapper -->
 
-<br>
+	<br>
 	<%
 		Collection<Prenotazione> prenotazioni = (Collection<Prenotazione>) request.getAttribute("prenotazioni");
 		Escursione escursione = null;

@@ -26,9 +26,20 @@
 	<%
 		}
 	%>
+
+	<%
+		if ((int) request.getSession().getAttribute("ruolo") == 1) {
+	%>
 	<br>
-	<a href="../guest/FindEscursioniDisponibiliServlet">Visualizza elenco escursioni</a>
+	<a href="../guest/FindEscursioniDisponibiliServlet">Visualizza
+		elenco escursioni</a>
 	<br>
+
+
+	<%
+		}
+	%>
+
 
 
 </body>

@@ -6,35 +6,53 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="css/bootstrap.min.css">
+
 <link rel="stylesheet" type="text/css"
 	href="../css/elencoEscursioni.css">
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
 <script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Abilita/Disabilita Escursione</title>
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a href="#" class="navbar-brand">ABILITA/DISABILITA <br>
-			ESCURSIONE
-		</a>
-		<button class="navbar-toggler" data-target="#navigation"
-			data-control="navigation" data-toggle="collapse">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navigation">
-			<ul class="nav navbar-nav">
-				<li class="nav-item active"><a
-					href="../utenteregistrato/home.jsp" class="nav-link">Home</a></li>
 
-			</ul>
+
+	<div class="navbar-wrapper">
+		<div class="container">
+			<div class="navbar navbar-inverse navbar-static-top">
+
+				<div class="navbar-header">
+					<a class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse"> <span class="icon-bar"></span>
+						<span class="icon-bar"></span> <span class="icon-bar"></span>
+					</a> <a class="navbar-brand">Sardinia Experience</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="allign-right"><a
+							href="../utenteregistrato/home.jsp">Home</a></li>
+
+					</ul>
+				</div>
+
+			</div>
 		</div>
-	</nav>
+		<!-- /container -->
+	</div>
+	<!-- /navbar wrapper -->
 
 	<%
 		Collection<Escursione> escursioni = (Collection<Escursione>) request.getAttribute("escursioni");

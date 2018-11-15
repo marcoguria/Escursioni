@@ -6,46 +6,54 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/inserisciEscursione.css">
+<link rel="stylesheet" type="text/css"
+	href="../css/inserisciEscursione.css">
 <!-- Cambia Link! -->
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Inserisci Escursione</title>
 </head>
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <a
-		href="#" class="navbar-brand">INSERISCI <br> ESCURSIONE </a>
-	<button class="navbar-toggler" data-target="#navigation"
-		data-control="navigation" data-toggle="collapse">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navigation">
-		<ul class="nav navbar-nav">
-			<li class="nav-item active"><a
-				href="../utenteregistrato/home.jsp" class="nav-link">Home</a></li>
 
-		</ul>
+
+
+	<div class="navbar-wrapper">
+		<div class="container">
+			<div class="navbar navbar-inverse navbar-static-top">
+
+				<div class="navbar-header">
+					<a class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse"> <span class="icon-bar"></span>
+						<span class="icon-bar"></span> <span class="icon-bar"></span>
+					</a> <a class="navbar-brand">Sardinia Experience</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="allign-right"><a
+							href="../utenteregistrato/home.jsp">Home</a></li>
+
+					</ul>
+				</div>
+
+			</div>
+		</div>
+		<!-- /container -->
 	</div>
-	</nav>
+	<!-- /navbar wrapper -->
 
 	<span class="align-middle"> <%
  	Map<String, String> map = (Map) request.getAttribute("mappaErrori");
  %>
 
-		
+
 
 		<form method="POST" action="InserisciEscursioneServlet"
 			onsubmit="return(validate());">
@@ -65,8 +73,8 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-map-marker"></i>
 										</div>
-										<input input type="text" name="luogo" class="form-control" placeholder="Luogo escursione"
-											required>
+										<input input type="text" name="luogo" class="form-control"
+											placeholder="Luogo escursione" required>
 
 									</div>
 									<%
@@ -89,14 +97,15 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-info-sign"></i>
 										</div>
-										<input type="text" name="tipo" class="form-control" placeholder="tipo: mare, montagna o lago" required>
+										<input type="text" name="tipo" class="form-control"
+											placeholder="tipo: mare, montagna o lago" required>
 
 									</div>
 									<%
 										if (map != null && map.containsKey("tipo")) {
 									%>
 									<div class="alert alert-danger" role="alert">
-									<p><%=map.get("tipo")%></p>
+										<p><%=map.get("tipo")%></p>
 									</div>
 									<%
 										}
@@ -119,15 +128,15 @@
 											String date = simpleDateFormat.format(new Date());
 										%>
 
-										<input type="date" name="dataEscursione" min="<%=date%>" class="form-control"
-											required>
+										<input type="date" name="dataEscursione" min="<%=date%>"
+											class="form-control" required>
 
 									</div>
 									<%
 										if (map != null && map.containsKey("dataEscursione")) {
 									%>
 									<div class="alert alert-danger" role="alert">
-									<p><%=map.get("dataEscursione")%></p>
+										<p><%=map.get("dataEscursione")%></p>
 									</div>
 									<%
 										}
@@ -143,14 +152,16 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-time"></i>
 										</div>
-										<input type="number" name="durata" min="1" max="25" class="form-control" placeholder="Durata espressa in ore" required>
+										<input type="number" name="durata" min="1" max="25"
+											class="form-control" placeholder="Durata espressa in ore"
+											required>
 
 									</div>
 									<%
 										if (map != null && map.containsKey("durata")) {
 									%>
 									<div class="alert alert-danger" role="alert">
-									<p><%=map.get("durata")%></p>
+										<p><%=map.get("durata")%></p>
 									</div>
 									<%
 										}
@@ -166,13 +177,14 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-info-sign"></i>
 										</div>
-										<input type="text" name="difficolta" class="form-control" placeholder="Difficolta: alta, media o bassa"required>
+										<input type="text" name="difficolta" class="form-control"
+											placeholder="Difficolta: alta, media o bassa" required>
 									</div>
 									<%
 										if (map != null && map.containsKey("difficolta")) {
 									%>
 									<div class="alert alert-danger" role="alert">
-									<p><%=map.get("difficolta")%></p>
+										<p><%=map.get("difficolta")%></p>
 									</div>
 									<%
 										}
@@ -188,14 +200,15 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-euro"></i>
 										</div>
-										<input type="number" name="prezzo" class="form-control" placeholder="Prezzo escursione" required>
+										<input type="number" name="prezzo" class="form-control"
+											placeholder="Prezzo escursione" required>
 
 									</div>
 									<%
 										if (map != null && map.containsKey("prezzo")) {
 									%>
 									<div class="alert alert-danger" role="alert">
-									<p><%=map.get("prezzo")%></p>
+										<p><%=map.get("prezzo")%></p>
 									</div>
 									<%
 										}
@@ -211,14 +224,15 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-user"></i>
 										</div>
-										<input type="text" name="guida" class="form-control" placeholder="Nome della guida" required>
+										<input type="text" name="guida" class="form-control"
+											placeholder="Nome della guida" required>
 
 									</div>
 									<%
 										if (map != null && map.containsKey("guida")) {
 									%>
 									<div class="alert alert-danger" role="alert">
-									<p><%=map.get("guida")%></p>
+										<p><%=map.get("guida")%></p>
 									</div>
 									<%
 										}
@@ -234,14 +248,16 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-user"></i>
 										</div>
-										<input type="number" name="maxPartecipanti" class="form-control" placeholder="Numero massimo partecipanti" required>
+										<input type="number" name="maxPartecipanti"
+											class="form-control"
+											placeholder="Numero massimo partecipanti" required>
 
 									</div>
 									<%
 										if (map != null && map.containsKey("maxPartecipanti")) {
 									%>
 									<div class="alert alert-danger" role="alert">
-									<p><%=map.get("maxPartecipanti")%></p>
+										<p><%=map.get("maxPartecipanti")%></p>
 									</div>
 									<%
 										}
@@ -249,7 +265,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12">
 								<div class="form-group">
@@ -257,14 +273,15 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-info-sign"></i>
 										</div>
-										<textarea name="descrizione" class="form-control" placeholder="Descrizione escursione" required></textarea>
+										<textarea name="descrizione" class="form-control"
+											placeholder="Descrizione escursione" required></textarea>
 
 									</div>
 									<%
 										if (map != null && map.containsKey("descrizione")) {
 									%>
 									<div class="alert alert-danger" role="alert">
-									<p><%=map.get("descrizione")%></p>
+										<p><%=map.get("descrizione")%></p>
 									</div>
 									<%
 										}
