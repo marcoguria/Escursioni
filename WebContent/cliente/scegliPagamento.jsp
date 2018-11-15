@@ -26,7 +26,7 @@
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <title>scegliPagamento</title>
 </head>
-<body background="../ImgSource/bgImg/cieloD.jpg">
+<body background="../ImgSource/bgImg/bgEscursioni.jpg">
 
 		<div class="navbar-wrapper">
 		<div class="container">

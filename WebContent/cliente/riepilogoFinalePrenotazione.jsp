@@ -27,7 +27,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Escursioni in sardegna</title>
 </head>
-<body background="../ImgSource/bgImg/cieloD.jpg">
+<body background="../ImgSource/bgImg/bgEscursioni.jpg">
 
 		<div class="navbar-wrapper">
 		<div class="container">

@@ -31,7 +31,7 @@
 
 <title>Escursioni Ajò in Sardegna</title>
 </head>
-<body background="../ImgSource/bgImg/cieloD.jpg">
+<body background="../ImgSource/bgImg/bgEscursioni.jpg">
 
 	<div class="navbar-wrapper">
 		<div class="container">
