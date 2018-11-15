@@ -25,7 +25,7 @@
 
 <title>Escursioni Ajo in Sardegna</title>
 </head>
-<body background="../ImgSource/bgImg/cieloD.jpg">
+<body background="../ImgSource/bgImg/bgEscursioni.jpg">
 
 
 
