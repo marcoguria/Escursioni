@@ -21,7 +21,7 @@
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>Profile</title>
 </head>
-<body background="../ImgSource/bgImg/profileBg.jpg">
+<body background="../ImgSource/bgImg/bgProfilo.jpg">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a href="#" class="navbar-brand">PROFILO</a>
 		<button class="navbar-toggler" data-target="#navigation"
