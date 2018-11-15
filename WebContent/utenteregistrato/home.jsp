@@ -14,8 +14,7 @@
 	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
@@ -38,13 +37,52 @@
 
 						<li class="allign-right"><a href="profilo.jsp">Profilo</a></li>
 						<%
-		if ((int) request.getSession().getAttribute("ruolo") == 0) {
-	%>
-						<li class="allign-right"><a href="../admin/gestisciSito.jsp">Gestisci sito</a></li>
-							<%
-		}
-	%>
-					<li class="allign-right"><a href="LogoutServlet">Logout</a></li>	
+							if ((int) request.getSession().getAttribute("ruolo") == 0) {
+						%>
+
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">Gestisci clienti <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								
+								<li>
+
+									<form class="dropdown" method="POST"
+										action="../admin/MostraUtentiRegistratiServlet">
+										<input type="submit" value=" mostra clienti"
+											style="border: none; background: none" />
+									</form>
+								</li>
+								
+
+							</ul></li>
+							
+							
+							
+
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">Gestisci escursioni <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="../admin/inserisciEscursione.jsp">Inserisci
+										escursione</a></li>
+								<li>
+
+									<form class="dropdown" method="POST"
+										action="../admin/AbiltaDisabilitaEscursioneServlet">
+										<input type="submit" value=" Abilita/Disabilita Escursione"
+											style="border: none; background: none" />
+									</form>
+								</li>
+								<li><form class="dropdown" method="POST"
+										action="../admin/ReportEscursioniServlet">
+										<input type="submit" value="   Report Escursioni"
+											style="border: none; background: none" />
+									</form></li>
+
+							</ul></li>
+						<%
+							}
+						%>
+						<li class="allign-right"><a href="LogoutServlet">Logout</a></li>
 					</ul>
 				</div>
 
@@ -76,8 +114,8 @@
 						<div class="carousel-caption">
 							<br>
 							<%
-		if ((int) request.getSession().getAttribute("ruolo") == 1) {
-	%>
+								if ((int) request.getSession().getAttribute("ruolo") == 1) {
+							%>
 							<h1 id="slideA">Sardinia Experience</h1>
 							<br> <br> <br> <br> <br> <br>
 
@@ -96,21 +134,22 @@
 
 								</div>
 							</div>
-								<%
-		}
-	%>
-							
+							<%
+								}
+							%>
+
 						</div>
 					</div>
 				</div>
 				<div class="item">
-					<img src="../ImgSource/bgImg/MONTE_LIMBARA.jpg" style="width: 100%;">
+					<img src="../ImgSource/bgImg/MONTE_LIMBARA.jpg"
+						style="width: 100%;">
 					<div class="container">
 						<div class="carousel-caption">
 
-<%
-		if ((int) request.getSession().getAttribute("ruolo") == 1) {
-	%>
+							<%
+								if ((int) request.getSession().getAttribute("ruolo") == 1) {
+							%>
 							<br>
 							<h1 id="slideB">Cerca l'escursione su misura per te</h1>
 							<br> <br> <br>
@@ -126,10 +165,10 @@
 
 								</div>
 							</div>
-															<%
-		}
-	%>
-				
+							<%
+								}
+							%>
+
 						</div>
 					</div>
 
@@ -139,9 +178,9 @@
 					<img src="../ImgSource/bgImg/CALA_LUNA.jpg" style="width: 100%;">
 					<div class="container">
 						<div class="carousel-caption">
-<%
-		if ((int) request.getSession().getAttribute("ruolo") == 1) {
-	%>
+							<%
+								if ((int) request.getSession().getAttribute("ruolo") == 1) {
+							%>
 
 							<br>
 							<h1 id="slideB">Registrati subito, e' gratis</h1>
@@ -159,10 +198,10 @@
 
 								</div>
 							</div>
-																						<%
-		}
-	%>
-		
+							<%
+								}
+							%>
+
 						</div>
 					</div>
 
@@ -190,30 +229,33 @@
 	<!-- Wrap the rest of the page in another container to center all the content. -->
 
 	<!--  <div class="container marketing">
-	<%
-		if ((int) request.getSession().getAttribute("ruolo") == 1) {
-	%>
+	<%if ((int) request.getSession().getAttribute("ruolo") == 1) {%>
 
 		<!-- Three columns of text below the carousel -->
 	<div class="row">
 		<div class="col-md-4 text-center">
-			<img class="img-circle" src="../ImgSource/bgImg/PAN_DI_ZUCCHERO.jpg" width="140px"  height="140px">
+			<img class="img-circle" src="../ImgSource/bgImg/PAN_DI_ZUCCHERO.jpg"
+				width="140px" height="140px">
 			<h2></h2>
-			 	<p>Visualizza subito tutte le escursioni disponibili</p>
-				<p>
-					<a class="btn btn-warning" href="../guest/FindEscursioniDisponibiliServlet">Escursioni</a>
-				</p> 
+			<p>Visualizza subito tutte le escursioni disponibili</p>
+			<p>
+				<a class="btn btn-warning"
+					href="../guest/FindEscursioniDisponibiliServlet">Escursioni</a>
+			</p>
 		</div>
-		<  	<div class="col-md-4 text-center">
-				<img class="img-circle" src="../ImgSource/bgImg/TAVOLARA.jpg" width="140px"  height="140px">
-				<h2></h2>
-				<p>Cerca l'escursione piu' adatta a te...</p>
-				<p>
-					<a class="btn btn-warning" href="../guest/cercaEscursione.jsp">Cerca</a>
-				</p>
-			</div> 
+		<
 		<div class="col-md-4 text-center">
-			<img class="img-circle" src="../ImgSource/bgImg/logo_taxi.png" width="140px"  height="140px">
+			<img class="img-circle" src="../ImgSource/bgImg/TAVOLARA.jpg"
+				width="140px" height="140px">
+			<h2></h2>
+			<p>Cerca l'escursione piu' adatta a te...</p>
+			<p>
+				<a class="btn btn-warning" href="../guest/cercaEscursione.jsp">Cerca</a>
+			</p>
+		</div>
+		<div class="col-md-4 text-center">
+			<img class="img-circle" src="../ImgSource/bgImg/logo_taxi.png"
+				width="140px" height="140px">
 			<h2>DAO Taxi</h2>
 			<p>Il piacere del viaggio senza la fatica di viaggiare</p>
 			<p>
@@ -237,10 +279,10 @@
 	</footer>
 -->
 	</div>
-																							<%
+	<%
 		}
 	%>
-		
+
 	<!-- /.container -->
 
 
