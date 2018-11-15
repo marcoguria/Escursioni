@@ -45,13 +45,15 @@
 											<i class="glyphicon glyphicon-user"></i>
 										</div>
 										<input type="text" name="nome"
-											value="<%=utenteRegistrato.getNome()%>" placeholder="nome">
+											value="<%=utenteRegistrato.getNome()%>" placeholder="nome" class="form-control">
 
 									</div>
 									<%
 										if (map != null && map.containsKey("nome")) {
 									%>
+									<div class="alert alert-danger" role="alert">
 									<p><%=map.get("nome")%></p>
+									</div>
 									<%
 										}
 									%>
@@ -68,13 +70,15 @@
 										</div>
 										<input type="text" name="cognome"
 											value="<%=utenteRegistrato.getCognome()%>"
-											placeholder="cognome">
+											placeholder="cognome" class="form-control">
 
 									</div>
 									<%
 										if (map != null && map.containsKey("cognome")) {
 									%>
+									<div class="alert alert-danger" role="alert">
 									<p><%=map.get("cognome")%></p>
+									</div>
 									<%
 										}
 									%>
@@ -94,13 +98,15 @@
 
 										<input type="text" name="codf"
 											value="<%=utenteRegistrato.getCodf()%>"
-											placeholder="codice fiscale">
+											placeholder="codice fiscale" class="form-control">
 
 									</div>
 									<%
 										if (map != null && map.containsKey("codf")) {
 									%>
+									<div class="alert alert-danger" role="alert">
 									<p><%=map.get("codf")%></p>
+									</div>
 									<%
 										}
 									%>
@@ -116,13 +122,15 @@
 											<i class="glyphicon glyphicon-envelope"></i>
 										</div>
 										<input type="email" name="email"
-											value="<%=utenteRegistrato.getEmail()%>" placeholder="email">
+											value="<%=utenteRegistrato.getEmail()%>" placeholder="email" class="form-control">
 
 									</div>
 									<%
 										if (map != null && map.containsKey("email")) {
 									%>
+									<div class="alert alert-danger" role="alert">
 									<p><%=map.get("email")%></p>
+									</div>
 									<%
 										}
 									%>
@@ -139,7 +147,7 @@
 										</div>
 										<input type="date" name="dataNascita"
 											value="<%=utenteRegistrato.getData_nascita()%>"
-											placeholder="dataNascita">
+											placeholder="dataNascita" class="form-control">
 									</div>
 								</div>
 							</div>
@@ -154,13 +162,15 @@
 										</div>
 										<input type="text" name="username"
 											value="<%=utenteRegistrato.getUsername()%>"
-											placeholder="username" readonly>
+											placeholder="username" class="form-control" readonly>
 
 									</div>
 									<%
 										if (map != null && map.containsKey("username")) {
 									%>
+									<div class="alert alert-danger" role="alert">
 									<p><%=map.get("username")%></p>
+									</div>
 									<%
 										}
 									%>
@@ -175,13 +185,15 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-lock"></i>
 										</div>
-										<input type="password" name="password" value="<%=utenteRegistrato.getPassword()%>">
+										<input type="password" name="password" value="<%=utenteRegistrato.getPassword()%>" class="form-control">
 
 									</div>
 									<%
 										if (map != null && map.containsKey("password")) {
 									%>
+									<div class="alert alert-danger" role="alert">
 									<p><%=map.get("password")%></p>
+									</div>
 									<%
 										}
 									%>
@@ -196,13 +208,15 @@
 										<div class="input-group-addon">
 											<i class="glyphicon glyphicon-lock"></i>
 										</div>
-										<input type="password" name="conferma" value="<%=utenteRegistrato.getPassword()%>">
+										<input type="password" name="conferma" value="<%=utenteRegistrato.getPassword()%>" class="form-control">
 
 									</div>
 									<%
 										if (map != null && map.containsKey("conferma")) {
 									%>
+									<div class="alert alert-danger" role="alert">
 									<p><%=map.get("conferma")%></p>
+									</div>
 									<%
 										}
 									%>

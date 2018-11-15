@@ -72,7 +72,7 @@
 										if (map != null && map.containsKey("cognome")) {
 									%>
 									<div class="alert alert-danger" role="alert">
-
+									
 										<%=map.get("cognome")%>
 									</div>
 									<%
