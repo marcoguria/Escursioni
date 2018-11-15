@@ -1,16 +1,24 @@
 /* BOOTSTRAP 3.x GLOBAL STYLES
 -------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css?family=Acme');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Merienda');
+
+
+
 body {
   padding-bottom: 40px;
+  background: #ffffcc;
   
 }
 
 .carousel-caption{
-	     padding: 35px;
-         padding-left: 30px;
-
+         padding: 35px;
+        
+         box-shadow: 0 0 10px #ffffff;
+         background: rgba(255, 255, 255, 0.55);
          margin: 4% auto 0;
-         width: 450px;
+         width: 50%;
          height: 350px;
 }
 .btn-primary{
@@ -22,13 +30,18 @@ body {
 	
 
 .carousel-caption h1{
-	color: #ff751a;
-	font-size: 42px;
-	font-family: Jazz LET, fantasy
-	font-style: oblique
+	color: #0080c0;
+  	font-family: "Acme";
+  	font-size: 48px;
+  	text-shadow: 4px 4px 4px #aaa;
 }
 
-
+#slideA{
+	font-family: "Permanent Marker";
+}
+#slideB{
+	font-family: "Merienda";
+}
 
 
 
