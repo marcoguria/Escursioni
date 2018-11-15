@@ -6,30 +6,33 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+
 <link rel="stylesheet" type="text/css"
 	href="../css/elencoEscursioni.css">
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
+<!-- non toccare -->
+
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
 <title>Escursioni Ajo in Sardegna</title>
 </head>
-<body background="../ImgSource/bgImg/bgEscursioni.jpg">
+<body background="../ImgSource/bgImg/cieloD.jpg">
 
 
-	<%
-		if (request.getSession().getAttribute("ruolo") != null) {
-	%>
-	<form method="POST" action="../utenteregistrato/home.jsp">
-		<input type="submit" value="Home" />
-	</form>
 
-	<%
-		}
-	%>
+
+
+
+
 
 	<%
 		Collection<Escursione> escursioni = (Collection<Escursione>) request.getAttribute("escursioni");
@@ -55,13 +58,14 @@
 			<%
 				for (Escursione escursione : escursioni) {
 			%>
-			
+
 			<div class="item col-xs-4 col-lg-4">
 
 				<div class="thumbnail card">
 					<div class="img-event">
 						<img class="group list-group-image img-fluid"
-							src="../ImgSource/bgImg/<% out.println(escursione.getLuogo()); %>.jpg" alt="" />
+							src="../ImgSource/bgImg/<%out.println(escursione.getLuogo());%>.jpg"
+							alt="" />
 					</div>
 					<div class="caption card-body">
 						<h4 class="group card-title inner list-group-item-heading">
@@ -70,24 +74,26 @@
 							<%=escursione.getDescrizione()%></p>
 						<div class="row">
 							<div class="col-xs-12 col-md-6">
-								<p class="lead"> Prezzo:
-									<%=escursione.getPrezzo()%>E</p>
+								<p class="lead">
+									Prezzo:
+									<%=escursione.getPrezzo()%>E
+								</p>
 							</div>
 							<div class="col-xs-12 col-md-6">
 								<form method="POST"
 									action="../cliente/FindByIdEscursioneServlet">
 									<input type="hidden" name="idEscursione"
-										value="<%=escursione.getId()%>" /> <input type="submit" class="btn btn-primary"
-										value="Prenota" />
+										value="<%=escursione.getId()%>" /> <input type="submit"
+										class="btn btn-primary" value="Prenota" />
 								</form>
-								
+
 							</div>
-							</div>
+						</div>
 					</div>
 				</div>
-				<br><br>
+				<br> <br>
 			</div>
-			
+
 
 			<%
 				}

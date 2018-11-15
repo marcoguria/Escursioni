@@ -6,20 +6,56 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css"
-	href="../css/elencoEscursioni.css">
 <link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
 <script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<meta charset="ISO-8859-1">
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+
+<link
+	href="../css/mostraEscursione.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <title>Escursioni Ajò in Sardegna</title>
 </head>
-<body>
+<body background="../ImgSource/bgImg/cieloD.jpg">
 
+	<div class="navbar-wrapper">
+		<div class="container">
+			<div class="navbar navbar-inverse navbar-static-top">
+
+				<div class="navbar-header">
+					<a class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse"> <span class="icon-bar"></span>
+						<span class="icon-bar"></span> <span class="icon-bar"></span>
+					</a> <a class="navbar-brand">Sardinia Experience</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="allign-right"><a
+							href="../utenteregistrato/home.jsp">Home</a></li>
+
+					</ul>
+				</div>
+
+			</div>
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /navbar wrapper -->
 
 	<%
 		Escursione escursione = (Escursione) request.getAttribute("escursione");
@@ -37,85 +73,65 @@
 
 
 	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 my-3"></div>
-		</div>
-
-		<div id="products" class="row view-group">
-
-			<div class="item col-xs-4 col-lg-4">
-
-				<div class="thumbnail card">
-					<div class="img-event">
-						<img class="group list-group-image img-fluid"
-							src="../ImgSource/bgImg/<%out.println(escursione.getLuogo());%>.jpg"
-							alt="" />
+		<div class="jumbotron">
+			<div class="row">
+				<div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+					<br> <br> <br> <img
+						src="../ImgSource/bgImg/<%out.println(escursione.getLuogo());%>.jpg"
+						alt="stack photo" class="img" width="100%">
+				</div>
+				<div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+					<div class="container" style="border-bottom: 1px solid black">
+						<h2><%=escursione.getLuogo()%></h2>
 					</div>
-					<div class="caption card-body">
-						<h4 class="group card-title inner list-group-item-heading">
-							<%=escursione.getLuogo()%></h4>
-						<p class="group inner list-group-item-text">
-							<%=escursione.getDescrizione()%></p>
-						<br>
-						<h6 class="group card-title inner list-group-item-heading">
-							Guida</h6>
-						<p class="group inner list-group-item-text">
-							<%=escursione.getGuida()%></p>
+					<hr>
+					<ul class="container details">
+						<li><p>
+								<span class="glyphicon glyphicon-info-sign" style="width: 50px;"></span>Descrizione:
+								<%=escursione.getDescrizione()%></p></li>
+						<li><p>
+								<span class="glyphicon glyphicon-map-marker one"
+									style="width: 50px;"></span>Luogo:
+								<%=escursione.getLuogo()%></p></li>
+						<li><p>
+								<span class="glyphicon glyphicon-calendar" style="width: 50px;"></span>Data
+								escursione:
+								<%=escursione.getData()%></p></li>
+						<li><p>
+								<span class="glyphicon glyphicon-user" style="width: 50px;"></span>Guida:
+								<%=escursione.getGuida()%></p></li>
+						<li><p>
+								<span class="glyphicon glyphicon-info-sign" style="width: 50px;"></span>Durata:
+								<%=escursione.getDurata()%></p></li>
+						<li><p>
+								<span class="glyphicon glyphicon-info-sign" style="width: 50px;"></span>Difficolta:
+								<%=escursione.getDifficolta()%></p></li>
+						<li><p>
+								<span class="glyphicon glyphicon-info-sign" style="width: 50px;"></span>Posti
+								Disponibili:
+								<%=escursione.getMaxPartecipanti() - escursione.getNumPrenotati()%></p></li>
+						<li><p>
+								<span class="glyphicon glyphicon-euro one" style="width: 50px;"></span>Prezzo:
+								<%=escursione.getPrezzo()%></p>
+					</ul>
 
-						<h6 class="group card-title inner list-group-item-heading">
-							Localita</h6>
-						<p class="group inner list-group-item-text">
-							<%=escursione.getTipo()%></p>
+					<div class="col-xs-12 col-md-6">
+						<form method="POST" action="FindCarteByIdSessioneServlet">
+							<input type="hidden" name="idEscursione"
+								value="<%=escursione.getId()%>" /> <input type="submit"
+								class="btn btn-primary btn-lg" value="Prosegui" />
+						</form>
 
-						<h6 class="group card-title inner list-group-item-heading">
-							Durata</h6>
-						<p class="group inner list-group-item-text">
-							<%=escursione.getDurata()%></p>
-
-						<h6 class="group card-title inner list-group-item-heading">
-							Difficolta</h6>
-						<p class="group inner list-group-item-text">
-							<%=escursione.getDifficolta()%></p>
-
-						<h6 class="group card-title inner list-group-item-heading">
-							Data</h6>
-						<p class="group inner list-group-item-text">
-							<%=escursione.getData()%></p>
-
-						<h6 class="group card-title inner list-group-item-heading">
-							Massimo numero partecipanti</h6>
-						<p class="group inner list-group-item-text">
-							<%=escursione.getMaxPartecipanti()%></p>
-
-						<h6 class="group card-title inner list-group-item-heading">
-							Posti disponibili</h6>
-						<p class="group inner list-group-item-text">
-							<%=escursione.getMaxPartecipanti() - escursione.getNumPrenotati()%></p>
-
-						<div class="row">
-							<div class="col-xs-12 col-md-6">
-								<p class="lead">
-									Prezzo:
-									<%=escursione.getPrezzo()%>E
-								</p>
-							</div>
-							<div class="col-xs-12 col-md-6">
-								<form method="POST" action="FindCarteByIdSessioneServlet">
-									<input type="hidden" name="idEscursione"
-										value="<%=escursione.getId()%>" /> <input type="submit"
-										class="btn btn-primary" value="Prosegui" />
-								</form>
-
-							</div>
-						</div>
 					</div>
 				</div>
-				<br> <br>
 			</div>
+		</div>
 
-			<%
-				}
-			%>
-		
+	</div>
+
+	<%
+		}
+	%>
+
 </body>
 </html>

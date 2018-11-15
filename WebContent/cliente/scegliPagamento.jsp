@@ -25,7 +25,7 @@
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <title>Insert title here</title>
 </head>
-<body>
+<body background="../ImgSource/bgImg/cieloD.jpg">
 
 	<%
 		Collection<CartaPagamento> cartePagamento = (Collection<CartaPagamento>) request
@@ -42,15 +42,17 @@
 		<div class="row">
 			<!-- You can make it whatever width you want. I'm making it full width
              on <= small devices and 4/12 page width on >= medium devices -->
-			<div class="col-xs-12 col-md-4">
+			<div class="col-xs-12 col-md-6 col-md-offset-3">
 
 
 				<!-- CREDIT CARD FORM STARTS HERE -->
 				<div class="panel panel-default credit-card-box">
 					<div class="panel-heading display-table">
-						<div class="row display-tr">
-							<h3 class="panel-title display-td">Payment Details</h3>
-							<div class="display-td">
+						<div class="row">
+							<div class="col-xs-4">
+								<h2 class="text-center" style="margin: 0px;">Payment Details</h2>
+							</div>
+							<div class="col-xs-8">
 								<img class="img-responsive pull-right"
 									src="http://i76.imgup.net/accepted_c22e0.png">
 							</div>
@@ -60,10 +62,10 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-xs-12">
-								<div class="form-group">
+								<div class="form-group text-center">
 									<label for="cardNumber">CARD NUMBER</label>
 
-									<div class="input-group">
+									<div class="input-group" style="width:100%">
 										<form method="POST" action="RiepilogoFinalePrenotazione">
 
 											<select type="tel" class="form-control" id="carta"
@@ -107,8 +109,8 @@
 									<form method="POST" action="aggiungiMetodoPagamento.jsp">
 										<input type="hidden" name="idEscursione"
 											value="<%=escursione.getId()%>" /> <input
-											class="subscribe btn btn-light btn-lg btn-block"
-											type="submit" value="Scegli un altra carta">
+											class="subscribe btn btn-primary btn-lg btn-block"
+											type="submit" value="Aggiungi carta">
 
 									</form>
 
