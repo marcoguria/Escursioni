@@ -1,5 +1,5 @@
 /* Padding - just for asthetics on Bootsnipp.com */
-body { margin-top:20px; }
+
 
 /* CSS for Credit Card Payment form */
 .credit-card-box .panel-title {
@@ -43,11 +43,3 @@ body { margin-top:20px; }
     min-width: 180px;
 }
 
-.jumbotron{
-	top: 50%;
-    left: 50%;
-    margin-top: -100px;
-    margin-left: -100px;
-	transform: translate(-50%, -50%);
-	
-}

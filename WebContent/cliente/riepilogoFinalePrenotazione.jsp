@@ -5,20 +5,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link
+<!--  <link
 	href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+	rel="stylesheet" id="bootstrap-css"> 
 <script
 	src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
+ -->
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
@@ -28,23 +27,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Escursioni in sardegna</title>
 </head>
-<body>
+<body background="../ImgSource/bgImg/cieloD.jpg">
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <a
-		href="#" class="navbar-brand">CONFERMA <br> PRENOTAZIONE
-	</a>
-	<button class="navbar-toggler" data-target="#navigation"
-		data-control="navigation" data-toggle="collapse">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navigation">
-		<ul class="nav navbar-nav">
-			<li class="nav-item active"><a
-				href="../utenteregistrato/home.jsp" class="nav-link">Home</a></li>
+		<div class="navbar-wrapper">
+		<div class="container">
+			<div class="navbar navbar-inverse navbar-static-top">
 
-		</ul>
+				<div class="navbar-header">
+					<a class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse"> <span class="icon-bar"></span>
+						<span class="icon-bar"></span> <span class="icon-bar"></span>
+					</a> <a class="navbar-brand">Sardinia Experience</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="allign-right"><a
+							href="../utenteregistrato/home.jsp">Home</a></li>
+
+					</ul>
+				</div>
+
+			</div>
+		</div>
+		<!-- /container -->
 	</div>
-	</nav>
 	<%
 		Escursione escursione = (Escursione) request.getAttribute("escursione");
 		CartaPagamento cartaPagamento = (CartaPagamento) request.getAttribute("carta");
@@ -103,7 +109,7 @@
 				<div class="row">
 					<!-- You can make it whatever width you want. I'm making it full width
              on <= small devices and 4/12 page width on >= medium devices -->
-					<div class="col-xs-12 col-md-4">
+					<div class="col-xs-12 col-md-4 col-md-offset-4">
 
 
 						<!-- CREDIT CARD FORM STARTS HERE -->

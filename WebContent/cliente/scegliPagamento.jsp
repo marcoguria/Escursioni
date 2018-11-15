@@ -24,7 +24,7 @@
 
 <!-- If you're using Stripe for payments -->
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<title>Insert title here</title>
+<title>scegliPagamento</title>
 </head>
 <body background="../ImgSource/bgImg/cieloD.jpg">
 
@@ -71,7 +71,7 @@
 
 				<!-- CREDIT CARD FORM STARTS HERE -->
 				<div class="panel panel-default credit-card-box">
-					<div class="panel-heading display-table" style="width100%">
+					<div class="panel-heading display-table" style="width:100%">
 						<div class="row">
 							<div class="col-xs-4">
 								<h2 class="text-center" style="margin: 0px;">Payment Details</h2>
