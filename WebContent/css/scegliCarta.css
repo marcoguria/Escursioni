@@ -42,3 +42,12 @@ body { margin-top:20px; }
 .credit-card-box .panel-heading img {
     min-width: 180px;
 }
+
+.jumbotron{
+	top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+	transform: translate(-50%, -50%);
+	
+}
