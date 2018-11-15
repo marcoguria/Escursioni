@@ -88,7 +88,7 @@
 								<div class="signinup">
 									<div>
 										<form method="GET"
-											action="guest/FindEscursioniDisponibiliServlet">
+											action="../guest/FindEscursioniDisponibiliServlet">
 											<input type="submit" value="Visualizza escursioni"
 												class="btn btn-lg btn-primary active" />
 										</form>
@@ -118,7 +118,7 @@
 
 								<div class="signinup">
 									<div>
-										<form method="GET" action="guest/cercaEscursione.jsp">
+										<form method="GET" action="../guest/cercaEscursione.jsp">
 											<input type="submit" value="Cerca escursione"
 												class="btn btn-lg btn-primary active" />
 										</form>
@@ -201,7 +201,7 @@
 			<h2></h2>
 			 	<p>Visualizza subito tutte le escursioni disponibili</p>
 				<p>
-					<a class="btn btn-warning" href="../guest/FindEscursioniDisponibiliServlet">Escursioni »</a>
+					<a class="btn btn-warning" href="../guest/FindEscursioniDisponibiliServlet">Escursioni</a>
 				</p> 
 		</div>
 		<  	<div class="col-md-4 text-center">
@@ -209,7 +209,7 @@
 				<h2></h2>
 				<p>Cerca l'escursione piu' adatta a te...</p>
 				<p>
-					<a class="btn btn-warning" href="../guest/cercaEscursione.jsp">Cerca »</a>
+					<a class="btn btn-warning" href="../guest/cercaEscursione.jsp">Cerca</a>
 				</p>
 			</div> 
 		<div class="col-md-4 text-center">
