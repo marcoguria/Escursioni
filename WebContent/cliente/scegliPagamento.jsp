@@ -10,7 +10,8 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
-<script
+<link rel="stylesheet" href="../css/scegliCarta.css">
+<script 
 	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -70,7 +71,7 @@
 
 				<!-- CREDIT CARD FORM STARTS HERE -->
 				<div class="panel panel-default credit-card-box">
-					<div class="panel-heading display-table">
+					<div class="panel-heading display-table" style="width100%">
 						<div class="row">
 							<div class="col-xs-4">
 								<h2 class="text-center" style="margin: 0px;">Payment Details</h2>
