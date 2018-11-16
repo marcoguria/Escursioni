@@ -90,7 +90,7 @@
 										</div>
 									</div>
 									<div class="form-btn">
-										<button class="submit-btn">Cerca disponobilità</button>
+										<button class="submit-btn">Cerca disponibilità</button>
 									</div>
 								</form>
 							</div>
