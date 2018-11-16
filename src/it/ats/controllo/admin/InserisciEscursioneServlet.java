@@ -1,6 +1,7 @@
 package it.ats.controllo.admin;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -83,7 +84,14 @@ public class InserisciEscursioneServlet extends HttpServlet {
 			System.out.println(e.getMessage());
 		}
 
-		response.sendRedirect("../utenteregistrato/home.jsp");
+		
+
+		PrintWriter out = response.getWriter();
+		out.println("<script type=\"text/javascript\">");
+		out.println("alert('Escursione inserita con successo!');");
+		out.println("location='../utenteregistrato/home.jsp';");
+		out.println("</script>");
+//		response.sendRedirect("../utenteregistrato/home.jsp");
 	}
 
 }
