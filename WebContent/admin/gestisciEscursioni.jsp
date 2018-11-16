@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>gestisci escursione</title>
 </head>
-<body>
+<body >
 
 	<form method="POST" action="../utenteregistrato/home.jsp">
 		<input type="submit" value="Home" />

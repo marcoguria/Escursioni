@@ -83,7 +83,7 @@ public class InserisciEscursioneServlet extends HttpServlet {
 			System.out.println(e.getMessage());
 		}
 
-		request.getRequestDispatcher("gestisciEscursioni.jsp").forward(request, response);
+		response.sendRedirect("../utenteregistrato/home.jsp");
 	}
 
 }
