@@ -11,7 +11,7 @@
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
 <link rel="stylesheet" href="../css/scegliCarta.css">
-<script 
+<script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -28,7 +28,7 @@
 </head>
 <body background="../ImgSource/bgImg/bgEscursioni.jpg">
 
-		<div class="navbar-wrapper">
+	<div class="navbar-wrapper">
 		<div class="container">
 			<div class="navbar navbar-inverse navbar-static-top">
 
@@ -71,10 +71,11 @@
 
 				<!-- CREDIT CARD FORM STARTS HERE -->
 				<div class="panel panel-default credit-card-box">
-					<div class="panel-heading display-table" style="width:100%">
+					<div class="panel-heading display-table" style="width: 100%">
 						<div class="row">
 							<div class="col-xs-4">
-								<h2 class="text-center" style="margin: 0px;">Payment Details</h2>
+								<h2 class="text-center" style="margin: 0px;">Payment
+									Details</h2>
 							</div>
 							<div class="col-xs-8">
 								<img class="img-responsive pull-right"
@@ -89,11 +90,11 @@
 								<div class="form-group text-center">
 									<label for="cardNumber">CARD NUMBER</label>
 
-									<div class="input-group" style="width:100%">
+									<div class="input-group" style="width: 100%">
 										<form method="POST" action="RiepilogoFinalePrenotazione">
 
 											<select type="tel" class="form-control" id="carta"
-												name="numero_carta">  
+												name="numero_carta">
 												<%
 													for (CartaPagamento cartaPagamento : cartePagamento) {
 												%>
@@ -105,10 +106,8 @@
 													}
 												%>
 
-											</select>  
-											
-											 <input type="hidden" name="idEscursione"
-												value="<%=escursione.getId()%>" /> 
+											</select> <input type="hidden" name="idEscursione"
+												value="<%=escursione.getId()%>" />
 									</div>
 
 								</div>
@@ -118,13 +117,19 @@
 						<div class="row">
 							<div class="col-xs-12">
 
-								<div class="form-group">
 
+
+								<div class="form-group">
+									<%
+										if (!cartePagamento.isEmpty()) {
+									%>
 									<input type="hidden" name="idEscursione"
 										value="<%=escursione.getId()%>" /> <input
 										class="subscribe btn btn-success btn-lg btn-block"
 										type="submit" value="Prosegui">
-
+									<%
+										}
+									%>
 									</form>
 
 								</div>
