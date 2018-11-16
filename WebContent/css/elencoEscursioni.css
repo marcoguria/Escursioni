@@ -7,3 +7,7 @@ div.desc {
     width:150px;
     overflow: scroll;    
 }
+
+.blocco {
+	background-color: rgba(255,255,255,0.8);
+}

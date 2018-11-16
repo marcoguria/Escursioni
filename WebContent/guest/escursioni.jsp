@@ -41,8 +41,18 @@
 	<%
 		if (escursioni == null || escursioni.isEmpty()) {
 	%>
+	<div class="container">
+		<div class="panel-default panel">
+			<div class="panel-body">
+				<div class="row text-center">
+					<div class="col-lg-12 blocco">
+						<h1>Non esistono escursioni in archivio</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-	<p>Non esistono escursioni in archivio</p>
 
 	<%
 		} else {
