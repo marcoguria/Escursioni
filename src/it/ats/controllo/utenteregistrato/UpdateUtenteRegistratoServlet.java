@@ -62,7 +62,7 @@ public class UpdateUtenteRegistratoServlet extends HttpServlet {
 			e1.printStackTrace();
 		}
 		cliente.setData_nascita(date1);
-		cliente.setFlag_ruolo(1);
+		cliente.setFlag_ruolo((int) request.getSession().getAttribute("ruolo"));
 		cliente.setUsername(request.getParameter("username"));
 		cliente.setPassword(request.getParameter("password"));
 
